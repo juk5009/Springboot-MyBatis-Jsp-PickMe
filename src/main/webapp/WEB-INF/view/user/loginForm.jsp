@@ -22,10 +22,10 @@
                     <div class="form-inner">
                         <form action="/userlogin" class="login" method="post">
                             <div class="field">
-                                <input type="text" placeholder="Id를 입력해주세요" required>
+                                <input type="text" name="userid" placeholder="Id를 입력해주세요" required>
                             </div>
                             <div class="field">
-                                <input type="password" placeholder="Password를 입력해주세요" required>
+                                <input type="password" name="userpassword" placeholder="Password를 입력해주세요" required>
                             </div>
                             <div class="login-btn">
                                 <button type="submit" class="btn btn-lg">로그인</button>
