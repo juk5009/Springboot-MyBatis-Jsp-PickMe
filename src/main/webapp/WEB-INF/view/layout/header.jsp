@@ -49,7 +49,7 @@
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="#team">로그인</a></button></li>
                                 <li><button id="navbar-join" type="button" class="btn btn-sm"><a
-                                            class="nav-link scrollto" href="#contact">회원가입</a></button></li>
+                                            class="nav-link scrollto" href="/user/joinType">회원가입</a></button></li>
                                 <li><a href="#contact"><img src="/images/orange22.jpg" alt="orange22" class="rounded-circle"
                                             style="height: 50px; width: 50px; border: 1px black;"></a>
                                 </li>

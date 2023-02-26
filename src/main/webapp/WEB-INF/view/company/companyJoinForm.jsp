@@ -9,25 +9,13 @@
             </div>
             <form action="/companyJoin" method="post" class="my-joinForm-form">
                 <div>
-                    <input type="text" name="loginId" placeholder="아이디" class="my-joinForm-id">
+                    <input type="text" name="companyId" placeholder="아이디" class="my-joinForm-id">
                 </div>
                 <div>
-                    <input type="password" name="loginPw" placeholder="비밀번호" class="my-joinForm-id">
+                    <input type="password" name="companyPassword" placeholder="비밀번호" class="my-joinForm-id">
                 </div>
                 <div>
-                    <input type="password" name="loginPwCheck" placeholder="비밀번호 확인" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="text" name="name" placeholder="이름" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="email" name="email" placeholder="이메일" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="text" name="nickname" placeholder="닉네임" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="text" name="cellphoneNo" placeholder="전화번호" class="my-joinForm-id">
+                    <input type="email" name="companyEmail" placeholder="이메일" class="my-joinForm-id">
                 </div>
                 <input type="submit" value="J O I N" class="my-joinForm-btn">
             </form>
