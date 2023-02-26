@@ -58,7 +58,7 @@ public class UserController {
             throw new CustomException("userid를 작성해주세요");
         }
         if (userLoginReqDto.getUserpassword() == null || userLoginReqDto.getUserpassword().isEmpty()) {
-            throw new CustomException("userid를 작성해주세요");
+            throw new CustomException("password를 작성해주세요");
         }
         User userPrincipal = userService.유저로그인(userLoginReqDto);
         session.setAttribute("userPrincipal", userPrincipal);
