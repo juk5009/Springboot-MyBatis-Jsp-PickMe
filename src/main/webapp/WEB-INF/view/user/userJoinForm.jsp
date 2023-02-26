@@ -7,27 +7,15 @@
             <div class="my-joinForm-h1">
                 <h1>개인 회원가입</h1>
             </div>
-            <form action="" method="post" class="my-joinForm-form">
+            <form action="/userJoin" method="post" class="my-joinForm-form">
                 <div>
-                    <input type="text" name="loginId" placeholder="아이디" class="my-joinForm-id">
+                    <input type="text" name="userId" placeholder="아이디" class="my-joinForm-id">
                 </div>
                 <div>
-                    <input type="password" name="loginPw" placeholder="비밀번호" class="my-joinForm-id">
+                    <input type="password" name="userPassword" placeholder="비밀번호" class="my-joinForm-id">
                 </div>
                 <div>
-                    <input type="password" name="loginPwCheck" placeholder="비밀번호 확인" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="text" name="name" placeholder="이름" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="email" name="email" placeholder="이메일" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="text" name="nickname" placeholder="닉네임" class="my-joinForm-id">
-                </div>
-                <div>
-                    <input type="text" name="cellphoneNo" placeholder="전화번호" class="my-joinForm-id">
+                    <input type="email" name="userEmail" placeholder="이메일" class="my-joinForm-id">
                 </div>
                 <input type="submit" value="J O I N" class="my-joinForm-btn">
             </form>
