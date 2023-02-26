@@ -25,6 +25,7 @@ public class UserService {
         }
     }
 
+    @Transactional
     public User 유저로그인(UserLoginReqDto userLoginReqDto) {
         User userPrincipal = userRepository.findByUsernameAndPassword(userLoginReqDto);
         if (userPrincipal == null) {

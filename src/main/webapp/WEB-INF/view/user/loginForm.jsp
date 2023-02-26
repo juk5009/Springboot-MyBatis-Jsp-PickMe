@@ -35,12 +35,13 @@
                                         style="color: orange">
                                         회원가입</b></a></div>
                         </form>
+                        
                         <form action="/companylogin" class="signup" method="post">
                             <div class="field">
-                                <input type="text" placeholder="ID를 입력해주세요" required>
+                                <input type="text" name="companyid" placeholder="ID를 입력해주세요" required>
                             </div>
                             <div class="field">
-                                <input type="password" placeholder="Password를 입력해주세요" required>
+                                <input type="password" name="companypassword" placeholder="Password를 입력해주세요" required>
                             </div>
                             <div class="login-btn">
                                 <button type="submit" class="btn btn-lg">로그인</button>
