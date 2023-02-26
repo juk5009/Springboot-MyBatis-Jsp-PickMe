@@ -45,4 +45,5 @@ public class CompanyController {
     public String companyMyPage() {
         return "company/companyMyPage";
     }
+
 }

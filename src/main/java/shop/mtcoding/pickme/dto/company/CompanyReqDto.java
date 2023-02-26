@@ -9,4 +9,5 @@ public class CompanyReqDto {
     private String companyId;
     private String companyPassword;
     private String companyEmail;
+
 }
