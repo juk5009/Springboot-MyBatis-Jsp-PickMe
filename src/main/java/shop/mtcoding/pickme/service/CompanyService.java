@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
+import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyMypageReqDto;
+import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.CompanyRepository;
@@ -34,4 +36,20 @@ public class CompanyService {
         return comPrincipal;
     }
 
+    @Transactional
+    public void 기업정보수정(int id, CompanyMypageReqDto companyMypageReqDto, Integer comprincipalId) {
+        Company companyPS = companyRepository.findById(id);
+        if (companyPS == null) {
+            throw new CustomApiException("해당 기업정보를 찾을 수 없습니다");
+        }
+        if (companyPS.getId() != comprincipalId) {
+            throw new CustomApiException("기업정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+        int result = companyRepository.updateById(id, companyMypageReqDto.getCompanyName(),
+                companyMypageReqDto.getCompanyPassword(), companyMypageReqDto.getCompanyEmail());
+        if (result != 1) {
+            throw new CustomApiException("기업정보 수정에 실패하였습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }

@@ -20,4 +20,12 @@ public class CompanyReq {
         private String companyEmail;
 
     }
+
+    @Setter
+    @Getter
+    public static class CompanyMypageReqDto {
+        private String companyName;
+        private String companyPassword;
+        private String companyEmail;
+    }
 }
