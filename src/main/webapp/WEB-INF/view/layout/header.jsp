@@ -40,7 +40,7 @@
                                 <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
                                 <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="#services">인재목록</a></li>
-                                <li><a class="nav-link scrollto " href="#portfolio">이력서 작성</a></li>
+                                <li><a class="nav-link scrollto " href="/saveResumeForm">이력서 작성</a></li>
                             </ul>
                         </div>
 
