@@ -4,14 +4,24 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
+import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyMypageReqDto;
+import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.CompanyRepository;
 import shop.mtcoding.pickme.service.CompanyService;
 
 @Controller
@@ -22,6 +32,9 @@ public class CompanyController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private CompanyRepository companyRepository;
 
     @PostMapping("/companyJoin")
     public String companyJoin(CompanyJoinReqDto companyJoinReqDto) {
@@ -61,9 +74,41 @@ public class CompanyController {
         return "company/companyJoinForm";
     }
 
-    @GetMapping("/company/companyMyPage")
-    public String companyMyPage() {
+    @GetMapping("/company/{id}/companyMyPage")
+    public String companyMyPage(@PathVariable int id, Model model) {
+        Company comprincipal = (Company) session.getAttribute("comPrincipal");
+        if (comprincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        Company companyPS = companyRepository.findById(id);
+        if (companyPS == null) {
+            throw new CustomException("없는 기업정보를 수정할 수 없습니다");
+        }
+        if (companyPS.getId() != comprincipal.getId()) {
+            throw new CustomException("기업정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+        model.addAttribute("company", companyPS);
         return "company/companyMyPage";
+    }
+
+    @PutMapping("/company/{id}")
+    public @ResponseBody ResponseEntity<?> update(@PathVariable int id,
+            @RequestBody CompanyMypageReqDto companyMypageReqDto) {
+        Company comprincipal = (Company) session.getAttribute("comPrincipal");
+        if (comprincipal == null) {
+            throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        if (companyMypageReqDto.getCompanyName() == null || companyMypageReqDto.getCompanyName().isEmpty()) {
+            throw new CustomApiException("CompanyName을 작성해주세요");
+        }
+        if (companyMypageReqDto.getCompanyPassword() == null || companyMypageReqDto.getCompanyPassword().isEmpty()) {
+            throw new CustomApiException("CompanyPassword를 작성해주세요");
+        }
+        if (companyMypageReqDto.getCompanyEmail() == null || companyMypageReqDto.getCompanyEmail().isEmpty()) {
+            throw new CustomApiException("CompanyEmail을 작성해주세요");
+        }
+        companyService.기업정보수정(id, companyMypageReqDto, comprincipal.getId());
+        return new ResponseEntity<>(new ResponseDto<>(1, "기업정보수정성공", null), HttpStatus.OK);
     }
 
 }

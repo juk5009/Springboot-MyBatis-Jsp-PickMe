@@ -8,17 +8,17 @@
                 <div class="my-mypage-box">
                     <h1>회원 정보</h1>
                     <div class="form-group">
-                        <label for="name">이름</label>
+                        <label for="name">아이디</label>
                         <input type="text" class="form-control" id="name" placeholder="">
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">번호</label>
+                        <label for="phone">비밀번호</label>
                         <input type="text" class="form-control" id="phone" placeholder="">
                     </div>
 
                     <div class="form-group">
-                        <label for="email">메일</label>
+                        <label for="email">이메일</label>
                         <input type="text" class="form-control" id="email" placeholder="">
                     </div>
                     <button type="button" class="btn btn-outline-warning  ">회원정보수정</button>
