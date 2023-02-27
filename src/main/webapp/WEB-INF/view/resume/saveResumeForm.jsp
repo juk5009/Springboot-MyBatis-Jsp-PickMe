@@ -26,14 +26,14 @@
               <!-- 개인정보(이름) -->
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">이름</label>
-                <input type="text" class="form-control" id="name" placeholder="ex) 홍길동" value="" required>
+                <input type="text" class="form-control" id="resumeName" name="resumeName" placeholder="ex) 홍길동" value="" required>
     
               </div>
               
               <!-- 개인정보(생년월일) -->
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">생년월일</label>
-                <input type="text" class="form-control" id="age" placeholder="ex) 1991-03-01" value="" required>
+                <input type="text" class="form-control" id="resumeBirth" name="resumeBirth" placeholder="ex) 1991-03-01" value="" required>
               </div>
             
             
@@ -41,26 +41,26 @@
             <div class="col-12">
               <label for="user-phoneNumber" class="form-label">전화번호</label>
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="user-phoneNumber" placeholder="ex) 010-1234-5678" required>
+                <input type="text" class="form-control" id="resumePhoneNumber" name="resumePhoneNumber" placeholder="ex) 010-1234-5678" required>
               </div>
             </div>
             
             <!-- 개인정보(email) -->
             <div class="col-12">
               <label for="user-email" class="form-label">Email </label>
-              <input type="email" class="form-control" id="user-email" placeholder="ex) ssar1234@example.com">
+              <input type="email" class="form-control" id="resumeEmail" name="resumeEmail" placeholder="ex) ssar1234@example.com">
             </div>
             
             <!-- 개인정보(주소) -->
             <div class="col-12">
               <label for="user-address" class="form-label">주소</label>
-              <input type="text" class="form-control" id="user-address" placeholder="ex) 서울특별시 성동구 연무장 15길 11 " required>
+              <input type="text" class="form-control" id="resumeAddress" name="resumeAddress" placeholder="ex) 서울특별시 성동구 연무장 15길 11 " required>
             </div>
             
             <!-- 개인정보(희망근무지역?) -->
             <div class="col-sm-6">
               <label for="user-local" class="form-label">희망근무지역?</label>
-              <select class="form-select" id="user-local" required>
+              <select class="form-select" id="resumeLocation"  name="resumeLocation" required>
                 <option value="">희망근무지역을 선택해주세요</option>
                 <option>부산</option>
                 <option>서울</option>
@@ -70,7 +70,7 @@
             <!-- 개인정보(학력) -->
             <div class="col-sm-6">
               <label for="user-grade" class="form-label">학력</label>
-              <select class="form-select" id="user-grade" required>
+              <select class="form-select" id="resumeGrade" name="resumeGrade" required>
                 <option value="">학력을 선택해주세요</option>
                 <option>전문학사</option>
                 <option>학사</option>
@@ -83,13 +83,12 @@
 
             <div class="my-3 d-flex">
               <div class="my-resumeForm-sex-male-box-1 form-check">
-                <input id="user-sex-male" type="radio" class="form-radio-input" default="on" required
+                <input id="resumeSex" name="resumeSex" type="radio" class="form-radio-input" default="on" required
                 checked>&nbsp;&nbsp;
-                <input type="radio">
                 <label class="form-radio-label" for="user-sex-male">남</label>
               </div>
               <div class="my-resumeForm-sex-female-box-1 form-check">
-                <input id="user-sex-female" type="radio" class="form-radio-input" required>&nbsp;&nbsp;
+                <input id="resumeSex" name="resumeSex" type="radio" class="form-radio-input" required>&nbsp;&nbsp;
                 <label class="form-radio-label" for="user-sex-female">여</label>
               </div>
             </div>
@@ -105,11 +104,7 @@
                   </div>
                   <br>
                   <div class="form-group">
-                    <textarea class="form-control summernote" rows="5" name="content" id="content"></textarea>
-                  </div>
-                  
-                  <div class="my-resumeForm-summernote-save-btn">
-                    <button onclick="save()" type="button" class="btn btn-primary">임시저장</button>
+                    <textarea class="form-control summernote" rows="5" name="resumeContent" id="resumeContent"></textarea>
                   </div>
                   
                 </form>
@@ -123,7 +118,7 @@
 
               <div class="my-resumeForm-skill-box-1 d-flex">
                 <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck1">Java</label>
+                <label class="btn btn-outline-primary" name="[]" for="btncheck1">Java</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
                 <label class="btn btn-outline-primary" for="btncheck2">JavaScript</label>
@@ -146,7 +141,7 @@
             <!-- 이력서 등록 버튼  -->
 
             <div class="my-resumeForm-submit-btn-1 mycol-md-12">
-              <button class="w-100 btn btn-primary btn-lg" onclick="save2()" type="button">이력서 등록</button>
+              <button class="w-100 btn btn-primary btn-lg" onclick="save(${resumeDto.userId})" type="button">이력서 등록</button>
             </div>
 
           </form>
@@ -166,15 +161,22 @@
   <script src="form-validation.js"></script>
 
 <script>
-  function save() {
+  function save(userId) {
     let data = {
-      "title": $("#title").val(),
-      "content": $("#content").val()
+      "resumeName": $("#resumeName").val(),
+      "resumeBirth": $("#resumeBirth").val(),
+      "resumeEmail": $("#resumeEmail").val(),
+      "resumeAddress": $("#resumeAddress").val(),
+      "resumeLocation": $("#resumeLocation").val(),
+      "resumeGrade": $("#resumeGrade").val(),
+      "resumePhoneNumber": $("#resumePhoneNumber").val(),
+      "resumeSex": $("#resumeSex").val(),
+      "resumeContent": $("#resumeContent").val()
     };
 
     $.ajax({
       type: "post",
-      url: "/board",
+      url: "/resume/" + userId,
       data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       dataType: "json"

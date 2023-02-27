@@ -86,13 +86,13 @@ public class ResumeController {
 
     @GetMapping("/saveResumeForm")
     public String saveResumeForm() {
-        return "user/saveResumeForm";
+        return "resume/saveResumeForm";
     }
 
     @GetMapping("/resume/{id}")
     public String resumeDetailForm(@PathVariable int id, Model model) {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
-        return "user/resumeDetailForm";
+        return "resume/resumeDetailForm";
     }
 
 
