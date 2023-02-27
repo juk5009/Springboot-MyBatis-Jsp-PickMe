@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
-import shop.mtcoding.pickme.dto.company.CompanyReqDto;
 
 @Mapper
 public interface CompanyRepository {
-    public int insert(CompanyReqDto companyReqDto);
+    public int insert(CompanyJoinReqDto companyJoinReqDto);
 
     public int updateById(User user);
 

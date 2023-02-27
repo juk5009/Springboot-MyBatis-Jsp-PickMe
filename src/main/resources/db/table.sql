@@ -10,7 +10,7 @@ CREATE TABLE company_tb(
     id int auto_increment primary key,
 	company_name varchar not null,
 	company_password varchar not null,	
-	company_email varchar not null,		
+	company_email varchar not null,
 	created_at timestamp not null
 );
 
@@ -35,13 +35,12 @@ CREATE TABLE notice_tb(
 	notice_career varchar,
 	notice_grade varchar,
 	notice_pay varchar,
-	company_mark varchar,	
     created_at timestamp not null
 );
 
 CREATE TABLE apply_tb(
     id int auto_increment primary key,
-    user_id varchar not null,
+    resume_id varchar not null,
     notice_id varchar not null,
     created_at timestamp not null
 );

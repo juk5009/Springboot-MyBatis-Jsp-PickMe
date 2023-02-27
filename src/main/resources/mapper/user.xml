@@ -14,7 +14,7 @@
     </select>   
 
     <insert id="insert">
-        insert into user_tb (user_id, user_password, user_email, created_at) values(#{userId}, #{userPassword}, #{userEmail}, now())
+        insert into user_tb (user_name, user_password, user_email, created_at) values(#{userName}, #{userPassword}, #{userEmail}, now())
     </insert>
 
     <delete id="deleteById" >
@@ -26,6 +26,6 @@
     </update>
 
     <select id="findByUsernameAndPassword" resultType="shop.mtcoding.pickme.model.User">
-        select * from user_tb where user_id = #{userid} and user_password = #{userpassword}
+        select * from user_tb where user_name = #{userName} and user_password = #{userPassword}
     </select> 
 </mapper>

@@ -9,7 +9,7 @@
             </div>
             <form action="/userJoin" method="post" class="my-joinForm-form">
                 <div>
-                    <input type="text" name="userId" placeholder="아이디" class="my-joinForm-id">
+                    <input type="text" name="userName" placeholder="아이디" class="my-joinForm-id">
                 </div>
                 <div>
                     <input type="password" name="userPassword" placeholder="비밀번호" class="my-joinForm-id">

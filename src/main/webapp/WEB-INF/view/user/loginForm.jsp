@@ -22,32 +22,32 @@
                     <div class="form-inner">
                         <form action="/userlogin" class="login" method="post">
                             <div class="field">
-                                <input type="text" name="userid" placeholder="Id를 입력해주세요" required>
+                                <input type="text" name="userName" placeholder="Id를 입력해주세요" required>
                             </div>
                             <div class="field">
-                                <input type="password" name="userpassword" placeholder="Password를 입력해주세요" required>
+                                <input type="password" name="userPassword" placeholder="Password를 입력해주세요" required>
                             </div>
                             <div class="login-btn">
                                 <button type="submit" class="btn btn-lg">로그인</button>
                             </div>
                             <br>
-                            <div>아직 회원가입을 안하셨나요? <a href="dd" style="text-decoration-line: none;"><b
+                            <div>아직 회원가입을 안하셨나요? <a href="/user/joinType" style="text-decoration-line: none;"><b
                                         style="color: orange">
                                         회원가입</b></a></div>
                         </form>
                         
                         <form action="/companylogin" class="signup" method="post">
                             <div class="field">
-                                <input type="text" name="companyid" placeholder="ID를 입력해주세요" required>
+                                <input type="text" name="companyName" placeholder="Id를 입력해주세요" required>
                             </div>
                             <div class="field">
-                                <input type="password" name="companypassword" placeholder="Password를 입력해주세요" required>
+                                <input type="password" name="companyPassword" placeholder="Password를 입력해주세요" required>
                             </div>
                             <div class="login-btn">
                                 <button type="submit" class="btn btn-lg">로그인</button>
                             </div>
                             <br>
-                            <div>아직 회원가입을 안하셨나요? <a href="d" style="text-decoration-line: none;"><b
+                            <div>아직 회원가입을 안하셨나요? <a href="/user/joinType" style="text-decoration-line: none;"><b
                                         style="color: orange">
                                         회원가입</b></a>
                             </div>
