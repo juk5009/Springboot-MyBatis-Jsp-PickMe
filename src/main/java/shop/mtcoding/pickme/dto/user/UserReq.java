@@ -8,7 +8,7 @@ public class UserReq {
     @Getter
     @Setter
     public static class UserJoinReqDto {
-        private String userId;
+        private String userName;
         private String userPassword;
         private String userEmail;
     }
@@ -16,7 +16,7 @@ public class UserReq {
     @Getter
     @Setter
     public static class UserLoginReqDto {
-        private String userid;
-        private String userpassword;
+        private String userName;
+        private String userPassword;
     }
 }

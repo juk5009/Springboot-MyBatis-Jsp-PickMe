@@ -8,17 +8,9 @@ import lombok.Setter;
 @Setter
 @Getter
 public class User {
-    private int id;
-    private String userid;
-    private String userpassword;
-    private String username;
-    private String userbirth;
-    private String useremail;
-    private String useraddress;
-    private String userlocation;
-    private String usergrade;
-    private String userphonenumber;
-    private String usersex;
-    private String userprofile;
+    private Integer id;
+    private String userName;
+    private String userPassword;
+    private String userEmail;
     private Timestamp createdAt;
 }

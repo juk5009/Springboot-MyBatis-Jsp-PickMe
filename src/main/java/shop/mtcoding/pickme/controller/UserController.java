@@ -29,17 +29,17 @@ public class UserController {
 
     @PostMapping("/userJoin")
     public String join(UserJoinReqDto userJoinReqDto) {
-        if (userJoinReqDto.getUserId() == null ||
-                userJoinReqDto.getUserId().isEmpty()) {
-            throw new CustomException("userid 입력해주세요", HttpStatus.BAD_REQUEST);
+        if (userJoinReqDto.getUserName() == null ||
+                userJoinReqDto.getUserName().isEmpty()) {
+            throw new CustomException("userName를 입력해주세요", HttpStatus.BAD_REQUEST);
         }
         if (userJoinReqDto.getUserPassword() == null ||
                 userJoinReqDto.getUserPassword().isEmpty()) {
-            throw new CustomException("userpassword 입력해주세요", HttpStatus.BAD_REQUEST);
+            throw new CustomException("userPassword 입력해주세요", HttpStatus.BAD_REQUEST);
         }
         if (userJoinReqDto.getUserEmail() == null ||
                 userJoinReqDto.getUserEmail().isEmpty()) {
-            throw new CustomException("useremail 입력해주세요", HttpStatus.BAD_REQUEST);
+            throw new CustomException("userEmail 입력해주세요", HttpStatus.BAD_REQUEST);
         }
 
         userService.회원가입(userJoinReqDto);
@@ -54,11 +54,11 @@ public class UserController {
 
     @PostMapping("/userlogin")
     public String userlogin(UserLoginReqDto userLoginReqDto) {
-        if (userLoginReqDto.getUserid() == null || userLoginReqDto.getUserid().isEmpty()) {
-            throw new CustomException("userid를 작성해주세요");
+        if (userLoginReqDto.getUserName() == null || userLoginReqDto.getUserName().isEmpty()) {
+            throw new CustomException("userName를 작성해주세요");
         }
-        if (userLoginReqDto.getUserpassword() == null || userLoginReqDto.getUserpassword().isEmpty()) {
-            throw new CustomException("password를 작성해주세요");
+        if (userLoginReqDto.getUserPassword() == null || userLoginReqDto.getUserPassword().isEmpty()) {
+            throw new CustomException("userPassword를 작성해주세요");
         }
         User userPrincipal = userService.유저로그인(userLoginReqDto);
         session.setAttribute("userPrincipal", userPrincipal);
