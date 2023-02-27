@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserLoginReqDto;
+import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
+import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.UserRepository;
@@ -34,4 +36,19 @@ public class UserService {
         return userPrincipal;
     }
 
+    @Transactional
+    public void 회원정보수정(int id, UserMyPageReqDto userMyPageReqDto, int principalId) {
+        User userPS = userRepository.findById(id);
+        if (userPS == null) {
+            throw new CustomApiException("회원정보를 찾을 수 없습니다");
+        }
+        if (userPS.getId() != principalId) {
+            throw new CustomApiException("회원정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+        int result = userRepository.updateById(principalId, userMyPageReqDto.getUserName(),
+                userMyPageReqDto.getUserPassword(), userMyPageReqDto.getUserEmail());
+        if (result != 1) {
+            throw new CustomApiException("회원정보 수정에 실패하였습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

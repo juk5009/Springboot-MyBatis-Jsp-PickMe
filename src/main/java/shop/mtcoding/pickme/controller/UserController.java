@@ -4,12 +4,21 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserLoginReqDto;
+import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
+import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.UserRepository;
@@ -26,6 +35,27 @@ public class UserController {
 
     @Autowired
     private HttpSession session;
+
+    @PutMapping("/user/{id}")
+    public @ResponseBody ResponseEntity<?> MyPage(@PathVariable int id,
+            @RequestBody UserMyPageReqDto userMyPageReqDto) {
+        User principal = (User) session.getAttribute("userPrincipal");
+        if (principal == null) {
+            throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        if (userMyPageReqDto.getUserName() == null || userMyPageReqDto.getUserName().isEmpty()) {
+            throw new CustomApiException("UserName을 작성해주세요");
+        }
+        if (userMyPageReqDto.getUserPassword() == null || userMyPageReqDto.getUserPassword().isEmpty()) {
+            throw new CustomApiException("UserPassword를 작성해주세요");
+        }
+        if (userMyPageReqDto.getUserEmail() == null || userMyPageReqDto.getUserEmail().isEmpty()) {
+            throw new CustomApiException("UserEmail 작성해주세요");
+        }
+        userService.회원정보수정(id, userMyPageReqDto, principal.getId());
+
+        return new ResponseEntity<>(new ResponseDto<>(1, "게시글수정성공", null), HttpStatus.OK);
+    }
 
     @PostMapping("/userJoin")
     public String join(UserJoinReqDto userJoinReqDto) {
@@ -85,8 +115,20 @@ public class UserController {
         return "user/joinType";
     }
 
-    @GetMapping("/user/userMyPage")
-    public String mypage() {
+    @GetMapping("/user/{id}/userMyPage")
+    public String MyPage(@PathVariable int id, Model model) {
+        User principal = (User) session.getAttribute("userPrincipal");
+        if (principal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        User userPS = userRepository.findById(id);
+        if (userPS == null) {
+            throw new CustomException("해당 정보를 수정할 수 없습니다");
+        }
+        if (userPS.getUserName() != principal.getUserName()) {
+            throw new CustomException("해당정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
+        model.addAttribute("user", userPS);
         return "user/userMyPage";
     }
 }
