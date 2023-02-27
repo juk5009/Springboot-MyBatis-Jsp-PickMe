@@ -45,9 +45,21 @@ CREATE TABLE apply_tb(
     created_at timestamp not null
 );
 
-CREATE TABLE skill_tb(
+CREATE TABLE userskill_tb(
     id int auto_increment primary key,
 	resume_id int not null,
+    skill_name1 varchar,
+    skill_name2 varchar,
+    skill_name3 varchar,
+    skill_name4 varchar,
+    skill_name5 varchar,
+    skill_name6 varchar,
+    created_at timestamp not null
+);
+
+CREATE TABLE companyskill_tb(
+    id int auto_increment primary key,
+	notice_id int not null,
     skill_name1 varchar,
     skill_name2 varchar,
     skill_name3 varchar,
