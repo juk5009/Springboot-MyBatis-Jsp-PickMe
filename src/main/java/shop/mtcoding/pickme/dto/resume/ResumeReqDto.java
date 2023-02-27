@@ -18,6 +18,6 @@ public class ResumeReqDto {
         private String resumeGrade;
         private String resumePhoneNumber;
         private String resumeSex;
-        private String resumeContent;
+        private String resumeContent;   
     }
 }
