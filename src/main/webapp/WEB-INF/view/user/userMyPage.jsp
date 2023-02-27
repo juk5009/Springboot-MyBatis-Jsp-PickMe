@@ -8,37 +8,58 @@
                 <div class="my-mypage-box">
                     <h1>회원 정보</h1>
                     <div class="form-group">
-                        <label for="name">아이디</label>
-                        <input type="text" class="form-control" id="name" placeholder="">
+                        <label for="userName">이름</label>
+                        <input type="text" class="form-control" id="userName" placeholder="" value="${user.userName}">
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">비밀번호</label>
-                        <input type="text" class="form-control" id="phone" placeholder="">
+                        <label for="userPassword">비밀번호</label>
+                        <input type="text" class="form-control" id="userPassword" placeholder="" value="${user.userPassword}">
                     </div>
 
                     <div class="form-group">
-                        <label for="email">이메일</label>
-                        <input type="text" class="form-control" id="email" placeholder="">
+                        <label for="userEmail">이메일</label>
+                        <input type="text" class="form-control" id="userEmail" placeholder="" value="${user.userEmail}">
                     </div>
-                    <button type="button" class="btn btn-outline-warning  ">회원정보수정</button>
+                   <button onclick="updateById(${user.id})" type="button" class="btn btn-primary">정보수정완료</button>
                 </div>
                 <div class="my-mypage-box">
                     <h1>나의 이력서</h1>
                     <ul>
                         <li>이력서</li>
-                        
                     </ul>
 
-                    <div class="my-mypage-button-group">
-                        <button type="button" class="btn btn-outline-warning">수정하기</button>
-                        <button type="button" class="btn btn-outline-warning">삭제하기</button>
-                    </div>
-                </div>
-
+         <c:if test="${userDto.userId == principal.id}">
+                <div class="mb-3">
+                 <a href="/board/${userDto.id}/updateForm" class="btn btn-warning">수정</a>
+                <button onclick="deleteById(${userDto.id})" class="btn btn-danger">삭제</button>
+        </div>
+    </c:if>
             </div>
         </div>
 
+<script>
+    function updateById(id) {
+        let data = {
+            "userName": $("#userName").val(),
+            "userPassword": $("#userPassword").val(),
+            "userEmail": $("#userEmail").val()
+        };
+        console.log(data.userName);
+        $.ajax({
+            type: "put",
+            url: "/user/" + id,
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json" // default : 응답의 mime 타입으로 유추함
+        }).done((res) => { // 20X 일때
+            alert(res.msg);
+            location.href = "/";
+        }).fail((err) => { // 40X, 50X 일때
+            alert(err.responseJSON.msg);
+        });
+    }
+</script>
 
 
 

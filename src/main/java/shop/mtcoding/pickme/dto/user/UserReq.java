@@ -19,4 +19,12 @@ public class UserReq {
         private String userName;
         private String userPassword;
     }
+
+    @Setter
+    @Getter
+    public static class UserMyPageReqDto {
+        private String userName;
+        private String userPassword;
+        private String userEmail;
+    }
 }

@@ -22,7 +22,7 @@
     </delete>
 
     <update id="updateById" >
-        update user_tb set username= #{username},password= #{password}, email= #{email} where id = #{id} 
+        update user_tb set user_name= #{userName},user_password= #{userPassword}, user_email= #{userEmail} where id = #{id} 
     </update>
 
     <select id="findByUsernameAndPassword" resultType="shop.mtcoding.pickme.model.User">
