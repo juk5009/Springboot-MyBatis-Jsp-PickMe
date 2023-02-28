@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.userskill.UserskillReqDto.UserskillSaveReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
+import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.UserskillRespository;
-import shop.mtcoding.pickme.service.userskillService;
+import shop.mtcoding.pickme.service.UserskillService;
 
 @Controller
 public class UserskillController {
@@ -27,6 +28,9 @@ public class UserskillController {
     @Autowired
     private HttpSession session;
 
+    @Autowired
+    private UserskillService userskillService;
+
     @PostMapping("/saveUserskill")
     public @ResponseBody ResponseEntity<?> saveUserskill(@RequestBody UserskillSaveReqDto userskillSaveReqDto) {
         User userPrincipal = (User) session.getAttribute("userPrincipal");
@@ -34,10 +38,12 @@ public class UserskillController {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
 
+        Resume resume = new Resume();
+        int resumeId = resume.getId();
 
-        userskillService.보유기술작성(userskillSaveReqDto, userPrincipal.getId());
+        userskillService.보유기술작성(userskillSaveReqDto, resumeId);
 
-        return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDto<>(1, "유저보유기술 작성 성공", null), HttpStatus.CREATED);
 
     }
 
