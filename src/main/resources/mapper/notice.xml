@@ -5,6 +5,14 @@
 
 <mapper namespace="shop.mtcoding.pickme.model.NoticeRepository">
 
+    <select id="findByCompanyIdWithNotice" resultType="shop.mtcoding.pickme.dto.notice.NoticeReq$NoticeSaveReqDto">
+        select nt.notice_title, nt.notice_career, nt.notice_pay, nt.notice_employtype, nt.notice_grade, nt.notice_location, nt.notice_content
+        from company_tb tr 
+        inner join notice_tb nt
+        on tr.id = nt.company_id
+        where nt.id = #{id}
+    </select>
+
     <select id="findAll" resultType="shop.mtcoding.pickme.model.Notice">
         select * from notice_tb
     </select>

@@ -9,74 +9,70 @@
     <div id="my-resumeForm-title-box-1" class="container">
       <div class="py-5 text-center">
         
-        <h2>이력서 상세보기</h2>
+        <h2>공고 상세보기</h2>
       </div>
     </div>
 
-    <!-- 이력서(개인정보) -->
+    <!-- 공고(기업정보) -->
     <div class="my-resumeForm-content-box-1" >
       <div id="my-resumeForm-content-box-2 " class="container">
         <div class="border border-primary col-md-7 col-lg-6 justify-content-center">
-          <h4 class="mb-3 ">개인정보</h4>
+          <h4 class="mb-3 ">공고정보</h4>
 
           <form id="my-resumeForm-content-form-1" novalidate>
             
             <div class="row g-3">
               
-              <!-- 개인정보(이름) -->
+              <!-- 공고정보(제목) -->
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">이름</label>
-                <div>${resumeDto.resumeName}</div>
+                <label for="firstName" class="form-label">제목</label>
+                <div>${noticeDto.noticeCareer}</div>
     
               </div>
               
-              <!-- 개인정보(생년월일) -->
+              <!-- 공고정보(경력) -->
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">생년월일</label>
-                <div>${resumeDto.resumeBirth}</div>
+                <label for="firstName" class="form-label">경력</label>
+                <div>${noticeDto.noticeCareer}</div>
               </div>
             
-            <!-- 개인정보(전화번호) -->
+            <!-- 공고정보(급여) -->
             <div class="col-12">
-              <label for="user-phoneNumber" class="form-label">전화번호</label>
-                <div>${resumeDto.resumePhoneNumber}</div>
+              <label for="user-phoneNumber" class="form-label">급여</label>
+                <div>${noticeDto.noticePay}</div>
             </div>
 
-            <!-- 개인정보(email) -->
+            <!-- 공고정보(근무형태) -->
             <div class="col-12">
-              <label for="user-email" class="form-label">Email </label>
-                <div>${resumeDto.resumeEmail}</div>
+              <label for="user-email" class="form-label">근무형태 </label>
+                <div>${noticeDto.noticeEmploytype}</div>
             </div>
-            
-            <!-- 개인정보(주소) -->
-            <div class="col-12">
-              <label for="user-address" class="form-label">주소</label>
-                <div>${resumeDto.resumeAddress}</div>
-            </div>
-            
-            <!-- 개인정보(희망근무지역?) -->
-            <div class="col-sm-6">
-              <label for="user-local" class="form-label">희망근무지역</label>
-                <div>${resumeDto.resumeLocation}</div>
-            </div>
-            
+
             <!-- 개인정보(학력) -->
             <div class="col-sm-6">
               <label for="user-grade" class="form-label">학력</label>
-                <div>${resumeDto.resumeGrade}</div>
-            </div>            
-            
+                <div>${noticeDto.noticeGrade}</div>
+            </div>
+
+
+            <!-- 공고정보(근무지역) -->
+            <div class="col-12">
+              <label for="user-address" class="form-label">근무지역</label>
+                <div>${noticeDto.noticeLocation}</div>
+            </div>                     
+                      
+           
               
                <hr class="my-2"> <!-- 구분선 -->
               
               <!-- 자기소개서 -->
               <div class="container my-8">
                   <div>
-                    <h4 class="mb-3 ">공고문</h4>
+                    <h4 class="mb-3 ">자기소개서</h4>
                   </div>
                   <br>
                   <div class="form-group">
-                    <div>${resumeDto.resumeContent}</div>
+                    <div>${noticeDto.noticeContent}</div>
                   </div>
               </div>
 

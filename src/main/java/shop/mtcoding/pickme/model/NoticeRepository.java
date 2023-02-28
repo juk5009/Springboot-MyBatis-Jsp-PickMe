@@ -8,6 +8,9 @@ import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 
 @Mapper
 public interface NoticeRepository {
+
+    public NoticeSaveReqDto findByCompanyIdWithNotice(int id);
+
     public int insert(NoticeSaveReqDto noticeSaveReqDto);
 
     public int updateById(Notice notice);

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,6 +17,7 @@ import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.service.NoticeService;
 
 @Controller
@@ -25,6 +28,9 @@ public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
+
+    @Autowired
+    private NoticeRepository noticeRepository;
 
     @PostMapping("/saveNotice")
     public @ResponseBody ResponseEntity<?> resumeSave(@RequestBody NoticeSaveReqDto NoticeSaveReqDto) {
@@ -61,6 +67,12 @@ public class NoticeController {
     @GetMapping("/notice/saveNoticeForm")
     public String saveNoticeForm() {
         return "notice/saveNoticeForm";
+    }
+
+    @GetMapping("/notice/{id}")
+    public String noticeDetailForm(@PathVariable int id, Model model) {
+        model.addAttribute("noticeDto", noticeRepository.findByCompanyIdWithNotice(id));
+        return "notice/noticeDetailForm";
     }
 
 }
