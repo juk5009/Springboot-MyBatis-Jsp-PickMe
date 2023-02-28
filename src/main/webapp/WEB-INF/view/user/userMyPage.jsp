@@ -69,11 +69,11 @@
             url: "/user/" + id,
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            dataType: "json" // default : 응답의 mime 타입으로 유추함
-        }).done((res) => { // 20X 일때
+            dataType: "json" 
+        }).done((res) => { 
             alert(res.msg);
             location.href = "/";
-        }).fail((err) => { // 40X, 50X 일때
+        }).fail((err) => { 
             alert(err.responseJSON.msg);
         });
     }
@@ -85,21 +85,20 @@
                     type: "put",
                     url: "/user/userProfileUpdate",
                     data: formData,
-                    contentType: false, //필수 : x-www-form-urlencoded 파싱되는 것을 방지
-                    processData: false, //필수 : contentType을 false로 줬을 때 QueryString 자동설정됨 ,해제
+                    contentType: false,
+                    processData: false, 
                     enctype: "multipart/form-data",
-                    dataType: "json" //default : 응답의 mime 타입으로 유추함
-                }).done((res) => { // 20x일때
+                    dataType: "json" 
+                }).done((res) => { 
                     alert(res.msg);
                     location.href = "/";
-                }).fail((err) => { // 40x, 50x 일때
+                }).fail((err) => { 
                     alert(err.responseJSON.msg);
                 });
             }
 
             function chooseImage(obj) {
-                //console.log(obj);
-                //console.log(obj.files);
+                
                 let f = obj.files[0];
 
                 if (!f.type.match("image.*")) {
@@ -110,7 +109,7 @@
                 let reader = new FileReader();
                 reader.readAsDataURL(f);
 
-                // 콜스택이 다 비워지고, 이벤트 루프로 가서 readAsDataURL 이벤트가 끝나면 콜백시켜주는 함수
+                
                 reader.onload = function (e) {
                     console.log(e);
                     console.log(e.target.result);
