@@ -22,10 +22,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import shop.mtcoding.pickme.dto.resume.ResumeReqDto.ResumeSaveReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.model.User;
 
-@Transactional 
+@Transactional
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 public class ResumeControllerTest {
@@ -80,15 +80,14 @@ public class ResumeControllerTest {
         resumeSaveReqDto.setResumePhoneNumber("01055558888");
         resumeSaveReqDto.setResumeSex("남");
         resumeSaveReqDto.setResumeContent("너너넝");
-        
 
         String requestBody = om.writeValueAsString(resumeSaveReqDto);
         // when
         ResultActions resultActions = mvc.perform(
-            post("/resume/1")
-                    .content(requestBody)
-                    .contentType(MediaType.APPLICATION_JSON_VALUE)
-                    .session(mockSession));
+                post("/resume/1")
+                        .content(requestBody)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .session(mockSession));
 
         System.out.println("테스트 : " + requestBody);
 

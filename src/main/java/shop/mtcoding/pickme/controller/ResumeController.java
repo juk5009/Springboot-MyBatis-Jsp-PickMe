@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
-import shop.mtcoding.pickme.dto.resume.ResumeReqDto.ResumeSaveReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
@@ -22,7 +22,6 @@ import shop.mtcoding.pickme.service.ResumeService;
 
 @Controller
 public class ResumeController {
-
 
     @Autowired
     private ResumeService resumeService;
@@ -32,7 +31,6 @@ public class ResumeController {
 
     @Autowired
     private HttpSession session;
-    
 
     @PostMapping("/saveResume")
     public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
@@ -84,7 +82,7 @@ public class ResumeController {
 
     }
 
-    @GetMapping("/saveResumeForm")
+    @GetMapping("/resume/saveResumeForm")
     public String saveResumeForm() {
         return "resume/saveResumeForm";
     }
@@ -94,6 +92,5 @@ public class ResumeController {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
     }
-
 
 }

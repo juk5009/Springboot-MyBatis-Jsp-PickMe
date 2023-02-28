@@ -62,8 +62,12 @@
               <label for="user-local" class="form-label">희망근무지역?</label>
               <select class="form-select" id="resumeLocation"  name="resumeLocation" required>
                 <option value="">희망근무지역을 선택해주세요</option>
-                <option>부산</option>
                 <option>서울</option>
+                    <option>부산</option>
+                    <option>대전</option>
+                    <option>대구</option>
+                    <option>광주</option>
+                    <option>인천</option>
               </select>
             </div>
             
@@ -72,9 +76,10 @@
               <label for="user-grade" class="form-label">학력</label>
               <select class="form-select" id="resumeGrade" name="resumeGrade" required>
                 <option value="">학력을 선택해주세요</option>
-                <option>전문학사</option>
-                <option>학사</option>
-                <option>석사</option>
+                <option>고등학교졸업</option>
+                    <option>전문학사</option>
+                    <option>학사</option>
+                    <option>석사</option>
               </select>
             </div>
             

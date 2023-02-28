@@ -1,10 +1,9 @@
 package shop.mtcoding.pickme.dto.resume;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ResumeReqDto {
+public class ResumeReq {
 
     @Getter
     @Setter
@@ -18,6 +17,6 @@ public class ResumeReqDto {
         private String resumeGrade;
         private String resumePhoneNumber;
         private String resumeSex;
-        private String resumeContent;   
+        private String resumeContent;
     }
 }

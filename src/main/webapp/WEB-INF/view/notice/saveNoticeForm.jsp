@@ -51,11 +51,19 @@
                 <div class="col-12">
                   <label for="my-saveNoticeForm-employtype" class="form-label">근무형태 </label>
                   <input type="text" class="form-control" name="noticeEmploytype" id="noticeEmploytype" value="" placeholder="ex) 정규직">
-                </div>
+                </div>                
 
-                <div class="col-12">
-                  <label for="my-saveNoticeForm-locate" class="form-label">근무지역 </label>
-                  <input type="text" class="form-control" name="noticeLocation" id="noticeLocation" value="" placeholder="ex) 부산">
+                <div class="col-sm-6">
+                  <label for="my-saveNoticeForm-grade"  class="form-label">근무지역</label>
+                  <select class="form-select" value="" name="noticeGrade" id="noticeLocation" value="" required>
+                    <option value="">지역을 선택해주세요.</option>
+                    <option>서울</option>
+                    <option>부산</option>
+                    <option>대전</option>
+                    <option>대구</option>
+                    <option>광주</option>
+                    <option>인천</option>
+                  </select>
                 </div>
 
 
@@ -63,7 +71,8 @@
                 <div class="col-sm-6">
                   <label for="my-saveNoticeForm-grade"  class="form-label">학력</label>
                   <select class="form-select" value="" name="noticeGrade" id="noticeGrade" value="" required>
-                    <option value="">학력을 선택해주세요</option>
+                    <option value="">학력을 선택해주세요.</option>
+                    <option>고등학교졸업</option>
                     <option>전문학사</option>
                     <option>학사</option>
                     <option>석사</option>

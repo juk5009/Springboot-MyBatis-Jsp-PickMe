@@ -6,7 +6,7 @@ import lombok.Setter;
 public class NoticeReq {
     @Getter
     @Setter
-    public static class SaveNoticeReqDto {
+    public static class NoticeSaveReqDto {
         private Integer companyId;
         private String noticeTitle;
         private String noticeCareer;

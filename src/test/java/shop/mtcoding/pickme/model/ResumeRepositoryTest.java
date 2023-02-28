@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import shop.mtcoding.pickme.dto.resume.ResumeReqDto.ResumeSaveReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 
 @MybatisTest
 public class ResumeRepositoryTest {
@@ -32,15 +32,13 @@ public class ResumeRepositoryTest {
         resumeSaveReqDto.setResumeSex("남");
         resumeSaveReqDto.setResumeContent("너너넝");
 
-
         System.out.println("테스트2 pw : " + resumeSaveReqDto.getResumePhoneNumber());
 
         ObjectMapper om = new ObjectMapper();
         // when
         int reuslt = resumeRepository.insert(resumeSaveReqDto);
-        String responseBody = om.writeValueAsString(reuslt); 
+        String responseBody = om.writeValueAsString(reuslt);
         System.out.println("테스트 : " + responseBody);
-       
 
         // then
         assertThat(reuslt).isEqualTo(1);

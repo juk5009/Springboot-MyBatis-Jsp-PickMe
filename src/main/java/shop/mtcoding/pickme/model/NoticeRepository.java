@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import shop.mtcoding.pickme.dto.notice.NoticeReq.SaveNoticeReqDto;
+import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 
 @Mapper
 public interface NoticeRepository {
-    public int insert(SaveNoticeReqDto saveNoticeReqDto);
+    public int insert(NoticeSaveReqDto noticeSaveReqDto);
 
     public int updateById(Notice notice);
 
