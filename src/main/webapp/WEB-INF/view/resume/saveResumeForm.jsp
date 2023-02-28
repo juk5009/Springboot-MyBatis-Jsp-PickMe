@@ -141,7 +141,7 @@
             <!-- 이력서 등록 버튼  -->
 
             <div class="my-resumeForm-submit-btn-1 mycol-md-12">
-              <button class="w-100 btn btn-primary btn-lg" onclick="save(${resumeDto.userId})" type="button">이력서 등록</button>
+              <button class="w-100 btn btn-primary btn-lg" onclick="saveResume()" type="button">이력서 등록</button>
             </div>
 
           </form>
@@ -161,7 +161,7 @@
   <script src="form-validation.js"></script>
 
 <script>
-  function save(userId) {
+  function saveResume() {
     let data = {
       "resumeName": $("#resumeName").val(),
       "resumeBirth": $("#resumeBirth").val(),
@@ -176,7 +176,7 @@
 
     $.ajax({
       type: "post",
-      url: "/resume/" + userId,
+      url: "/saveResume/",
       data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       dataType: "json"

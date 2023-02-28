@@ -34,8 +34,8 @@ public class ResumeController {
     private HttpSession session;
     
 
-    @PostMapping("/resume/{id}")
-    public @ResponseBody ResponseEntity<?> resumeSave(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
+    @PostMapping("/saveResume/")
+    public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);

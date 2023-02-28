@@ -57,7 +57,6 @@ CREATE TABLE resume_tb(
 	resume_phone_number varchar not null,
 	resume_sex varchar not null,	
 	resume_content varchar,
-	resume_skill varchar,
     created_at timestamp not null
 );
 

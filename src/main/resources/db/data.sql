@@ -18,6 +18,9 @@ INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '1', now());
 INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '2', now());
 INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '1', now());
 
+INSERT INTO resume_tb(user_id, resume_name, resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values('1', '안정훈', '1997-03-15', 'an@nate.com', '부산광역시 북구 덕천동', '부산', '학사', '01011112222', '남', '나', now());
+INSERT INTO resume_tb(user_id, resume_name, resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values('2', '김정욱', '1994-09-15', 'kj@nate.com', '부산광역시 해운대구', '부산', '석사', '0101841532', '남', '너', now());
+
 INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values('1', 'java', 'javaScript', 'spirng', null, null, null, now());
 INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values('2', 'java', null, 'spirng', null, null, null, now());
 INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values('3', 'java', null, null, null, null, null, now());
