@@ -18,35 +18,13 @@ INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '1', now());
 INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '2', now());
 INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '1', now());
 
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', null, null, null, null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, 'java script', null, null, null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, null, 'Spring', null, null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, null, null, 'Jsp', null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', null, null, null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, null, null, 'Jsp', 'React', null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', null, null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', null, null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', null, null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', null, now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', 'Flutter', now());
-INSERT INTO userskill_tb(resume_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', 'Flutter', now());
+INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values('1', 'java', 'javaScript', 'spirng', null, null, null, now());
+INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values('2', 'java', null, 'spirng', null, null, null, now());
+INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values('3', 'java', null, null, null, null, null, now());
 
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', null, null, null, null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, 'java script', null, null, null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, null, 'Spring', null, null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, null, null, 'Jsp', null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', null, null, null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', null, null, null, 'Jsp', 'React', null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', null, null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', null, null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', null, null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', null, now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', 'Flutter', now());
-INSERT INTO companyskill_tb(notice_id, skill_name1, skill_name2, skill_name3, skill_name4, skill_name5, skill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', 'Flutter', now());
+INSERT INTO companyskill_tb(notice_id, companyskill_name1, companyskill_name2, companyskill_name3, companyskill_name4, companyskill_name5, companyskill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', null, now());
+INSERT INTO companyskill_tb(notice_id, companyskill_name1, companyskill_name2, companyskill_name3, companyskill_name4, companyskill_name5, companyskill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', 'Flutter', now());
+INSERT INTO companyskill_tb(notice_id, companyskill_name1, companyskill_name2, companyskill_name3, companyskill_name4, companyskill_name5, companyskill_name6, created_at) values('1', 'java', 'Java script', 'Spring', 'Jsp', 'React', 'Flutter', now());
 
 commit;
 
