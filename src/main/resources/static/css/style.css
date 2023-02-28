@@ -211,6 +211,10 @@
   color: orange;
 }
 
+.my-header-name {
+  color: white;
+  text-decoration: underline;
+}
 
 
 /*--------------------------------------------------------------
@@ -999,4 +1003,57 @@ form .btn input[type="submit"] {
 
 /*--------------------------------------------------------------
 # mypage / applyUserList 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# profileform 시작
+--------------------------------------------------------------*/
+.my-profile-body {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.my-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-profile h2 {
+  margin-top: 2rem;
+}
+
+.my-profile form {
+  width: 50%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.my-profile-form-group {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.my-profile-form-group img {
+  width: 320px;
+  height: 270px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 1px solid gray;
+}
+
+.my-profile-form-group.btn {
+  margin-top: 1rem;
+  width: 20%;
+}
+
+
+
+/*--------------------------------------------------------------
+# profileform 끝
 --------------------------------------------------------------*/

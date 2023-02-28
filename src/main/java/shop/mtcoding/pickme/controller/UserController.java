@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
@@ -116,7 +117,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}/userMyPage")
-    public String MyPage(@PathVariable int id, Model model) {
+    public String MyPage(@PathVariable int id, Model model, MultipartFile userProfile) {
         User principal = (User) session.getAttribute("userPrincipal");
         if (principal == null) {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -129,6 +130,8 @@ public class UserController {
             throw new CustomException("해당정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
         model.addAttribute("user", userPS);
+        User userPropilePS = userRepository.findById(principal.getId());
+        model.addAttribute("userProfile", userPropilePS);
         return "user/userMyPage";
     }
 
@@ -137,4 +140,19 @@ public class UserController {
         session.invalidate();
         return "redirect:/";
     }
+
+    @PostMapping("/user/userProfileUpdate")
+    public String userProfileUpdate(MultipartFile userProfile) {
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            return "redirect:/loginForm";
+        }
+        if (userProfile.isEmpty()) {
+            throw new CustomException("사진이 전송되지 않았습니다");
+        }
+        User userPS = userService.유저프로필사진수정(userProfile, userPrincipal.getId());
+        session.setAttribute("userPrincipal", userPS);
+        return "redirect:/";
+    }
+
 }

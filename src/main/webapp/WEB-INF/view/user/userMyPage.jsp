@@ -5,6 +5,24 @@
 
             <div class="my-mypage-box">
                 <h1>마이페이지</h1>
+                <div class="my-profile-body">
+            <div class="container my-3 my-profile">
+                <h2 class="text-center my-profile-h2">유저 프로필 사진 변경 페이지</h2>
+                
+                <form action="/user/userProfileUpdate" method="post" enctype="multipart/form-data">
+                    <div class="form-group my-profile-form-group">
+                        <img src="${userProfile.userProfile == null ? '/images/profile.jfif' : userProfile.userProfile}"
+                            alt="Current Photo" class="img-fluid" id="imagePreview">
+                    </div>
+                    <div class="form-group my-profile-form-group">
+                        <input type="file" class="form-control" id="userProfile" name="userProfile"
+                            onchange="chooseImage(this)">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">사진변경</button>
+                </form>
+            </div>
+        </div>
+
                 <div class="my-mypage-box">
                     <h1>회원 정보</h1>
                     <div class="form-group">
@@ -51,14 +69,53 @@
             url: "/user/" + id,
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            dataType: "json" // default : 응답의 mime 타입으로 유추함
-        }).done((res) => { // 20X 일때
+            dataType: "json" 
+        }).done((res) => { 
             alert(res.msg);
             location.href = "/";
-        }).fail((err) => { // 40X, 50X 일때
+        }).fail((err) => { 
             alert(err.responseJSON.msg);
         });
     }
+    function updateImage() {
+                let profileForm = $("#profileForm")[0];
+                let formData = new FormData(profileForm);
+
+                $.ajax({
+                    type: "put",
+                    url: "/user/userProfileUpdate",
+                    data: formData,
+                    contentType: false,
+                    processData: false, 
+                    enctype: "multipart/form-data",
+                    dataType: "json" 
+                }).done((res) => { 
+                    alert(res.msg);
+                    location.href = "/";
+                }).fail((err) => { 
+                    alert(err.responseJSON.msg);
+                });
+            }
+
+            function chooseImage(obj) {
+                
+                let f = obj.files[0];
+
+                if (!f.type.match("image.*")) {
+                    alert("이미지를 등록해야 합니다.");
+                    return;
+                }
+
+                let reader = new FileReader();
+                reader.readAsDataURL(f);
+
+                
+                reader.onload = function (e) {
+                    console.log(e);
+                    console.log(e.target.result);
+                    $("#imagePreview").attr("src", e.target.result);
+                }
+            }
 </script>
 
 
