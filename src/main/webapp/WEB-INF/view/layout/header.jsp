@@ -3,7 +3,8 @@
 
         <!DOCTYPE html>
         <html lang="en">
-            <head>
+
+        <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,11 +17,11 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
             <!-- 이력서 head 시작 -->
-                
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
             <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
             <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-                
+
             <!-- 이력서 head 끝-->
             <!-- Template Main CSS File -->
             <link href="/css/style.css" rel="stylesheet">
@@ -36,23 +37,69 @@
                     <nav id="navbar" class="navbar col-lg-12 d-flex align-items-center">
                         <div id="navbar-1" class="conjustify-content-start">
                             <ul>
-                                <h1>PickMe</h1>
+                                <a class="navbar-brand" href="/">
+                                    <h1>PickMe</h1>
+                                </a>
+                                <c:choose>
+                                <c:when test="${userPrincipal == null && comPrincipal == null}">
                                 <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
                                 <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="#services">인재목록</a></li>
-                                <li><a class="nav-link scrollto " href="/saveResumeForm">이력서 작성</a></li>
+                                </c:when>
+
+                                <c:otherwise>
+                                <c:if test="${userPrincipal != null || comPrincipal == null}">
+                                <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
+                                <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
+                                <li><a class="nav-link scrollto " href="#services">인재목록</a></li>
+                                <li><a class="nav-link scrollto " href="/resume/saveResumeForm">이력서 작성</a></li>
+                                </c:if>
+                                <c:if test="${comPrincipal != null || userPrincipal == null}">
+                                <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
+                                <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
+                                <li><a class="nav-link scrollto " href="#services">인재목록</a></li>
+                                <li><a class="nav-link scrollto " href="/saveNoticeForm">공고 작성</a></li>
+                                </c:if>
+                                </c:otherwise>          
+                                </c:choose>
                             </ul>
                         </div>
 
                         <div id="navbar-2" class="justify-content-end">
                             <ul>
+
+                                <c:choose>
+                                <c:when test="${userPrincipal == null && comPrincipal == null}">
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/loginForm">로그인</a></button></li>
                                 <li><button id="navbar-join" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/user/joinType">회원가입</a></button></li>
-                                <li><a href="#contact"><img src="/images/orange22.jpg" alt="orange22" class="rounded-circle"
+                                </c:when>
+
+                                <c:otherwise>
+                                <c:if test="${userPrincipal != null || comPrincipal == null}">
+                                <li><button id="navbar-login" type="button" class="btn btn-sm"><a
+                                            class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
+                                <li><button id="navbar-login" type="button" class="btn btn-sm"><a
+                                            class="nav-link scrollto" href="/user/${userPrincipal.id}/userMyPage">마이페이지</a></button></li>
+                                <li><a href="/"><img src="/images/orange22.jpg" alt="orange22"
+                                            class="rounded-circle"
                                             style="height: 50px; width: 50px; border: 1px black;"></a>
                                 </li>
+                                </c:if>
+
+                                <c:if test="${comPrincipal != null || userPrincipal == null}">
+                                <li><button id="navbar-login" type="button" class="btn btn-sm"><a
+                                            class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
+                                <li><button id="navbar-login" type="button" class="btn btn-sm"><a
+                                            class="nav-link scrollto" href="/company/${comPrincipal.id}/companyMyPage">마이페이지</a></button></li>
+                                <li><a href="/"><img src="/images/dora.png" alt="orange22"
+                                            class="rounded-circle"
+                                            style="height: 50px; width: 50px; border: 1px black;"></a>
+                                </li>
+                                </c:if>
+                                </c:otherwise>
+                                </c:choose>
                             </ul>
                         </div>
                     </nav><!-- .navbar -->

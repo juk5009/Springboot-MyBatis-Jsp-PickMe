@@ -131,4 +131,10 @@ public class UserController {
         model.addAttribute("user", userPS);
         return "user/userMyPage";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        session.invalidate();
+        return "redirect:/";
+    }
 }
