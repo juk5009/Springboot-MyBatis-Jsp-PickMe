@@ -1,6 +1,5 @@
 package shop.mtcoding.pickme.dto.resume;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
