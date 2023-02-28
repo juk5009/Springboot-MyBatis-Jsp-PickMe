@@ -14,7 +14,7 @@
     </select>   
 
     <insert id="insert">
-        INSERT INTO userskill_tb(userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values(#{userskillName1}, #{userskillName2}, #{userskillName3}, #{userskillName4}, #{userskillName5}, #{userskillName6}, now())
+        INSERT INTO userskill_tb(resume_id, userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values(#{resumeId}, #{userskillName1}, #{userskillName2}, #{userskillName3}, #{userskillName4}, #{userskillName5}, #{userskillName6}, now())
     </insert>    
 
     <delete id="deleteById" >

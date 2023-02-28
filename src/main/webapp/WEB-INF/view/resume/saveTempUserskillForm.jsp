@@ -110,7 +110,7 @@
         
         $.ajax({
           type: "post",
-          url: "/saveUserskill",
+          url: "/saveUserskill/"+ 1,
           data: JSON.stringify(checkedValues),
           contentType: "application/json; charset=utf-8",
           dataType: "json"

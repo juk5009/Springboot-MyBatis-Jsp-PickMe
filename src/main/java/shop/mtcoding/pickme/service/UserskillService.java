@@ -17,10 +17,12 @@ public class UserskillService {
     private UserskillRespository userskillRespository;
 
     @Transactional
-    public void 보유기술작성(UserskillSaveReqDto userskillSaveReqDto, int resumeId) {
+    public void 보유기술작성(int resumeId, UserskillSaveReqDto userskillSaveReqDto) {
         userskillSaveReqDto.setResumeId(resumeId);
-
+        System.out.println("테스트1 : " +  userskillSaveReqDto.getResumeId());
+        
         int result = userskillRespository.insert(userskillSaveReqDto);
+        System.out.println("테스트2 : " +  userskillSaveReqDto.getResumeId());
         if (result != 1) {
             throw new CustomApiException("보유기술작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
