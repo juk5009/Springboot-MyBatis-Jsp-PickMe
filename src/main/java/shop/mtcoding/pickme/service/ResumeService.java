@@ -1,7 +1,5 @@
 package shop.mtcoding.pickme.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -20,7 +18,6 @@ public class ResumeService {
 
     @Transactional
     public void 이력서작성(ResumeSaveReqDto resumeSaveReqDto, int principalId) {
-        // List<ResumeSaveReqDto> resumeList = resumeRepository.findByUserIdWithResume(principalId);
         resumeSaveReqDto.setUserId(principalId);
             
         int result = resumeRepository.insert(resumeSaveReqDto);

@@ -17,7 +17,6 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.pickme.model.Company;
-import shop.mtcoding.pickme.model.User;
 
 /*
  * SpringBootTest는 통합테스트 (실제 환경과 동일하게 Bean이 생성됨)
