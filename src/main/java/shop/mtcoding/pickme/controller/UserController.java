@@ -117,7 +117,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}/userMyPage")
-    public String MyPage(@PathVariable int id, Model model) {
+    public String MyPage(@PathVariable int id, Model model, MultipartFile userProfile) {
         User principal = (User) session.getAttribute("userPrincipal");
         if (principal == null) {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -130,6 +130,8 @@ public class UserController {
             throw new CustomException("해당정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
         model.addAttribute("user", userPS);
+        User userPropilePS = userRepository.findById(principal.getId());
+        model.addAttribute("userProfile", userPropilePS);
         return "user/userMyPage";
     }
 
@@ -137,17 +139,6 @@ public class UserController {
     public String logout() {
         session.invalidate();
         return "redirect:/";
-    }
-
-    @GetMapping("/user/userProfileUpdateForm")
-    public String userProfileUpdateForm(Model model) {
-        User userPrincipal = (User) session.getAttribute("userPrincipal");
-        if (userPrincipal == null) {
-            return "redirect:/loginForm";
-        }
-        User userPS = userRepository.findById(userPrincipal.getId());
-        model.addAttribute("user", userPS);
-        return "user/userProfileUpdateForm";
     }
 
     @PostMapping("/user/userProfileUpdate")

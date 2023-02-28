@@ -52,7 +52,7 @@
                                 <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
                                 <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="#services">인재목록</a></li>
-                                <li><a class="nav-link scrollto " href="/resume/saveResumeForm">이력서 작성</a></li>
+                                <li><a class="nav-link scrollto " href="/saveResumeForm">이력서 작성</a></li>
                                 </c:if>
                                 <c:if test="${comPrincipal != null || userPrincipal == null}">
                                 <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
@@ -80,10 +80,8 @@
                                 <c:if test="${userPrincipal != null || comPrincipal == null}">
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
-                                <li><button id="navbar-login" type="button" class="btn btn-sm"><a
-                                            class="nav-link scrollto" href="/user/${userPrincipal.id}/userMyPage">마이페이지</a></button></li>
                                 <li class="my-header-name"><b>${userPrincipal.userName}</b></li>
-                                <li><a href="/user/userProfileUpdateForm"><img src="${userPrincipal.userProfile == null ? '/images/profile.jfif' : userPrincipal.userProfile}" alt="orange22"
+                                <li><a href="/user/${userPrincipal.id}/userMyPage"><img src="${userPrincipal.userProfile == null ? '/images/profile.jfif' : userPrincipal.userProfile}" alt="orange22"
                                             class="rounded-circle"
                                             style="height: 50px; width: 50px; border: 1px black;"></a>
                                 </li>
@@ -93,8 +91,6 @@
                                 <c:if test="${comPrincipal != null || userPrincipal == null}">
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
-                                <li><button id="navbar-login" type="button" class="btn btn-sm"><a
-                                            class="nav-link scrollto" href="/company/${comPrincipal.id}/companyMyPage">마이페이지</a></button></li>
                                 <li class="my-header-name"><b>${comPrincipal.companyName}</b></li>
                                 <li><a href="/"><img src="/images/dora.png" alt="orange22"
                                             class="rounded-circle"
