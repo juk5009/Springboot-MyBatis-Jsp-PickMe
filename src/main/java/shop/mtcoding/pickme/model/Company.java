@@ -12,5 +12,6 @@ public class Company {
     private String companyName;
     private String companyPassword;
     private String companyEmail;
+    private String companyProfile;
     private Timestamp createdAt;
 }

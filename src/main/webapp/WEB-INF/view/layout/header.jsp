@@ -82,10 +82,12 @@
                                             class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/user/${userPrincipal.id}/userMyPage">마이페이지</a></button></li>
-                                <li><a href="/"><img src="/images/orange22.jpg" alt="orange22"
+                                <li class="my-header-name"><b>${userPrincipal.userName}</b></li>
+                                <li><a href="/user/userProfileUpdateForm"><img src="${userPrincipal.userProfile == null ? '/images/profile.jfif' : userPrincipal.userProfile}" alt="orange22"
                                             class="rounded-circle"
                                             style="height: 50px; width: 50px; border: 1px black;"></a>
                                 </li>
+
                                 </c:if>
 
                                 <c:if test="${comPrincipal != null || userPrincipal == null}">
@@ -93,6 +95,7 @@
                                             class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/company/${comPrincipal.id}/companyMyPage">마이페이지</a></button></li>
+                                <li class="my-header-name"><b>${comPrincipal.companyName}</b></li>
                                 <li><a href="/"><img src="/images/dora.png" alt="orange22"
                                             class="rounded-circle"
                                             style="height: 50px; width: 50px; border: 1px black;"></a>

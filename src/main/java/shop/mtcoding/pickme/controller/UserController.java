@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
@@ -137,4 +138,30 @@ public class UserController {
         session.invalidate();
         return "redirect:/";
     }
+
+    @GetMapping("/user/userProfileUpdateForm")
+    public String userProfileUpdateForm(Model model) {
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            return "redirect:/loginForm";
+        }
+        User userPS = userRepository.findById(userPrincipal.getId());
+        model.addAttribute("user", userPS);
+        return "user/userProfileUpdateForm";
+    }
+
+    @PostMapping("/user/userProfileUpdate")
+    public String userProfileUpdate(MultipartFile userProfile) {
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            return "redirect:/loginForm";
+        }
+        if (userProfile.isEmpty()) {
+            throw new CustomException("사진이 전송되지 않았습니다");
+        }
+        User userPS = userService.유저프로필사진수정(userProfile, userPrincipal.getId());
+        session.setAttribute("userPrincipal", userPS);
+        return "redirect:/";
+    }
+
 }
