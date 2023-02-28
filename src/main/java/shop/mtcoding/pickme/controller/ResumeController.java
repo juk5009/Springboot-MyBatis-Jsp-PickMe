@@ -34,7 +34,7 @@ public class ResumeController {
     private HttpSession session;
     
 
-    @PostMapping("/saveResume/")
+    @PostMapping("/saveResume")
     public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
