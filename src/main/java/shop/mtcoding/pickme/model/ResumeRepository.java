@@ -22,6 +22,8 @@ public interface ResumeRepository {
 
         public int insert(ResumeSaveReqDto resumeSaveReqDto);
 
+        public int insertUserskill(ResumeSaveReqDto resumeSaveReqDto);
+
         public int updateById(ResumeSaveReqDto resumeSaveReqDto);
 
         public int deleteById(int id);
