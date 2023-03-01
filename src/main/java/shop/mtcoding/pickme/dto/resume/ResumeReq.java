@@ -9,6 +9,7 @@ public class ResumeReq {
     @Setter
     public static class ResumeSaveReqDto {
         private Integer userId;
+        private Integer resumeId;
         private String resumeName;
         private String resumeBirth;
         private String resumeEmail;
@@ -18,5 +19,7 @@ public class ResumeReq {
         private String resumePhoneNumber;
         private String resumeSex;
         private String resumeContent;
+        private String userskillName;
     }
+
 }

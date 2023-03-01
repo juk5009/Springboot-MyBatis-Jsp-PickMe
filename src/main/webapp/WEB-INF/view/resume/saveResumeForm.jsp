@@ -19,21 +19,21 @@
         <div class="col-md-7 col-lg-6 justify-content-center">
           <h4 class="mb-3 ">개인정보</h4>
 
-          <form id="my-resumeForm-content-form-1" novalidate>
+          <form id="my-resumeForm-content-form-1">
             
             <div class="row g-3">
               
               <!-- 개인정보(이름) -->
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">이름</label>
-                <input type="text" class="form-control" id="resumeName" name="resumeName" placeholder="ex) 홍길동" value="" required>
+                <input type="text" class="form-control" id="resumeName" name="resumeName" placeholder="ex) 홍길동" required>
     
               </div>
               
               <!-- 개인정보(생년월일) -->
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">생년월일</label>
-                <input type="text" class="form-control" id="resumeBirth" name="resumeBirth" placeholder="ex) 1991-03-01" value="" required>
+                <input type="text" class="form-control" id="resumeBirth" name="resumeBirth" placeholder="ex) 1991-03-01" required>
               </div>
             
             
@@ -123,22 +123,22 @@
 
               <div class="my-resumeForm-skill-box-1 d-flex">
                 <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Java" for="btncheck1">Java</label>
+                <label class="btn btn-outline-primary" name="userskillName" value="Java" for="btncheck1">Java</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="JavaScript" for="btncheck2">JavaScript</label>
+                <label class="btn btn-outline-primary" name="userskillName" value="JavaScript" for="btncheck2">JavaScript</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Spring" for="btncheck3">Spring</label>
+                <label class="btn btn-outline-primary" name="userskillName" value="Spring" for="btncheck3">Spring</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
-                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Jsp" for="btncheck4">Jsp</label>
+                <label class="btn btn-outline-primary" name="userskillName" value="Jsp" for="btncheck4">Jsp</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
-                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="React" for="btncheck5">React</label>
+                <label class="btn btn-outline-primary" name="muserskillName" value="React" for="btncheck5">React</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
-                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Flutter" for="btncheck6">Flutter</label>
+                <label class="btn btn-outline-primary" name="userskillName" value="Flutter" for="btncheck6">Flutter</label>
               </div>
               <hr class="my-4">
             </div>
@@ -160,13 +160,13 @@
   <br>
 
 <!-- 이력서 스크립트 -->
-  <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
-  <script src="form-validation.js"></script>
-
 <script>
   function saveResume() {
+    let checkboxList = $('input[name="userskillName"]:checked').map(function(){
+        return $(this).val();
+    }).get();
+
+    console.log(checkboxList);
     let data = {
       "resumeName": $("#resumeName").val(),
       "resumeBirth": $("#resumeBirth").val(),
@@ -176,16 +176,17 @@
       "resumeGrade": $("#resumeGrade").val(),
       "resumePhoneNumber": $("#resumePhoneNumber").val(),
       "resumeSex": $("#resumeSex").val(),
-      "resumeContent": $("#resumeContent").val()
+      "resumeContent": $("#resumeContent").val(),
+      "checkboxList": checkboxList
     };
 
     $.ajax({
       type: "post",
-      url: "/saveResume/",
+      url: "/saveResume",
       data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       dataType: "json"
-    }).done((res) => { // 20X 일때
+    }).done((res) => {
       alert(res.msg);
       location.href = "/";
     }).fail((err) => {

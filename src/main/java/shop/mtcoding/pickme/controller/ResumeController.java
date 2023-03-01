@@ -40,9 +40,13 @@ public class ResumeController {
     private HttpSession session;
 
     @PostMapping("/saveResume")
-    public @ResponseBody ResponseEntity<?> saveResume(
-            @RequestBody @RequestParam(value = "my-userskill-btn-check", required = false) List<String> checkboxList,
-            ResumeSaveReqDto resumeSaveReqDto) {
+    public @ResponseBody ResponseEntity<?> saveResume(@RequestBody(required = false) ResumeSaveReqDto resumeSaveReqDto,
+            List<String> checkboxList) {
+
+        for (String string : checkboxList) {
+            System.out.println("테스트 checkboxList : " + string);
+        }
+
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
