@@ -5,16 +5,11 @@ import lombok.Setter;
 
 public class UserskillReqDto {
 
-    @Getter
     @Setter
+    @Getter
     public static class UserskillSaveReqDto {
         private Integer resumeId;
-        private String userskillName1;
-        private String userskillName2;
-        private String userskillName3;
-        private String userskillName4;
-        private String userskillName5;
-        private String userskillName6;
+        private String userskillName;
     }
 
 }

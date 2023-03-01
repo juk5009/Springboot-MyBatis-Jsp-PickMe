@@ -1,5 +1,7 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
@@ -19,6 +22,7 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.service.ResumeService;
+import shop.mtcoding.pickme.service.UserskillService;
 
 @Controller
 public class ResumeController {
@@ -30,10 +34,15 @@ public class ResumeController {
     private ResumeRepository resumeRepository;
 
     @Autowired
+    private UserskillService userskillService;
+
+    @Autowired
     private HttpSession session;
 
     @PostMapping("/saveResume")
-    public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
+    public @ResponseBody ResponseEntity<?> saveResume(
+            @RequestBody @RequestParam(value = "my-userskill-btn-check", required = false) List<String> checkboxList,
+            ResumeSaveReqDto resumeSaveReqDto) {
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -77,7 +86,7 @@ public class ResumeController {
         }
 
         resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId());
-
+        userskillService.보유기술작성(checkboxList);
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
 
     }
