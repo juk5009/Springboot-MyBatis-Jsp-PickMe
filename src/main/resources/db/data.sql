@@ -25,7 +25,7 @@ INSERT INTO userskill_tb(resume_id, userskill_name, created_at) values('1', 'jav
 INSERT INTO userskill_tb(resume_id, userskill_name, created_at) values('2', 'javaScript', now());
 
 INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('2', 'spirng', now());
-INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('1', 'React', 'javaScript', now());
+INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('1', 'React', now());
 
 commit;
 

@@ -21,11 +21,11 @@ public class UserskillService {
     @Transactional
     public void 보유기술작성(List<String> checkboxList) {
         UserskillSaveReqDto userskillSaveReqDto = new UserskillSaveReqDto();
-        int aa = 1;
+        // int aa = 1;
         if (checkboxList != null) {
             for (String checkbox : checkboxList) {
                 userskillSaveReqDto.setUserskillName(checkbox);
-                userskillSaveReqDto.setResumeId(aa);
+                // userskillSaveReqDto.setResumeId(aa);
 
                 int result = userskillRespository.insert(userskillSaveReqDto);
                 if (result != 1) {
@@ -35,10 +35,10 @@ public class UserskillService {
             }
         }
 
-        System.out.println("테스트 dto list : " +  userskillSaveReqDto.getUserskillName());
-        
-        System.out.println("테스트1 : " +  userskillSaveReqDto.getResumeId());
-        System.out.println("테스트 체크박스 : " +  checkboxList);
-       
+        System.out.println("테스트 dto list : " + userskillSaveReqDto.getUserskillName());
+
+        System.out.println("테스트1 : " + userskillSaveReqDto.getResumeId());
+        System.out.println("테스트 체크박스 : " + checkboxList);
+
     }
 }
