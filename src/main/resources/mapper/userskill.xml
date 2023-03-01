@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="shop.mtcoding.pickme.model.UserskillRepository">
+<mapper namespace="shop.mtcoding.pickme.model.UserskillRespository">
 
     <select id="findAll" resultType="shop.mtcoding.pickme.model.Userskill">
         select * from userskill_tb
@@ -14,7 +14,7 @@
     </select>   
 
     <insert id="insert">
-        INSERT INTO userskill_tb(userskill_name1, userskill_name2, userskill_name3, userskill_name4, userskill_name5, userskill_name6, created_at) values(#{userskillName1}, #{userskillName2}, #{userskillName3}, #{userskillName4}, #{userskillName5}, #{userskillName6}, now())
+        INSERT INTO userskill_tb(resume_id, userskill_name, created_at) values(#{resumeId}, #{userskillName}, now())
     </insert>    
 
     <delete id="deleteById" >

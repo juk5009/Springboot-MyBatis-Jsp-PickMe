@@ -64,24 +64,14 @@ CREATE TABLE resume_tb(
 
 CREATE TABLE companyskill_tb(
     id int auto_increment primary key,
-	notice_id int not null,
-    companyskill_name1 varchar,
-    companyskill_name2 varchar,
-    companyskill_name3 varchar,
-    companyskill_name4 varchar,
-    companyskill_name5 varchar,
-    companyskill_name6 varchar,
+	notice_id int,
+    companyskill_name varchar,
     created_at timestamp not null
 );
 
 CREATE TABLE userskill_tb(
     id int auto_increment primary key,
-	resume_id int not null,
-    userskill_name1 varchar,
-    userskill_name2 varchar,
-    userskill_name3 varchar,
-    userskill_name4 varchar,
-    userskill_name5 varchar,
-    userskill_name6 varchar,
+	resume_id int,
+    userskill_name varchar,
     created_at timestamp not null
 );

@@ -123,22 +123,22 @@
 
               <div class="my-resumeForm-skill-box-1 d-flex">
                 <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                <label class="btn btn-outline-primary" name="[]" for="btncheck1">Java</label>
+                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Java" for="btncheck1">Java</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck2">JavaScript</label>
+                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="JavaScript" for="btncheck2">JavaScript</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck3">Spring</label>
+                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Spring" for="btncheck3">Spring</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck4">Jsp</label>
+                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Jsp" for="btncheck4">Jsp</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck5">React</label>
+                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="React" for="btncheck5">React</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btncheck6">Flutter</label>
+                <label class="btn btn-outline-primary" name="my-userskill-btn-check" value="Flutter" for="btncheck6">Flutter</label>
               </div>
               <hr class="my-4">
             </div>

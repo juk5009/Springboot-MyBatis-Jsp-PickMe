@@ -11,11 +11,6 @@ import lombok.Setter;
 @Setter
 public class Userskill {
     private Integer resumeId;
-    private String userskillName1;
-    private String userskillName2;
-    private String userskillName3;
-    private String userskillName4;
-    private String userskillName5;
-    private String userskillName6;
+    private String userskillName;
     private Timestamp createdAt;
 }
