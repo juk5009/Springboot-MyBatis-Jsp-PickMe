@@ -55,7 +55,7 @@
 
                 <div class="col-sm-6">
                   <label for="my-saveNoticeForm-grade"  class="form-label">근무지역</label>
-                  <select class="form-select" value="" name="noticeGrade" id="noticeLocation" value="" required>
+                  <select class="form-select" value="" name="noticeLocation" id="noticeLocation" value="" required>
                     <option value="">지역을 선택해주세요.</option>
                     <option>서울</option>
                     <option>부산</option>
