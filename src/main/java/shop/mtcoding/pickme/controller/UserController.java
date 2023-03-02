@@ -105,8 +105,8 @@ public class UserController {
 
     @GetMapping("/")
     public String main(Model model) {
-        List<NoticeMainRespDto> a = noticeRepository.findAllWithCompany();
-        model.addAttribute("dtos", a);
+        List<NoticeMainRespDto> noticeMainList = noticeRepository.findAllWithCompany();
+        model.addAttribute("noticeMainList", noticeMainList);
         return "user/main";
     }
 
