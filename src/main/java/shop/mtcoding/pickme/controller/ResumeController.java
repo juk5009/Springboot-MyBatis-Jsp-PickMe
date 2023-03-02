@@ -40,9 +40,7 @@ public class ResumeController {
     private HttpSession session;
 
     @PostMapping("/saveResume")
-    public @ResponseBody ResponseEntity<?> saveResume(
-            @RequestBody @RequestParam(value = "my-userskill-btn-check", required = false) List<String> checkboxList,
-            ResumeSaveReqDto resumeSaveReqDto) {
+    public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -86,7 +84,7 @@ public class ResumeController {
         }
 
         resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId());
-        userskillService.보유기술작성(checkboxList);
+
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
 
     }
