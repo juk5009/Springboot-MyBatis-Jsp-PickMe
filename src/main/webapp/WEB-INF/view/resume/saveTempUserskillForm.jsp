@@ -75,13 +75,13 @@
       crossorigin="anonymous"></script>
     <script src="form-validation.js"></script>
 
-    <!-- <script>
+   <script>
       var checkedValues = [];
       $('input:checkbox[name=my-userskill-btn-check]:checked').each(function (index) {
         checkedValues.push($(this).val());
       });
       console.log(checkedValues);
-    </script> -->
+    </script> 
 
     
     <script>

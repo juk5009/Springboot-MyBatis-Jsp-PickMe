@@ -135,7 +135,7 @@
                 <label class="btn btn-outline-primary" name="userskillName" value="Jsp" for="btncheck4">Jsp</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
-                <label class="btn btn-outline-primary" name="muserskillName" value="React" for="btncheck5">React</label>
+                <label class="btn btn-outline-primary" name="userskillName" value="React" for="btncheck5">React</label>
 
                 <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
                 <label class="btn btn-outline-primary" name="userskillName" value="Flutter" for="btncheck6">Flutter</label>
@@ -161,12 +161,15 @@
 
 <!-- 이력서 스크립트 -->
 <script>
-  function saveResume() {
-    let checkboxList = $('input[name="userskillName"]:checked').map(function(){
-        return $(this).val();
-    }).get();
 
-    console.log(checkboxList);
+  
+  function saveResume() {
+    
+    var checkedValues = [];
+      $('input:checkbox[name=userskillName]:checked').each(function (index) {
+        checkedValues.push($(this).val());
+      });
+
     let data = {
       "resumeName": $("#resumeName").val(),
       "resumeBirth": $("#resumeBirth").val(),
@@ -177,7 +180,7 @@
       "resumePhoneNumber": $("#resumePhoneNumber").val(),
       "resumeSex": $("#resumeSex").val(),
       "resumeContent": $("#resumeContent").val(),
-      "checkboxList": checkboxList
+      "checkedValues": checkedValues
     };
 
     $.ajax({
