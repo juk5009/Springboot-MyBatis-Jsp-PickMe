@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
@@ -37,9 +36,9 @@ public class ResumeController {
 
     @PostMapping("/saveResume")
     public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
-        String test = resumeSaveReqDto.getUserskillList();
+        String usSkill = resumeSaveReqDto.getUserskillList();
 
-        System.out.println("테스트11 : " + test);
+        System.out.println("테스트11 : " + usSkill);
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -83,7 +82,7 @@ public class ResumeController {
         }
         System.out.println("테스트22 : ");
 
-        // resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId(), uList);
+        resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId(), usSkill);
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
     }
 

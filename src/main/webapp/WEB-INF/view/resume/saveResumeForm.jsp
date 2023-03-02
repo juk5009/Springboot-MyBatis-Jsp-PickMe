@@ -168,16 +168,14 @@
 
  <script>
       function saveResume() {
-        // let checkedValues = $('input:checkbox[name=userskillName]:checked').map(function () {
-        //   return $(this).val();
-        // }).get();
-        // console.log(checkedValues);
+
         var checkedValues = [];
 
       $('input:checkbox[name=userskillName]:checked').each(function (index) {
         checkedValues.push($(this).val());
       });
       console.log(checkedValues);
+
       let value =checkedValues.join();
         
 

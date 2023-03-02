@@ -20,7 +20,7 @@ public interface ResumeRepository {
 
         public User findByUsername(@Param("username") String username);
 
-        public int insert(ResumeSaveReqDto resumeSaveReqDto);
+        public int insert(Resume resume);
 
         public int updateById(ResumeSaveReqDto resumeSaveReqDto);
 
