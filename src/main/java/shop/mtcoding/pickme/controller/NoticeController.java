@@ -33,34 +33,34 @@ public class NoticeController {
     private NoticeRepository noticeRepository;
 
     @PostMapping("/saveNotice")
-    public @ResponseBody ResponseEntity<?> resumeSave(@RequestBody NoticeSaveReqDto NoticeSaveReqDto) {
+    public @ResponseBody ResponseEntity<?> resumeSave(@RequestBody NoticeSaveReqDto noticeSaveReqDto) {
         Company comPrincipal = (Company) session.getAttribute("comPrincipal");
         if (comPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
-        if (NoticeSaveReqDto.getNoticeTitle() == null || NoticeSaveReqDto.getNoticeTitle().isEmpty()) {
+        if (noticeSaveReqDto.getNoticeTitle() == null || noticeSaveReqDto.getNoticeTitle().isEmpty()) {
             throw new CustomApiException("제목을 작성해주세요");
         }
-        if (NoticeSaveReqDto.getNoticeCareer() == null || NoticeSaveReqDto.getNoticeCareer().isEmpty()) {
+        if (noticeSaveReqDto.getNoticeCareer() == null || noticeSaveReqDto.getNoticeCareer().isEmpty()) {
             throw new CustomApiException("경력을 작성해주세요");
         }
-        if (NoticeSaveReqDto.getNoticePay() == null || NoticeSaveReqDto.getNoticePay().isEmpty()) {
+        if (noticeSaveReqDto.getNoticePay() == null || noticeSaveReqDto.getNoticePay().isEmpty()) {
             throw new CustomApiException("급여를 작성해주세요");
         }
-        if (NoticeSaveReqDto.getNoticeEmploytype() == null || NoticeSaveReqDto.getNoticeEmploytype().isEmpty()) {
+        if (noticeSaveReqDto.getNoticeEmploytype() == null || noticeSaveReqDto.getNoticeEmploytype().isEmpty()) {
             throw new CustomApiException("근무형태를 작성해주세요");
         }
-        if (NoticeSaveReqDto.getNoticeGrade() == null || NoticeSaveReqDto.getNoticeGrade().isEmpty()) {
+        if (noticeSaveReqDto.getNoticeGrade() == null || noticeSaveReqDto.getNoticeGrade().isEmpty()) {
             throw new CustomApiException("학력을 작성해주세요");
         }
-        if (NoticeSaveReqDto.getNoticeLocation() == null || NoticeSaveReqDto.getNoticeLocation().isEmpty()) {
+        if (noticeSaveReqDto.getNoticeLocation() == null || noticeSaveReqDto.getNoticeLocation().isEmpty()) {
             throw new CustomApiException("근무지역을 작성해주세요");
         }
-        if (NoticeSaveReqDto.getNoticeContent() == null || NoticeSaveReqDto.getNoticeContent().isEmpty()) {
+        if (noticeSaveReqDto.getNoticeContent() == null || noticeSaveReqDto.getNoticeContent().isEmpty()) {
             throw new CustomApiException("내용을 작성해주세요");
         }
 
-        noticeService.공고작성(NoticeSaveReqDto, comPrincipal.getId());
+        noticeService.공고작성(noticeSaveReqDto, comPrincipal.getId());
         return new ResponseEntity<>(new ResponseDto<>(1, "공고 작성 완료", null), HttpStatus.CREATED);
     }
 
