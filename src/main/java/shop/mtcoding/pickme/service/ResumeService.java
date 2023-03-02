@@ -1,9 +1,12 @@
 package shop.mtcoding.pickme.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.UserskillSaveReqDto;
@@ -18,7 +21,7 @@ public class ResumeService {
     private ResumeRepository resumeRepository;
 
     @Transactional
-    public void 이력서작성(ResumeSaveReqDto resumeSaveReqDto, int principalId) {
+    public void 이력서작성(ResumeSaveReqDto resumeSaveReqDto, int principalId, @RequestParam(value = "userskillName", required = false) List<String> checkboxList) {
         resumeSaveReqDto.setUserId(principalId);
 
         int result = resumeRepository.insert(resumeSaveReqDto);
