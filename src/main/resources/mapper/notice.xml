@@ -4,6 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="shop.mtcoding.pickme.model.NoticeRepository">
+    <select id="findAllWithCompany" resultType="shop.mtcoding.pickme.dto.notice.NoticeResp$NoticeMainRespDto">
+        select nt.id, ct.company_name, nt.notice_title
+        from notice_tb nt
+        inner join company_tb ct
+        on nt.company_id = ct.id
+    </select>
+
 
     <select id="findByCompanyIdWithNotice" resultType="shop.mtcoding.pickme.dto.notice.NoticeReq$NoticeSaveReqDto">
         select nt.notice_title, nt.notice_career, nt.notice_pay, nt.notice_employtype, nt.notice_grade, nt.notice_location, nt.notice_content

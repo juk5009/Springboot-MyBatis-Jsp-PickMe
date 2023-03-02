@@ -10,4 +10,21 @@ public class Script {
         return sb.toString();
     }
 
+    public static String href(String msg, String path) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("<script>");
+        sb.append("alert('" + msg + "');");
+        sb.append("location.href = '" + path + "';");
+        sb.append("</script>");
+        return sb.toString();
+    }
+
+    public static String href(String path) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("<script>");
+        sb.append("location.href = '" + path + "';");
+        sb.append("</script>");
+        return sb.toString();
+    }
+
 }

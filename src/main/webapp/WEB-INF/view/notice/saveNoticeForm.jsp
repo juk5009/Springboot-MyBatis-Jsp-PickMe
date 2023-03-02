@@ -18,7 +18,6 @@
         <div id="my-saveNoticeForm-content-box-2" class="container">
           <div class="col-md-7 col-lg-6 justify-content-center">
             <h4 class="mb-3 ">공고 정보</h4>
-
             <form id="my-saveNoticeForm-content-form-1" novalidate>
 
               <div class="row g-3">
@@ -178,6 +177,49 @@
         height: 400
       });
     </script>
+
+    <script>
+            
+            function updateImage() {
+                let profileForm = $("#profileForm")[0];
+                let formData = new FormData(profileForm);
+
+                $.ajax({
+                    type: "put",
+                    url: "/user/profileUpdate",
+                    data: formData,
+                    contentType: false, 
+                    processData: false, 
+                    enctype: "multipart/form-data",
+                    dataType: "json" 
+                }).done((res) => { 
+                    alert(res.msg);
+                    location.href = "";
+                }).fail((err) => { 
+                    alert(err.responseJSON.msg);
+                });
+            }
+
+            function chooseImage(obj) {
+                
+                let f = obj.files[0];
+
+                if (!f.type.match("image.*")) {
+                    alert("이미지를 등록해야 합니다.");
+                    return;
+                }
+
+                let reader = new FileReader();
+                reader.readAsDataURL(f);
+
+                
+                reader.onload = function (e) {
+                    console.log(e);
+                    console.log(e.target.result);
+                    $("#imagePreview").attr("src", e.target.result);
+                }
+            }
+        </script>
     <!-- 공고작성 스크립트 끝 -->
 
     <%@ include file="../layout/footer.jsp" %>

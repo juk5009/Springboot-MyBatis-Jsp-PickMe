@@ -249,6 +249,11 @@
   border-radius: 0px;
 }
 
+.description {
+  color: #000;
+
+}
+
 .featured-services .card {
   position: relative;
   overflow: hidden;
