@@ -96,5 +96,5 @@ public class ResumeController {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
     }
-
+    
 }
