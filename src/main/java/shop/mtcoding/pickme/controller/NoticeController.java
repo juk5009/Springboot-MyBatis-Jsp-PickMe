@@ -33,7 +33,7 @@ public class NoticeController {
     private NoticeRepository noticeRepository;
 
     @PostMapping("/saveNotice")
-    public @ResponseBody ResponseEntity<?> resumeSave(@RequestBody NoticeSaveReqDto NoticeSaveReqDto) {
+    public @ResponseBody ResponseEntity<?> noticeSave(@RequestBody NoticeSaveReqDto NoticeSaveReqDto) {
         Company comPrincipal = (Company) session.getAttribute("comPrincipal");
         if (comPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);

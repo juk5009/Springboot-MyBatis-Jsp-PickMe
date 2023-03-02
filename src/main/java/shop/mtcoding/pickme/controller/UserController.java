@@ -1,5 +1,7 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
+import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserLoginReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
+import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.UserRepository;
 import shop.mtcoding.pickme.service.UserService;
@@ -30,6 +34,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private NoticeRepository noticeRepository;
 
     @Autowired
     private UserService userService;
@@ -97,7 +104,9 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+        List<NoticeMainRespDto> a = noticeRepository.findAllWithCompany();
+        model.addAttribute("dtos", a);
         return "user/main";
     }
 

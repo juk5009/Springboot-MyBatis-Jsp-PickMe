@@ -10,21 +10,21 @@ import shop.mtcoding.pickme.dto.user.UserReq.UserLoginReqDto;
 
 @Mapper
 public interface UserRepository {
-    public int insert(UserJoinReqDto userJoinReqDto);
+        public int insert(UserJoinReqDto userJoinReqDto);
 
-    public int updateById(@Param("id") int id, @Param("userName") String userName,
-            @Param("userPassword") String userPassword, @Param("userEmail") String userEmail);
+        public int updateById(@Param("id") int id, @Param("userName") String userName,
+                        @Param("userPassword") String userPassword, @Param("userEmail") String userEmail);
 
-    public int deleteById(int id);
+        public int deleteById(int id);
 
-    public List<User> findAll();
+        public List<User> findAll();
 
-    public User findById(int id);
+        public User findById(int id);
 
-    public User findByUsernameAndPassword(UserLoginReqDto userLoginReqDto);
+        public User findByUsernameAndPassword(UserLoginReqDto userLoginReqDto);
 
-    public int updateUserProfile(@Param("id") int id, @Param("userName") String userName,
-            @Param("userPassword") String userPassword, @Param("userEmail") String userEmail,
-            @Param("userProfile") String userProfile);
+        public int updateUserProfile(@Param("id") int id, @Param("userName") String userName,
+                        @Param("userPassword") String userPassword, @Param("userEmail") String userEmail,
+                        @Param("userProfile") String userProfile);
 
 }

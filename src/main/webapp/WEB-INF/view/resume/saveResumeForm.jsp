@@ -181,7 +181,7 @@
 
     $.ajax({
       type: "post",
-      url: "/saveResume/",
+      url: "/saveResume",
       data: JSON.stringify(data),
       contentType: "application/json; charset=utf-8",
       dataType: "json"

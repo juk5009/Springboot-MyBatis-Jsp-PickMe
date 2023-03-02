@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
+import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
 
 @Mapper
 public interface NoticeRepository {
@@ -20,5 +21,7 @@ public interface NoticeRepository {
     public List<Notice> findAll();
 
     public Notice findById(int id);
+
+    public List<NoticeMainRespDto> findAllWithCompany();
 
 }

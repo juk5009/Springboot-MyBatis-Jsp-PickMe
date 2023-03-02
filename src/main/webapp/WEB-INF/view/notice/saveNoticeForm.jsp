@@ -18,7 +18,25 @@
         <div id="my-saveNoticeForm-content-box-2" class="container">
           <div class="col-md-7 col-lg-6 justify-content-center">
             <h4 class="mb-3 ">공고 정보</h4>
+            
 
+            <div class="my-profile-body">
+            <div class="container my-3 my-profile">
+                <h2 class="text-center my-profile-h2">회사마크</h2>
+                
+                <form action="/user/userProfileUpdate" method="post" enctype="multipart/form-data">
+                    <div class="form-group my-profile-form-group">
+                        <img src="${userProfile.userProfile == null ? '/images/profile.jfif' : userProfile.userProfile}"
+                            alt="Current Photo" class="img-fluid" id="imagePreview">
+                    </div>
+                    <div class="form-group my-profile-form-group">
+                        <input type="file" class="form-control" id="userProfile" name="userProfile"
+                            onchange="chooseImage(this)">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">사진변경</button>
+                </form>
+            </div>
+        </div>
             <form id="my-saveNoticeForm-content-form-1" novalidate>
 
               <div class="row g-3">
