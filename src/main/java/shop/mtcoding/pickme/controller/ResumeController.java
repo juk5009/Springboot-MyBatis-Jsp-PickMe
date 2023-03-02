@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
@@ -35,9 +36,10 @@ public class ResumeController {
     private HttpSession session;
 
     @PostMapping("/saveResume")
-    public @ResponseBody ResponseEntity<?> saveResume(
-            @RequestBody(required = false) ResumeSaveReqDto resumeSaveReqDto) {
+    public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
+        String test = resumeSaveReqDto.getUserskillList();
 
+        System.out.println("테스트11 : " + test);
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -79,11 +81,10 @@ public class ResumeController {
                 resumeSaveReqDto.getResumeContent().isEmpty()) {
             throw new CustomApiException("자기소개서를 작성해주세요");
         }
+        System.out.println("테스트22 : ");
 
-        resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId());
-        resumeService.보유기술작성(resumeSaveReqDto);
+        // resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId(), uList);
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
-
     }
 
     @GetMapping("/resume/saveResumeForm")

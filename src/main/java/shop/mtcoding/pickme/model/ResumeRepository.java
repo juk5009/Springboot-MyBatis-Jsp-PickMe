@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
-import shop.mtcoding.pickme.dto.resume.ResumeReq.UserskillSaveReqDto;
 
 @Mapper
 public interface ResumeRepository {
@@ -22,8 +21,6 @@ public interface ResumeRepository {
         public User findByUsername(@Param("username") String username);
 
         public int insert(ResumeSaveReqDto resumeSaveReqDto);
-
-        public int insertUserskill(UserskillSaveReqDto userskillSaveReqDto);
 
         public int updateById(ResumeSaveReqDto resumeSaveReqDto);
 

@@ -10,8 +10,8 @@ public class ResumeReq {
     @Getter
     @Setter
     public static class ResumeSaveReqDto {
+        private Integer id;
         private Integer userId;
-        private Integer resumeId;
         private String resumeName;
         private String resumeBirth;
         private String resumeEmail;
@@ -21,14 +21,6 @@ public class ResumeReq {
         private String resumePhoneNumber;
         private String resumeSex;
         private String resumeContent;
-        private List<String> userskillName;
+        private String userskillList;
     }
-
-    @Getter
-    @Setter
-    public static class UserskillSaveReqDto {
-        private Integer resumeId;
-        private String userskillName;
-    }
-
 }

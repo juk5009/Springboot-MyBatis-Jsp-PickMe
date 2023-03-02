@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto.UserskillSaveReqDto;
+import shop.mtcoding.pickme.dto.userskill.UserskillReqDto.UserskillSaveReqDto;
 
 @MybatisTest
 public class UserskillRepositoryTest {
 
     @Autowired
-    private ResumeRepository resumeRepository;
+    private UserskillRespository userskillRespository;
 
     @Test
     public void insert_test() throws Exception {
@@ -28,7 +28,7 @@ public class UserskillRepositoryTest {
 
         ObjectMapper om = new ObjectMapper();
         // when
-        int result = resumeRepository.insertUserskill(userskillSaveReqDto);
+        int result = userskillRespository.insert(userskillSaveReqDto.getResumeId(), userskillSaveReqDto.getUserskillName());
         String responseBody = om.writeValueAsString(result);
         System.out.println("테스트 : " + responseBody);
 
