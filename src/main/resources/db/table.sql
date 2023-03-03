@@ -10,6 +10,7 @@ CREATE TABLE user_tb(
 CREATE TABLE company_tb( 
     id int auto_increment primary key,
 	company_name varchar not null,
+	company_name varchar not null,
 	company_password varchar not null,	
 	company_email varchar not null,
     company_profile varchar,
@@ -50,7 +51,7 @@ CREATE TABLE apply_tb(
 CREATE TABLE resume_tb(
     id int auto_increment primary key,
 	user_id int not null,
-	resume_name varchar not null,
+	resume_resumename varchar not null,
 	resume_birth varchar,
 	resume_email varchar not null,
 	resume_address varchar(100) not null, 

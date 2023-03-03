@@ -11,7 +11,7 @@ import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 public class Resume {
     private Integer id;
     private Integer userId;
-    private String resumeName;
+    private String resumeResumename;
     private String resumeBirth;
     private String resumeEmail;
     private String resumeAddress;
@@ -25,7 +25,7 @@ public class Resume {
 
     public Resume(ResumeSaveReqDto resumeSaveReqDto) {
         this.userId = resumeSaveReqDto.getUserId();
-        this.resumeName = resumeSaveReqDto.getResumeName();
+        this.resumeResumename = resumeSaveReqDto.getResumeResumename();
         this.resumeBirth = resumeSaveReqDto.getResumeBirth();
         this.resumeEmail = resumeSaveReqDto.getResumeEmail();
         this.resumeAddress = resumeSaveReqDto.getResumeAddress();
