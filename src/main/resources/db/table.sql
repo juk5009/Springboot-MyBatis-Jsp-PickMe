@@ -10,7 +10,7 @@ CREATE TABLE user_tb(
 CREATE TABLE company_tb( 
     id int auto_increment primary key,
 	company_name varchar not null,
-	company_name varchar not null,
+	-- company_name varchar not null,
 	company_password varchar not null,	
 	company_email varchar not null,
     company_profile varchar,
