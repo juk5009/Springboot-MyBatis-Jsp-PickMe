@@ -5,6 +5,23 @@
 
             <div class="my-companyMyPage-box">
                 <h1>기업 마이페이지</h1>
+                div class="my-profile-body">
+            <div class="container my-3 my-profile">
+                <h2 class="text-center my-profile-h2">기업 프로필 사진 변경 페이지</h2>
+                
+                <form action="/company/companyProfileUpdate" method="post" enctype="multipart/form-data">
+                    <div class="form-group my-profile-form-group">
+                        <img src="${companyProfile.companyProfile == null ? '/images/profile.jfif' : companyProfile.companyProfile}"
+                            alt="Current Photo" class="img-fluid" id="imagePreview">
+                    </div>
+                    <div class="form-group my-profile-form-group">
+                        <input type="file" class="form-control" id="companyProfile" name="companyProfile"
+                            onchange="chooseImage(this)">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">사진변경</button>
+                </form>
+            </div>
+        </div>
 
                 <form>
                     <div class="my-mypage-box">

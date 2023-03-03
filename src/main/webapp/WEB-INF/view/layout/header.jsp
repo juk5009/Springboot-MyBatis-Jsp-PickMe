@@ -92,7 +92,7 @@
                                 <li><button id="navbar-login" type="button" class="btn btn-sm"><a
                                             class="nav-link scrollto" href="/logout">로그아웃</a></button></li>
                                 <li class="my-header-name"><b>${comPrincipal.companyName}</b></li>
-                                <li><a href="/"><img src="/images/dora.png" alt="orange22"
+                                <li><a href="/company/${comPrincipal.id}/companyMyPage"><img src="${comPrincipal.companyProfile == null ? '/images/profile.jfif' : comPrincipal.companyProfile}"  alt="orange22"
                                             class="rounded-circle"
                                             style="height: 50px; width: 50px; border: 1px black;"></a>
                                 </li>
