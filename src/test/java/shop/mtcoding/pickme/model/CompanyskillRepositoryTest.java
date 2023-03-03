@@ -8,34 +8,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import shop.mtcoding.pickme.dto.companyskill.CompanyskillReqDto.CompanyskillSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 
 @MybatisTest
-public class NoticeRepositoryTest {
+public class CompanyskillRepositoryTest {
 
     @Autowired
-    private NoticeRepository noticeRepository;
+    private CompanyskillRepository companyskillRepository;
 
     @Test
     public void insert_test() throws Exception {
 
         // given
+        CompanyskillSaveReqDto companyskillSaveReqDto = new CompanyskillSaveReqDto();
         NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
-        noticeSaveReqDto.setCompanyId(1);
-        noticeSaveReqDto.setNoticeTitle("다다닥");
-        noticeSaveReqDto.setNoticeCareer("1년");
-        noticeSaveReqDto.setNoticeEmploytype("정규직");
-        noticeSaveReqDto.setNoticeGrade("학사");
-        noticeSaveReqDto.setNoticeLocation("서울");
-        noticeSaveReqDto.setNoticePay("5000");
-        noticeSaveReqDto.setNoticeContent("다다다닥");
         
-        Notice notice = new Notice(noticeSaveReqDto);
-        System.out.println("테스트 1 : " + noticeSaveReqDto.getNoticeContent());
+        companyskillSaveReqDto.setNoticeId(1);
+        companyskillSaveReqDto.setCompanyskillName("java");
+        noticeSaveReqDto.setCompanyId(1);
+        
+        System.out.println("테스트 : " + companyskillSaveReqDto.getCompanyskillName());
 
         ObjectMapper om = new ObjectMapper();
         // when
-        int result = noticeRepository.insert(notice);
+        int result = companyskillRepository.insert(companyskillSaveReqDto.getNoticeId(), noticeSaveReqDto.getCompanyId(), companyskillSaveReqDto.getCompanyskillName());
         String responseBody = om.writeValueAsString(result);
         System.out.println("테스트 : " + responseBody);
 

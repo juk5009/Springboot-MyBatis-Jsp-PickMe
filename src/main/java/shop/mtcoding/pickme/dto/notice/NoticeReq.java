@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class NoticeReq {
+
     @Getter
     @Setter
     public static class NoticeSaveReqDto {
+        private Integer id;
         private Integer companyId;
         private String noticeTitle;
         private String noticeCareer;
@@ -15,6 +17,6 @@ public class NoticeReq {
         private String noticeGrade;
         private String noticeLocation;
         private String noticeContent;
+        private String companyskillList;
     }
-
 }
