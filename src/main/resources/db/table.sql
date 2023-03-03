@@ -65,6 +65,7 @@ CREATE TABLE resume_tb(
 CREATE TABLE companyskill_tb(
     id int auto_increment primary key,
 	notice_id int,
+    company_id int,
     companyskill_name varchar,
     created_at timestamp not null
 );

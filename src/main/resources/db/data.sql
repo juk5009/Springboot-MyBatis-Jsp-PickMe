@@ -24,8 +24,8 @@ INSERT INTO resume_tb(user_id, resume_name, resume_birth, resume_email, resume_a
 INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values('1', '1', 'java', now());
 INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values('2', '2', 'javaScript', now());
 
-INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('2', 'spirng', now());
-INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('1', 'React', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('1', '1', 'React', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '2', 'spirng', now());
 
 commit;
 
