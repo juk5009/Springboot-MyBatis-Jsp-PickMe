@@ -22,7 +22,7 @@ public class ResumeRepositoryTest {
         // given
         ResumeSaveReqDto resumeSaveReqDto = new ResumeSaveReqDto();
         resumeSaveReqDto.setUserId(1);
-        resumeSaveReqDto.setResumeName("홍길동");
+        resumeSaveReqDto.setResumeResumename("홍길동");
         resumeSaveReqDto.setResumeBirth("1997-02-10");
         resumeSaveReqDto.setResumeEmail("hong@nate.com");
         resumeSaveReqDto.setResumeAddress("부산 사상");

@@ -10,7 +10,6 @@ CREATE TABLE user_tb(
 CREATE TABLE company_tb( 
     id int auto_increment primary key,
 	company_name varchar not null,
-	-- company_name varchar not null,
 	company_password varchar not null,	
 	company_email varchar not null,
     company_profile varchar,
@@ -31,6 +30,7 @@ CREATE TABLE companyinfo_tb(
 CREATE TABLE notice_tb( 
     id int auto_increment primary key,
 	company_id int,
+    notice_companyname varchar not null,
     notice_title varchar not null,
 	notice_employtype varchar not null,
 	notice_location varchar not null,
