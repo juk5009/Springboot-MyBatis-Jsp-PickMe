@@ -3,15 +3,12 @@ package shop.mtcoding.pickme.model;
 import java.sql.Timestamp;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 
-@NoArgsConstructor
 @Setter
 @Getter
 public class Notice {
-
     private Integer id;
     private Integer companyId;
     private String noticeTitle;
@@ -34,8 +31,4 @@ public class Notice {
         this.noticeLocation = NoticeSaveReqDto.getNoticeLocation();
         this.noticeContent = NoticeSaveReqDto.getNoticeContent();
     }
-
-
-    
-
 }

@@ -18,7 +18,7 @@
         <div id="my-saveNoticeForm-content-box-2" class="container">
           <div class="col-md-7 col-lg-6 justify-content-center">
             <h4 class="mb-3 ">공고 정보</h4>
-            <form id="my-saveNoticeForm-content-form-1" novalidate>
+            <form id="my-saveNoticeForm-content-form-1" >
 
               <div class="row g-3">
 
@@ -103,22 +103,27 @@
                 <small>요구하는 기술을 선택</small>
 
                 <div class="my-saveNoticeForm-skill-box-1 d-flex">
-                  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                  <input type="checkbox" class="btn-check" id="btncheck1" name="companyskillName" value="Java"
+                    autocomplete="off">
                   <label class="btn btn-outline-primary" for="btncheck1">Java</label>
 
-                  <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                  <input type="checkbox" class="btn-check" id="btncheck2" name="companyskillName" value="JavaScript"
+                    autocomplete="off">
                   <label class="btn btn-outline-primary" for="btncheck2">JavaScript</label>
 
-                  <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                  <input type="checkbox" class="btn-check" id="btncheck3" name="companyskillName" value="Spring"
+                    autocomplete="off">
                   <label class="btn btn-outline-primary" for="btncheck3">Spring</label>
 
-                  <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck4">Jsp</label>
+                  <input type="checkbox" class="btn-check" id="btncheck4" name="companyskillName" value="Jsp" autocomplete="off">
+                  <label class="btn btn-outline-primary"  for="btncheck4">Jsp</label>
 
-                  <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                  <input type="checkbox" class="btn-check" id="btncheck5" name="companyskillName" value="React"
+                    autocomplete="off">
                   <label class="btn btn-outline-primary" for="btncheck5">React</label>
 
-                  <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="on">
+                  <input type="checkbox" class="btn-check" id="btncheck6" name="companyskillName" value="Flutter"
+                    autocomplete="off">
                   <label class="btn btn-outline-primary" for="btncheck6">Flutter</label>
                 </div>
                 <hr class="my-4">
@@ -144,6 +149,16 @@
 
     <script>
       function saveNotice() {
+
+      var checkedValues2 = [];
+
+      $('input:checkbox[name=companyskillName]:checked').each(function (index) {
+        checkedValues2.push($(this).val());
+      });
+     
+      console.log(checkedValues2);
+      let checkBoxValue =checkedValues2.join();
+
         let data = {         
           "noticeTitle": $("#noticeTitle").val(),
           "noticeCareer": $("#noticeCareer").val(),
@@ -152,7 +167,7 @@
           "noticeGrade": $("#noticeGrade").val(),
           "noticeLocation": $("#noticeLocation").val(),
           "noticeContent": $("#noticeContent").val(),
-         
+          "companyskillList": checkBoxValue
         };
 
         $.ajax({
