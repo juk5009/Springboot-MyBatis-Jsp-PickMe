@@ -72,7 +72,7 @@
             <c:forEach items="${noticeMainList}" var="noticeMain">
               <div class="col-md-6 col-lg-3 mb-5">
                 <div class="card" data-aos="fade-up" data-aos-delay="200">
-                  <img src="/images/lg.jpg" class="card-img-top" style="object-fit: cover; height: 55%;" alt=" lg">
+                  <img src="${noticeMain.companyProfile}" class="card-img-top" style="object-fit: cover; height: 55%;" alt=" lg">
                   <a href="/notice/${noticeMain.id}">
                     <div class="card-body">
                       <h5 class="card-title description" style="font-size: 24px;">${noticeMain.noticeNoticename}</h5><br>
