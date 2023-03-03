@@ -13,6 +13,7 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.CompanyRepository;
+import shop.mtcoding.pickme.util.PathUtil;
 
 @Service
 public class CompanyService {
@@ -54,7 +55,15 @@ public class CompanyService {
 
     }
 
-    public Company 유저프로필사진수정(MultipartFile companyProfile, Integer id) {
-        return null;
+    @Transactional
+    public Company 유저프로필사진수정(MultipartFile companyProfile, Integer comPrincipalId) {
+        String uuidImageName = PathUtil.writeImageFile(companyProfile);
+
+        Company comPS = companyRepository.findById(comPrincipalId);
+        comPS.setCompanyProfile(uuidImageName);
+        companyRepository.updateCompanyProfile(comPS.getId(), comPS.getCompanyName(), comPS.getCompanyPassword(),
+                comPS.getCompanyEmail(),
+                comPS.getCompanyProfile());
+        return comPS;
     }
 }
