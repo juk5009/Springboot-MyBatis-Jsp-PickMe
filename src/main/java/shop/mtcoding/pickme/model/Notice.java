@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 
 @NoArgsConstructor
 @Setter
@@ -21,5 +22,20 @@ public class Notice {
     private String noticeLocation;
     private String noticeContent;
     private Timestamp createdAt;
+
+
+    public Notice(NoticeSaveReqDto NoticeSaveReqDto) {
+        this.companyId = NoticeSaveReqDto.getCompanyId();
+        this.noticeTitle = NoticeSaveReqDto.getNoticeTitle();
+        this.noticeCareer = NoticeSaveReqDto.getNoticeCareer();
+        this.noticePay = NoticeSaveReqDto.getNoticePay();
+        this.noticeEmploytype = NoticeSaveReqDto.getNoticeEmploytype();
+        this.noticeGrade = NoticeSaveReqDto.getNoticeGrade();
+        this.noticeLocation = NoticeSaveReqDto.getNoticeLocation();
+        this.noticeContent = NoticeSaveReqDto.getNoticeContent();
+    }
+
+
+    
 
 }
