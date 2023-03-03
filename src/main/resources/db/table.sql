@@ -12,7 +12,7 @@ CREATE TABLE company_tb(
 	company_name varchar not null,
 	company_password varchar not null,	
 	company_email varchar not null,
-    -- company_profile varchar,
+    company_profile varchar,
 	created_at timestamp not null
 );
 
