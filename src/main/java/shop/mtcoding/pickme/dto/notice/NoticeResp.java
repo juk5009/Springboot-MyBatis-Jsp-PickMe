@@ -11,6 +11,6 @@ public class NoticeResp {
         private int id;
         private String noticeNoticename;
         private String noticeTitle;
-        private String companyName;
+        private String companyProfile;
     }
 }

@@ -11,11 +11,12 @@ import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
 public interface NoticeRepository {
 
     public NoticeSaveReqDto findByCompanyIdWithNotice(int id);
+
     public List<Notice> findAll();
 
     public Notice findById(int id);
 
-    public List<NoticeMainRespDto> findAllWithCompany();
+    public List<NoticeMainRespDto> findMainList();
 
     public int insert(Notice notice);
 

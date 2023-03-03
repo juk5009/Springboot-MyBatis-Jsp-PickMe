@@ -2,9 +2,9 @@ INSERT INTO user_tb(user_name, user_password, user_email, created_at) values('ss
 INSERT INTO user_tb(user_name, user_password, user_email, created_at) values('bori', '1234', 'bori@nate.com', now());
 INSERT INTO user_tb(user_name, user_password, user_email, created_at) values('juho', '1234', 'joho@gmail.com', now());
 
-INSERT INTO company_tb(company_name, company_password, company_email, created_at) values('samsung', '1234', 'samsung@gmail.com', now());
-INSERT INTO company_tb(company_name, company_password, company_email, created_at) values('lg', '1234', 'lg@gmail.com', now());
-INSERT INTO company_tb(company_name, company_password, company_email, created_at) values('green', '1234', 'green@gmail.com', now());
+INSERT INTO company_tb(company_name, company_password, company_email, company_profile, created_at) values('samsung', '1234', 'samsung@gmail.com', '/images/samsung.png', now());
+INSERT INTO company_tb(company_name, company_password, company_email, company_profile, created_at) values('lg', '1234', 'lg@gmail.com', '/images/lg.png', now());
+INSERT INTO company_tb(company_name, company_password, company_email, company_profile, created_at) values('green', '1234', 'green@gmail.com', '/images/samsung.png', now());
 
 INSERT INTO companyinfo_tb(company_id, builddate, salemoney, owner_name, companyinfo_adress, employees, created_at) values('1', '2003년 2월 23일', '178억', '김민수', '부산광역시 북구 덕천동', '530명', now());
 INSERT INTO companyinfo_tb(company_id, builddate, salemoney, owner_name, companyinfo_adress, employees, created_at) values('1', '1997년 7월 25일', '802억', '임민수', '부산광역시 연제구 연산동', '730명', now());
