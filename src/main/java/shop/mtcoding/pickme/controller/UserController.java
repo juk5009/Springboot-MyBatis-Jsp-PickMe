@@ -139,8 +139,8 @@ public class UserController {
             throw new CustomException("해당정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
         model.addAttribute("user", userPS);
-        User userPropilePS = userRepository.findById(principal.getId());
-        model.addAttribute("userProfile", userPropilePS);
+        User userProfilePS = userRepository.findById(principal.getId());
+        model.addAttribute("userProfile", userProfilePS);
         return "user/userMyPage";
     }
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
@@ -88,6 +89,8 @@ public class CompanyController {
             throw new CustomException("기업정보를 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
         model.addAttribute("company", companyPS);
+        Company companyProfilePS = companyRepository.findById(comprincipal.getId());
+        model.addAttribute("companyProfile", companyProfilePS);
         return "company/companyMyPage";
     }
 
@@ -109,6 +112,21 @@ public class CompanyController {
         }
         companyService.기업정보수정(id, companyMypageReqDto, comprincipal.getId());
         return new ResponseEntity<>(new ResponseDto<>(1, "기업정보수정성공", null), HttpStatus.OK);
+    }
+
+    @PostMapping("/company/companyProfileUpdate")
+    public String companyProfileUpdate(MultipartFile companyProfile) {
+        Company comPrincipal = (Company) session.getAttribute("comPrincipal");
+        if (comPrincipal == null) {
+            return "redirect:/loginForm";
+        }
+        if (companyProfile.isEmpty()) {
+            throw new CustomException("사진이 전송되지 않았습니다");
+        }
+        Company comPS = companyService.유저프로필사진수정(companyProfile, comPrincipal.getId());
+        session.setAttribute("comPrincipal", comPS);
+
+        return "redirect:/";
     }
 
 }
