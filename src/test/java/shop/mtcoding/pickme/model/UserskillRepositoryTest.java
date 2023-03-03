@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.userskill.UserskillReqDto.UserskillSaveReqDto;
 
 @MybatisTest
@@ -21,14 +22,18 @@ public class UserskillRepositoryTest {
 
         // given
         UserskillSaveReqDto userskillSaveReqDto = new UserskillSaveReqDto();
+        ResumeSaveReqDto resumeSaveReqDto = new ResumeSaveReqDto();
+        
         userskillSaveReqDto.setResumeId(1);
         userskillSaveReqDto.setUserskillName("java");
+        resumeSaveReqDto.setUserId(1);
 
+        Userskill userskill = new Userskill(resumeSaveReqDto);
         System.out.println("테스트 : " + userskillSaveReqDto.getUserskillName());
 
         ObjectMapper om = new ObjectMapper();
         // when
-        int result = userskillRespository.insert(userskillSaveReqDto.getResumeId(), userskillSaveReqDto.getUserskillName());
+        int result = userskillRespository.insert(userskillSaveReqDto.getResumeId(), resumeSaveReqDto.getUserId(), userskillSaveReqDto.getUserskillName());
         String responseBody = om.writeValueAsString(result);
         System.out.println("테스트 : " + responseBody);
 
