@@ -34,6 +34,7 @@ public class NoticeController {
 
     @PostMapping("/saveNotice")
     public @ResponseBody ResponseEntity<?> resumeSave(@RequestBody NoticeSaveReqDto noticeSaveReqDto) {
+        String comSkill = noticeSaveReqDto.getCompanyskillList();
         Company comPrincipal = (Company) session.getAttribute("comPrincipal");
         if (comPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -60,7 +61,7 @@ public class NoticeController {
             throw new CustomApiException("내용을 작성해주세요");
         }
 
-        noticeService.공고작성(noticeSaveReqDto, comPrincipal.getId());
+        noticeService.공고작성(noticeSaveReqDto, comPrincipal.getId(), comSkill);
         return new ResponseEntity<>(new ResponseDto<>(1, "공고 작성 완료", null), HttpStatus.CREATED);
     }
 

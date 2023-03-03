@@ -12,7 +12,7 @@ public interface NoticeRepository {
 
     public NoticeSaveReqDto findByCompanyIdWithNotice(int id);
 
-    public int insert(NoticeSaveReqDto noticeSaveReqDto);
+    public int insert(Notice notice);
 
     public int updateById(Notice notice);
 
