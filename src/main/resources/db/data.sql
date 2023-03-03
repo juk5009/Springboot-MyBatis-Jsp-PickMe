@@ -21,8 +21,8 @@ INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '1', now());
 INSERT INTO resume_tb(user_id, resume_name, resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values('1', '안정훈', '1997-03-15', 'an@nate.com', '부산광역시 북구 덕천동', '부산', '학사', '01011112222', '남', '나', now());
 INSERT INTO resume_tb(user_id, resume_name, resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values('2', '김정욱', '1994-09-15', 'kj@nate.com', '부산광역시 해운대구', '부산', '석사', '0101841532', '남', '너', now());
 
-INSERT INTO userskill_tb(resume_id, userskill_name, created_at) values('1', 'java', now());
-INSERT INTO userskill_tb(resume_id, userskill_name, created_at) values('2', 'javaScript', now());
+INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values('1', '1', 'java', now());
+INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values('2', '2', 'javaScript', now());
 
 INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('2', 'spirng', now());
 INSERT INTO companyskill_tb(notice_id, companyskill_name, created_at) values('1', 'React', now());

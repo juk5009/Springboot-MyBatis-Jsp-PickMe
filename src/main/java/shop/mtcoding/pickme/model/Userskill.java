@@ -12,12 +12,14 @@ import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 public class Userskill {
     private Integer id;
     private Integer resumeId;
+    private Integer userId;
     private String userskillName;
     private Timestamp createdAt;
 
     public Userskill(ResumeSaveReqDto resumeSaveReqDto) {
         this.userskillName = resumeSaveReqDto.getUserskillList();
         this.resumeId = resumeSaveReqDto.getId();
+        this.userId = resumeSaveReqDto.getUserId();
     }
 
 }

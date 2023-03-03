@@ -38,7 +38,6 @@ public class ResumeController {
     public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
         String usSkill = resumeSaveReqDto.getUserskillList();
 
-        System.out.println("테스트11 : " + usSkill);
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -80,7 +79,6 @@ public class ResumeController {
                 resumeSaveReqDto.getResumeContent().isEmpty()) {
             throw new CustomApiException("자기소개서를 작성해주세요");
         }
-        System.out.println("테스트22 : ");
 
         resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId(), usSkill);
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);

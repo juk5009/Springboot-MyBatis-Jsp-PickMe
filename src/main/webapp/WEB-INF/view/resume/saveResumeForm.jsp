@@ -87,12 +87,12 @@
 
                 <div class="my-3 d-flex">
                   <div class="my-resumeForm-sex-male-box-1 form-check">
-                    <input id="resumeSex" name="resumeSex" type="radio" class="form-radio-input" default="on" required
+                    <input id="resumeSex" name="resumeSex" type="radio" value="남" class="form-radio-input" default="on" required
                       checked>&nbsp;&nbsp;
                     <label class="form-radio-label" for="user-sex-male">남</label>
                   </div>
                   <div class="my-resumeForm-sex-female-box-1 form-check">
-                    <input id="resumeSex" name="resumeSex" type="radio" class="form-radio-input" required>&nbsp;&nbsp;
+                    <input id="resumeSex" name="resumeSex" type="radio" value="여" class="form-radio-input" required>&nbsp;&nbsp;
                     <label class="form-radio-label" for="user-sex-female">여</label>
                   </div>
                 </div>
@@ -174,11 +174,10 @@
       $('input:checkbox[name=userskillName]:checked').each(function (index) {
         checkedValues.push($(this).val());
       });
+     
       console.log(checkedValues);
-
-      let value =checkedValues.join();
+      let checkBoxValue =checkedValues.join();
         
-
         let data = {
           "resumeName": $("#resumeName").val(),
           "resumeBirth": $("#resumeBirth").val(),
@@ -187,9 +186,9 @@
           "resumeLocation": $("#resumeLocation").val(),
           "resumeGrade": $("#resumeGrade").val(),
           "resumePhoneNumber": $("#resumePhoneNumber").val(),
-          "resumeSex": $("#resumeSex").val(),
+          "resumeSex": $("input[name='resumeSex']:checked").val(),
           "resumeContent": $("#resumeContent").val(),
-          "userskillList": value
+          "userskillList": checkBoxValue
         };
 
         $.ajax({
