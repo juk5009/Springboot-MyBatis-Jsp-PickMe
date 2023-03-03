@@ -22,7 +22,7 @@
     </select>   
 
      <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO resume_tb(user_id, resume_name, resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values(#{userId}, #{resumeName}, #{resumeBirth},  #{resumeEmail}, #{resumeAddress}, #{resumeLocation}, #{resumeGrade}, #{resumePhoneNumber}, #{resumeSex}, #{resumeContent}, now())
+        INSERT INTO resume_tb(user_id, resume_resumename, resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values(#{userId}, #{resumeResumename}, #{resumeBirth},  #{resumeEmail}, #{resumeAddress}, #{resumeLocation}, #{resumeGrade}, #{resumePhoneNumber}, #{resumeSex}, #{resumeContent}, now())
     </insert>    
 
     <delete id="deleteById" >

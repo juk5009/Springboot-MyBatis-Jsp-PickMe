@@ -26,13 +26,20 @@
               <!-- 공고정보(제목) -->
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">제목</label>
-                <div>${noticeDto.noticeCareer}</div>
+                <div>${noticeDto.noticeTitle}</div>
     
               </div>
               
+              <!-- 공고정보(기업명) -->
+              <div class="col-sm-6">
+                <label for="noticeNoticename" class="form-label">기업명</label>
+                <div>${noticeDto.noticeNoticename}</div>
+    
+              </div>
+
               <!-- 공고정보(경력) -->
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">경력</label>
+                <label for="noticeCareer" class="form-label">경력</label>
                 <div>${noticeDto.noticeCareer}</div>
               </div>
             

@@ -11,6 +11,7 @@ import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 public class Notice {
     private Integer id;
     private Integer companyId;
+    private String noticeNoticename;
     private String noticeTitle;
     private String noticeCareer;
     private String noticePay;
@@ -23,6 +24,7 @@ public class Notice {
 
     public Notice(NoticeSaveReqDto NoticeSaveReqDto) {
         this.companyId = NoticeSaveReqDto.getCompanyId();
+        this.noticeNoticename = NoticeSaveReqDto.getNoticeNoticename();
         this.noticeTitle = NoticeSaveReqDto.getNoticeTitle();
         this.noticeCareer = NoticeSaveReqDto.getNoticeCareer();
         this.noticePay = NoticeSaveReqDto.getNoticePay();

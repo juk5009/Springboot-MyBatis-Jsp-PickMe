@@ -41,8 +41,8 @@ public class ResumeController {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
 
-        if (resumeSaveReqDto.getResumeName() == null ||
-                resumeSaveReqDto.getResumeName().isEmpty()) {
+        if (resumeSaveReqDto.getResumeResumename() == null ||
+                resumeSaveReqDto.getResumeResumename().isEmpty()) {
             throw new CustomApiException("이름을 작성해주세요");
         }
         if (resumeSaveReqDto.getResumeBirth() == null ||

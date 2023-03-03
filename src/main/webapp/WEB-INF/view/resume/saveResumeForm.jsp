@@ -25,7 +25,7 @@
                 <!-- 개인정보(이름) -->
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">이름</label>
-                  <input type="text" class="form-control" id="resumeName" name="resumeName" placeholder="ex) 홍길동"
+                  <input type="text" class="form-control" id="resumeResumename" name="resumeResumename" placeholder="ex) 홍길동"
                     value="" required>
 
                 </div>
@@ -179,7 +179,7 @@
       let checkBoxValue =checkedValues.join();
         
         let data = {
-          "resumeName": $("#resumeName").val(),
+          "resumeResumename": $("#resumeResumename").val(),
           "resumeBirth": $("#resumeBirth").val(),
           "resumeEmail": $("#resumeEmail").val(),
           "resumeAddress": $("#resumeAddress").val(),
