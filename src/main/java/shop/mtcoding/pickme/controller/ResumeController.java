@@ -19,7 +19,6 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.service.ResumeService;
-import shop.mtcoding.pickme.service.UserskillService;
 
 @Controller
 public class ResumeController {
@@ -31,13 +30,12 @@ public class ResumeController {
     private ResumeRepository resumeRepository;
 
     @Autowired
-    private UserskillService userskillService;
-
-    @Autowired
     private HttpSession session;
 
     @PostMapping("/saveResume")
     public @ResponseBody ResponseEntity<?> saveResume(@RequestBody ResumeSaveReqDto resumeSaveReqDto) {
+        String usSkill = resumeSaveReqDto.getUserskillList();
+
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
@@ -80,10 +78,8 @@ public class ResumeController {
             throw new CustomApiException("자기소개서를 작성해주세요");
         }
 
-        resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId());
-
+        resumeService.이력서작성(resumeSaveReqDto, userPrincipal.getId(), usSkill);
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
-
     }
 
     @GetMapping("/resume/saveResumeForm")
@@ -96,5 +92,5 @@ public class ResumeController {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
     }
-
+    
 }

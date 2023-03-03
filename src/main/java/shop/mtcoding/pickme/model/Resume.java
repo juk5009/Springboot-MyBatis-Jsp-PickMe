@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 
 @Setter
 @Getter
@@ -20,4 +21,19 @@ public class Resume {
     private String resumeSex;
     private String resumeContent;
     private Timestamp createdAt;
+    
+
+    public Resume(ResumeSaveReqDto resumeSaveReqDto) {
+        this.userId = resumeSaveReqDto.getUserId();
+        this.resumeName = resumeSaveReqDto.getResumeName();
+        this.resumeBirth = resumeSaveReqDto.getResumeBirth();
+        this.resumeEmail = resumeSaveReqDto.getResumeEmail();
+        this.resumeAddress = resumeSaveReqDto.getResumeAddress();
+        this.resumeLocation = resumeSaveReqDto.getResumeLocation();
+        this.resumeGrade = resumeSaveReqDto.getResumeGrade();
+        this.resumePhoneNumber = resumeSaveReqDto.getResumePhoneNumber();
+        this.resumeSex = resumeSaveReqDto.getResumeSex();
+        this.resumeContent = resumeSaveReqDto.getResumeContent();
+    }
+    
 };

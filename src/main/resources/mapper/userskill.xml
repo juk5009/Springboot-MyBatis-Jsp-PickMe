@@ -14,7 +14,7 @@
     </select>   
 
     <insert id="insert">
-        INSERT INTO userskill_tb(resume_id, userskill_name, created_at) values(#{resumeId}, #{userskillName}, now())
+        INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values(#{resumeId}, #{userId}, #{userskillName}, now())
     </insert>    
 
     <delete id="deleteById" >

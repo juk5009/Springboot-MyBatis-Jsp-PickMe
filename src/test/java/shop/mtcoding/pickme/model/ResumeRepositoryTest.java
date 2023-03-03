@@ -31,12 +31,13 @@ public class ResumeRepositoryTest {
         resumeSaveReqDto.setResumePhoneNumber("01055558888");
         resumeSaveReqDto.setResumeSex("남");
         resumeSaveReqDto.setResumeContent("너너넝");
-
+        
+        Resume resume = new Resume(resumeSaveReqDto);
         System.out.println("테스트2 pw : " + resumeSaveReqDto.getResumePhoneNumber());
 
         ObjectMapper om = new ObjectMapper();
         // when
-        int reuslt = resumeRepository.insert(resumeSaveReqDto);
+        int reuslt = resumeRepository.insert(resume);
         String responseBody = om.writeValueAsString(reuslt);
         System.out.println("테스트 : " + responseBody);
 

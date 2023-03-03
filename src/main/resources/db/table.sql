@@ -72,6 +72,7 @@ CREATE TABLE companyskill_tb(
 CREATE TABLE userskill_tb(
     id int auto_increment primary key,
 	resume_id int,
+    user_id int,
     userskill_name varchar,
     created_at timestamp not null
 );
