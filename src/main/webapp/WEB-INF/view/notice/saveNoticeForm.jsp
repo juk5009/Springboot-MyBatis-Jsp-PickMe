@@ -31,6 +31,16 @@
                   </div>
                 </div>
 
+                <!-- 공고정보(제목) -->
+                <div class="col-12">
+                  <label for="my-saveNoticeForm-noticeNoticename" class="form-label">기업명</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" name="noticeNoticename" id="noticeNoticename" value="" placeholder="기업명을 입력해주세요"
+                      required>
+                  </div>
+                </div>
+
+
                 <!-- 공고정보(경력) -->
                 <div class="col-sm-6">
                   <label for="my-saveNoticeForm-career" class="form-label">경력</label>
@@ -160,6 +170,7 @@
       let checkBoxValue =checkedValues2.join();
 
         let data = {         
+          "noticeNoticename": $("#noticeNoticename").val(),
           "noticeTitle": $("#noticeTitle").val(),
           "noticeCareer": $("#noticeCareer").val(),
           "noticePay": $("#noticePay").val(),

@@ -10,6 +10,7 @@ public class NoticeReq {
     public static class NoticeSaveReqDto {
         private Integer id;
         private Integer companyId;
+        private String noticeNoticename;
         private String noticeTitle;
         private String noticeCareer;
         private String noticePay;

@@ -75,7 +75,7 @@
                   <img src="/images/lg.jpg" class="card-img-top" style="object-fit: cover; height: 55%;" alt=" lg">
                   <a href="/notice/${noticeMain.id}">
                     <div class="card-body">
-                      <h5 class="card-title description" style="font-size: 24px;">${noticeMain.companyName}</h5><br>
+                      <h5 class="card-title description" style="font-size: 24px;">${noticeMain.noticeNoticename}</h5><br>
                       <p class="card-text description">${noticeMain.noticeTitle}</p>
                     </div>
                   </a>

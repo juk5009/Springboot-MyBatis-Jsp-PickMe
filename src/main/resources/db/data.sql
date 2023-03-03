@@ -10,9 +10,9 @@ INSERT INTO companyinfo_tb(company_id, builddate, salemoney, owner_name, company
 INSERT INTO companyinfo_tb(company_id, builddate, salemoney, owner_name, companyinfo_adress, employees, created_at) values('1', '1997년 7월 25일', '802억', '임민수', '부산광역시 연제구 연산동', '730명', now());
 INSERT INTO companyinfo_tb(company_id, builddate, salemoney, owner_name, companyinfo_adress, employees, created_at) values('2', '2001년 5월 15일', '1574억', '임원빈', '부산광역시 해운대구 반송동', '1213명', now());
 
-INSERT INTO notice_tb(company_id, notice_noticename, notice_title, notice_employtype, notice_location, notice_career, notice_grade, notice_pay, notice_content, created_at) values('1', '자바 기술자 모집합니다.', '정규직', '부산', '경력 2년이상', '초대졸이상', '5000', '자바 기술자를 뽑지만 스프링도 할줄 알아야 하고, 리액트도 할줄 아셔야 합니다.', now());
-INSERT INTO notice_tb(company_id, notice_noticename, notice_title, notice_employtype, notice_location, notice_career, notice_grade, notice_pay, notice_content, created_at) values('1', '스프링 기술자 모집합니다.', '정규직',  '서울', '경력 5년이상', '대졸이상', '1000', '스프링 기술자를 뽑지만 리액트도 할줄 알아야 하고, 플러터도 할줄 아셔야 합니다.', now());
-INSERT INTO notice_tb(company_id, notice_noticename, notice_title, notice_employtype, notice_location, notice_career, notice_grade, notice_pay, notice_content, created_at) values('2', '플러터 기술자 모집합니다.', '계약직', '부산', '신입' , '고졸이상', '3000', '플러터 기술자를 뽑지만 스프링도 할줄 알아야 하고, 자바도 할줄 아셔야 합니다.',  now());
+INSERT INTO notice_tb(company_id, notice_noticename, notice_title, notice_employtype, notice_location, notice_career, notice_grade, notice_pay, notice_content, created_at) values('1', '삼성', '자바 기술자 모집합니다.', '정규직', '부산', '경력 2년이상', '초대졸이상', '5000', '자바 기술자를 뽑지만 스프링도 할줄 알아야 하고, 리액트도 할줄 아셔야 합니다.', now());
+INSERT INTO notice_tb(company_id, notice_noticename, notice_title, notice_employtype, notice_location, notice_career, notice_grade, notice_pay, notice_content, created_at) values('1', '삼성', '스프링 기술자 모집합니다.', '정규직',  '서울', '경력 5년이상', '대졸이상', '1000', '스프링 기술자를 뽑지만 리액트도 할줄 알아야 하고, 플러터도 할줄 아셔야 합니다.', now());
+INSERT INTO notice_tb(company_id, notice_noticename, notice_title, notice_employtype, notice_location, notice_career, notice_grade, notice_pay, notice_content, created_at) values('2', '엘지', '플러터 기술자 모집합니다.', '계약직', '부산', '신입' , '고졸이상', '3000', '플러터 기술자를 뽑지만 스프링도 할줄 알아야 하고, 자바도 할줄 아셔야 합니다.',  now());
 
 INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '1', now());
 INSERT INTO apply_tb(resume_id, notice_id, created_at) values('1', '2', now());
