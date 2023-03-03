@@ -27,8 +27,7 @@ public class UserskillRepositoryTest {
         userskillSaveReqDto.setResumeId(1);
         userskillSaveReqDto.setUserskillName("java");
         resumeSaveReqDto.setUserId(1);
-
-        Userskill userskill = new Userskill(resumeSaveReqDto);
+        
         System.out.println("테스트 : " + userskillSaveReqDto.getUserskillName());
 
         ObjectMapper om = new ObjectMapper();
