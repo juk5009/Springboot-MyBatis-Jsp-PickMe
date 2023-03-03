@@ -32,11 +32,11 @@ CREATE TABLE notice_tb(
 	company_id int,
     notice_title varchar not null,
 	notice_employtype varchar not null,
-	notice_content varchar not null,
 	notice_location varchar not null,
 	notice_career varchar,
 	notice_grade varchar,
 	notice_pay varchar,
+	notice_content varchar not null,
     created_at timestamp not null
 );
 
