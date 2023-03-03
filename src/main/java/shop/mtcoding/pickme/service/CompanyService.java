@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
@@ -12,6 +13,7 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.CompanyRepository;
+import shop.mtcoding.pickme.util.PathUtil;
 
 @Service
 public class CompanyService {
@@ -51,5 +53,17 @@ public class CompanyService {
             throw new CustomApiException("기업정보 수정에 실패하였습니다", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @Transactional
+    public Company 유저프로필사진수정(MultipartFile companyProfile, Integer comPrincipalId) {
+        String uuidImageName = PathUtil.writeImageFile(companyProfile);
+
+        Company comPS = companyRepository.findById(comPrincipalId);
+        comPS.setCompanyProfile(uuidImageName);
+        companyRepository.updateCompanyProfile(comPS.getId(), comPS.getCompanyName(), comPS.getCompanyPassword(),
+                comPS.getCompanyEmail(),
+                comPS.getCompanyProfile());
+        return comPS;
     }
 }
