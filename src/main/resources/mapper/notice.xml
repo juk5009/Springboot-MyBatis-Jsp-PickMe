@@ -37,7 +37,7 @@
     </delete>
 
     <update id="updateById" >
-        update notice_tb set notice_noticename= #{noticeCompanyName}, notice_title= #{noticeTitle}, notice_employtype= #{noticeEmploytype}, notice_location= #{noticeLocation}, notice_career= #{noticeCareer}, notice_grade= #{noticeGrade}, notice_pay= #{noticePay}, notice_content= #{noticeContent} where id = #{id} 
+        update notice_tb set notice_companyname= #{noticeCompanyname}, notice_title= #{noticeTitle}, notice_employtype= #{noticeEmploytype}, notice_location= #{noticeLocation}, notice_career= #{noticeCareer}, notice_grade= #{noticeGrade}, notice_pay= #{noticePay}, notice_content= #{noticeContent} where id = #{id} 
     </update>
    
 </mapper>

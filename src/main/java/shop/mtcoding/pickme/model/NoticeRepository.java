@@ -3,6 +3,7 @@ package shop.mtcoding.pickme.model;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
@@ -20,7 +21,11 @@ public interface NoticeRepository {
 
     public int insert(Notice notice);
 
-    public int updateById(Notice notice);
+    public int updateById(@Param("id") int id, @Param("noticeComnpanyname") String noticeComnpanyname,
+            @Param("noticeTitle") String noticeTitle, @Param("noticeEmploytype") String noticeEmploytype,
+            @Param("noticeLocation") String noticeLocation, @Param("noticeCareer") String noticeCareer,
+            @Param("noticeGrade") String noticeGrade, @Param("noticePay") String noticePay,
+            @Param("noticeContent") String noticeContent);
 
     public int deleteById(int id);
 

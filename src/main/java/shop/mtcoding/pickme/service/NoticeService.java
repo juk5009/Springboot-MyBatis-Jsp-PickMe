@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
+import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Companyskill;
 import shop.mtcoding.pickme.model.CompanyskillRepository;
@@ -69,6 +70,58 @@ public class NoticeService {
         }
     }
 
+    @Transactional
+    public void 공고수정(int id, NoticeUpdateReqDto noticeUpdateReqDto, int comPrincipalId, String comSkill) {
+
+        Notice noticePS = noticeRepository.findById(id);
+        noticeUpdateReqDto.setId(noticePS.getId());
+        noticeUpdateReqDto.setCompanyId(noticePS.getCompanyId());
+
+        System.out.println("수정테스트31 getNoticeEmploytype : " +
+                noticeUpdateReqDto.getNoticeEmploytype());
+        System.out.println("수정테스트31 notice grade : " +
+                noticeUpdateReqDto.getNoticeGrade());
+
+        int result = noticeRepository.updateById(id,
+                noticeUpdateReqDto.getNoticeTitle(),
+                noticeUpdateReqDto.getNoticeCompanyname(),
+                noticeUpdateReqDto.getNoticeCareer(),
+                noticeUpdateReqDto.getNoticeEmploytype(),
+                noticeUpdateReqDto.getNoticeLocation(),
+                noticeUpdateReqDto.getNoticePay(), noticeUpdateReqDto.getNoticeContent(),
+                noticeUpdateReqDto.getNoticeGrade());
+        if (result != 1) {
+            throw new CustomApiException("공고수정실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        System.out.println("수정테스트31 notice grade : ");
+
+        companyskillRepository.deleteByNoticeId(id);
+
+        List<String> companyskillList = Arrays.asList(comSkill.split(","));
+
+        Companyskill com = new Companyskill(noticeUpdateReqDto);
+        System.out.println("수정테스트 Companyskill : " + com.getCompanyskillName());
+        System.out.println("수정테스트44 : " + companyskillList.size());
+        System.out.println("수정테스트444 : " + com.getNoticeId());
+        System.out.println("수정테스트445 : " + com.getCompanyId());
+
+        /* list 내용을 for문 돌려서 companyskill_tb에 insert 해줌 */
+        if (companyskillList != null) {
+            for (String companyskill : companyskillList) {
+
+                int result2 = companyskillRepository.insert(com.getNoticeId(), com.getCompanyId(), companyskill);
+                if (result2 != 1) {
+                    throw new CustomApiException("요구 기술작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+
+                }
+                System.out.println("테스트55 : " + companyskill);
+            }
+
+        }
+    }
+
+    @Transactional
     public void 공고삭제(int id, int companyId) {
         Notice noticePS = noticeRepository.findById(id);
         if (noticePS == null) {
@@ -80,4 +133,5 @@ public class NoticeService {
         noticeRepository.deleteById(id);
 
     }
+
 }
