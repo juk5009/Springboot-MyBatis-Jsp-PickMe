@@ -13,6 +13,12 @@
         where re.id = #{id}
     </select>
 
+    <select id="findAllWithResume" resultType="shop.mtcoding.pickme.dto.resume.ResumeResp$ResumeSelectRespDto">
+        SELECT  ut.user_profile, rt.resume_username, rt.id , rt.user_id
+        FROM user_tb ut
+        INNER JOIN resume_tb rt ON ut.id = rt.user_id;
+    </select>
+
     <select id="findAll" resultType="shop.mtcoding.pickme.model.Resume">
         select * from resume_tb
     </select>
