@@ -43,9 +43,9 @@ CREATE TABLE notice_tb(
 
 CREATE TABLE apply_tb(
     id int auto_increment primary key,
-    resume_id int not null,
-    notice_id int not null,
-    user_id int not null,
+    resume_id int ,
+    notice_id int ,
+    user_id int ,
     created_at timestamp not null
 );
 

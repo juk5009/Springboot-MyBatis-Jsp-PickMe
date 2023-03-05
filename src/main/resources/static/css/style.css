@@ -791,6 +791,14 @@ form .btn input[type="submit"] {
 /*--------------------------------------------------------------
 # 공고 작성 시작
 --------------------------------------------------------------*/
+.my-notice-btnbox {
+  display: grid;
+  justify-content: end;
+}
+
+.my-notice-btn {
+  border: 3px solid gray;
+}
 
 .my-saveNoticeForm-content-box-1 {
   margin-left: 33%;
@@ -915,6 +923,7 @@ form .btn input[type="submit"] {
 .my-applyUserList-button-group button {
   margin-right: 10px;
 }
+
 
 
 /*--------------------------------------------------------------

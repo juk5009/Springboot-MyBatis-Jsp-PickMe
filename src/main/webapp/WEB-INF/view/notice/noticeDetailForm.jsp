@@ -139,9 +139,9 @@
                 <div class="container">
                   <form>
                     <div class="my-applyUserList-box" style="border-radius: 30px">
-                      <input type="hidden" id="userId" name="userId" value="${user.id}">
-                        <input type="hidden" id="resumeId" name="resumeId" value="${resume.id}">
-                        <input type="hidden" id="noticeId" name="noticeId" value="${notice.id}">
+                      <%-- <input type="hidden" id="userId" name="userId" value="${userPrincipal.id}">
+                        <input type="hidden" id="resumeId" name="resumeId" value="${resumeSelectList.id}">
+                        <input type="hidden" id="noticeId" name="noticeId" value="${noticeDto.id}"> --%>
                         <div style="display: flex;">
                           <img
                             src="${resumeSelect.userProfile == null ? '/images/profile.jfif' : resumeSelect.userProfile}"
@@ -149,7 +149,7 @@
                           <h2>${resumeSelect.resumeUsername}</h2>
                         </div>
                         <div class="my-applyUserList-button-group">
-                          <button type="button" class="btn btn-outline-primary" onclick="apply()">지원하기</button>
+                          <button type="button" class="btn btn-outline-primary" onclick="apply(${userPrincipal.id},${resumeSelect.id},${noticeDto.id})">지원하기</button>
                         </div>
                     </div>
                 </div>
@@ -191,11 +191,11 @@
   <script>
 
 
-      function apply(notice, user, resume) {
+      function apply(user, resume, notice) {
         let data = {
           "userId": user,
           "resumeId": resume,
-          "noticeId": notice
+          "noticeId": notice,
         };
 
         $.ajax({

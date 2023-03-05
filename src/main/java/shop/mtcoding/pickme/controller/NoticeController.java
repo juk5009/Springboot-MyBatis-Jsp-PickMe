@@ -146,11 +146,6 @@ public class NoticeController {
         model.addAttribute("noticeDto", noticeRepository.findByCompanyIdWithNotice(id));
         List<ResumeSelectRespDto> resumeSelectList = noticeRepository.findAllWithResume();
         model.addAttribute("resumeSelectList", resumeSelectList);
-        // User userPrincipal = (User) session.getAttribute("userPrincipal");
-        // model.addAttribute("resume",
-        // resumeRepository.findById(userPrincipal.getId()));
-        // model.addAttribute("user", userRepository.findById(userPrincipal.getId()));
-        // model.addAttribute("notice", noticeRepository.findById(id));
         return "notice/noticeDetailForm";
     }
 
