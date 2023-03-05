@@ -21,7 +21,7 @@ public interface NoticeRepository {
 
     public int insert(Notice notice);
 
-    public int updateById(@Param("id") int id, @Param("noticeComnpanyname") String noticeComnpanyname,
+    public int updateById(@Param("id") int id, @Param("noticeCompanyname") String noticeCompanyname,
             @Param("noticeTitle") String noticeTitle, @Param("noticeEmploytype") String noticeEmploytype,
             @Param("noticeLocation") String noticeLocation, @Param("noticeCareer") String noticeCareer,
             @Param("noticeGrade") String noticeGrade, @Param("noticePay") String noticePay,

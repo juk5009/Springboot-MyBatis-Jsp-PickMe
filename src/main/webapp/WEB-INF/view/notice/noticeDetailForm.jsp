@@ -95,8 +95,10 @@
               </div>
               <hr class="my-4">
             </div>
-            <div class="mb-3">
+
             
+            <div class="mb-3">
+            <a href="/notice/${noticeDto.id}/updateNoticeForm" class="btn btn-warning">수정</a>
             <button type="button" onclick="deleteById(${noticeDto.id})" class="btn btn-danger">삭제</button>
             </div>
 

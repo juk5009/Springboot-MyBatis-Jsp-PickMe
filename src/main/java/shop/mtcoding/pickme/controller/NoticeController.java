@@ -20,6 +20,7 @@ import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.Notice;
 import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.service.NoticeService;
 
@@ -132,6 +133,15 @@ public class NoticeController {
     public String noticeDetailForm(@PathVariable int id, Model model) {
         model.addAttribute("noticeDto", noticeRepository.findByCompanyIdWithNotice(id));
         return "notice/noticeDetailForm";
+    }
+
+    @GetMapping("/notice/{id}/updateNoticeForm")
+    public String noticeUpdateForm(@PathVariable int id, Model model) {
+        Notice NoticePS = noticeRepository.findById(id);
+
+        model.addAttribute("notice", NoticePS);
+
+        return "notice/updateNoticeForm";
     }
 
 }
