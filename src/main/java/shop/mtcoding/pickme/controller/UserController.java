@@ -22,6 +22,7 @@ import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserLoginReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
+import shop.mtcoding.pickme.dto.user.UserResp.UserListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.NoticeRepository;
@@ -108,6 +109,13 @@ public class UserController {
         List<NoticeMainRespDto> noticeMainList = noticeRepository.findMainList();
         model.addAttribute("noticeMainList", noticeMainList);
         return "user/main";
+    }
+
+    @GetMapping("/user/userList")
+    public String userList(Model model) {
+        List<UserListRespDto> userList = userRepository.findUserList();
+        model.addAttribute("userList", userList);
+        return "user/userList";
     }
 
     @GetMapping("/userJoinForm")

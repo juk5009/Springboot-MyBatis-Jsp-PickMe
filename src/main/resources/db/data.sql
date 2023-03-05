@@ -1,6 +1,6 @@
-INSERT INTO user_tb(user_name, user_password, user_email, created_at) values('ssar', '1234', 'ssar@nate.com', now());
-INSERT INTO user_tb(user_name, user_password, user_email, created_at) values('bori', '1234', 'bori@nate.com', now());
-INSERT INTO user_tb(user_name, user_password, user_email, created_at) values('juho', '1234', 'joho@gmail.com', now());
+INSERT INTO user_tb(user_name, user_password, user_email, user_profile, created_at) values('ssar', '1234', 'ssar@nate.com', '/images/dora.png', now());
+INSERT INTO user_tb(user_name, user_password, user_email, user_profile, created_at) values('bori', '1234', 'bori@nate.com', '/images/dora.png', now());
+INSERT INTO user_tb(user_name, user_password, user_email, user_profile, created_at) values('juho', '1234', 'joho@gmail.com', '/images/dora.png', now());
 
 INSERT INTO company_tb(company_name, company_password, company_email, company_profile, created_at) values('samsung', '1234', 'samsung@gmail.com', '/images/samsung.png', now());
 INSERT INTO company_tb(company_name, company_password, company_email, company_profile, created_at) values('lg', '1234', 'lg@gmail.com', '/images/lg.png', now());
