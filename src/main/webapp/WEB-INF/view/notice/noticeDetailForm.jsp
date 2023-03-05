@@ -33,7 +33,7 @@
               <!-- 공고정보(기업명) -->
               <div class="col-sm-6">
                 <label for="noticeNoticename" class="form-label">기업명</label>
-                <div>${noticeDto.noticeNoticename}</div>
+                <div>${noticeDto.noticeCompanyname}</div>
     
               </div>
 
@@ -133,7 +133,7 @@
         });
     }
     </script>
-    
+
     <!-- 공고 삭제 스크립트 끝 -->
 
         <%@ include file="../layout/footer.jsp" %>

@@ -21,7 +21,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.model.Company;
-import shop.mtcoding.pickme.model.Notice;
 
 @Transactional
 @AutoConfigureMockMvc
@@ -57,10 +56,7 @@ public class NoticeControllerTest {
         // given
 
         NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
-        Notice notice = new Notice(noticeSaveReqDto);
-        noticeSaveReqDto.setId(notice.getId());
-        noticeSaveReqDto.setCompanyId(notice.getCompanyId());
-        noticeSaveReqDto.setNoticeNoticename("정욱");
+
         noticeSaveReqDto.setNoticeTitle("다다다닥");
         noticeSaveReqDto.setNoticeEmploytype("정규직");
         noticeSaveReqDto.setNoticePay("3500");

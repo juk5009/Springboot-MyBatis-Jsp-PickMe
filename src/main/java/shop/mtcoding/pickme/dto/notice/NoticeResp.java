@@ -9,7 +9,7 @@ public class NoticeResp {
     @Getter
     public static class NoticeMainRespDto {
         private int id;
-        private String noticeNoticename;
+        private String noticeCompanyname;
         private String noticeTitle;
         private String companyProfile;
     }
