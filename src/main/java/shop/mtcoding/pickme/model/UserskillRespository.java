@@ -13,9 +13,12 @@ public interface UserskillRespository {
 
         public User findById(int id);
 
-        public int insert(@Param("resumeId") int resumeId, @Param("userId") int userId, @Param("userskillName") String userskillName);
+        public int insert(@Param("resumeId") int resumeId, @Param("userId") int userId,
+                        @Param("userskillName") String userskillName);
 
         public int updateById(UserskillSaveReqDto userskillSaveReqDto);
 
         public int deleteById(int id);
+
+        public int deleteByResumeId(int resumeId);
 }

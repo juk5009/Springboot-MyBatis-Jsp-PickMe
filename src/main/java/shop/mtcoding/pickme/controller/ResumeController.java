@@ -19,7 +19,6 @@ import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
-import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.service.ResumeService;
@@ -93,7 +92,7 @@ public class ResumeController {
     @PutMapping("/resume/{id}")
     public @ResponseBody ResponseEntity<?> updateNotice(@PathVariable int id,
             @RequestBody ResumeUpdateReqDto resumeUpdateReqDto) {
-        String userSkill = resumeUpdateReqDto.getUserskillList();
+        String usSkill = resumeUpdateReqDto.getUserskillList();
 
         User userPrincipal = (User) session.getAttribute("userPrincipal");
         if (userPrincipal == null) {
@@ -140,7 +139,7 @@ public class ResumeController {
             throw new CustomApiException("자기소개서를 작성해주세요");
         }
 
-        resumeService.이력서수정(id, resumeUpdateReqDto, userPrincipal.getId(), userSkill);
+        resumeService.이력서수정(id, resumeUpdateReqDto, userPrincipal.getId(), usSkill);
 
         return new ResponseEntity<>(new ResponseDto<>(1, "공고 수정 완료", null), HttpStatus.CREATED);
     }
