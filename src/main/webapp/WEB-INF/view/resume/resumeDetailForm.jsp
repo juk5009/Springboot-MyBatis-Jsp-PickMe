@@ -98,6 +98,12 @@
               </div>
               <hr class="my-4">
             </div>
+
+            <div class="mb-3">
+            <a href="/notice/${resumeDto.id}/updateNoticeForm" class="btn btn-warning">수정</a>
+            <button type="button" onclick="deleteById(${resumeDto.id})" class="btn btn-danger">삭제</button>
+            </div>
+
           </form>
         </div>
       </div>
@@ -115,5 +121,20 @@
   <script src="form-validation.js"></script>
 
   <!-- 이력서 스크립트 끝 -->
+
+  <script>
+    function deleteById(id) {
+        $.ajax({
+            type: "delete",
+            url: "/resume/" + id,
+            dataType: "json"
+        }).done((res) => { // 20X 일때
+            alert(res.msg);
+            location.href = "/";
+        }).fail((err) => { // 40X, 50X 일때
+            alert(err.responseJSON.msg);
+        });
+    }
+    </script>
 
         <%@ include file="../layout/footer.jsp" %>

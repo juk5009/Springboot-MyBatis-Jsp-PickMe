@@ -23,5 +23,9 @@
 
     <update id="updateById" >
         update userskill_tb set username= #{username},password= #{password}, email= #{email} where id = #{id} 
-    </update>    
+    </update>
+
+    <delete id="deleteByResumeId" >
+        delete from userskill_tb where resume_id = #{resumeId} 
+    </delete>          
 </mapper>

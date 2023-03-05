@@ -14,7 +14,7 @@ public interface ResumeRepository {
 
         public List<Resume> findAll();
 
-        public User findById(int id);
+        public Resume findById(int id);
 
         public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
