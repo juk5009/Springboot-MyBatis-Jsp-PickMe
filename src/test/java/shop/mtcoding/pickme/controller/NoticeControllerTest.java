@@ -1,13 +1,10 @@
 package shop.mtcoding.pickme.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.Notice;
 
 @Transactional
 @AutoConfigureMockMvc
@@ -48,6 +46,7 @@ public class NoticeControllerTest {
         company.setCompanyName("samsam");
         company.setCompanyPassword("1234");
         company.setCompanyEmail("samsam@nate.com");
+        company.setCompanyProfile("/images/samsung.png");
 
         mockSession = new MockHttpSession();
         mockSession.setAttribute("comPrincipal", company);
@@ -56,8 +55,12 @@ public class NoticeControllerTest {
     @Test
     public void notice_test() throws Exception {
         // given
+
         NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
-        noticeSaveReqDto.setCompanyId(1);
+        Notice notice = new Notice(noticeSaveReqDto);
+        noticeSaveReqDto.setId(notice.getId());
+        noticeSaveReqDto.setCompanyId(notice.getCompanyId());
+        noticeSaveReqDto.setNoticeNoticename("정욱");
         noticeSaveReqDto.setNoticeTitle("다다다닥");
         noticeSaveReqDto.setNoticeEmploytype("정규직");
         noticeSaveReqDto.setNoticePay("3500");
@@ -78,5 +81,27 @@ public class NoticeControllerTest {
 
         // then
         resultActions.andExpect(status().isCreated());
+    }
+
+    @Test
+    public void deleteNotice_test() throws Exception {
+        // given
+        int id = 1;
+
+        // when
+        ResultActions resultActions = mvc.perform(
+                delete("/notice/" + id).session(mockSession));
+        String responseBody = resultActions.andReturn().getResponse().getContentAsString();
+        System.out.println("delete_test : " + responseBody);
+
+        /**
+         * jsonPath
+         * 최상위 : $
+         * 객체탐색 : 닷(.)
+         * 배열 : [0]
+         */
+        // then
+        resultActions.andExpect(jsonPath("$.code").value(1));
+        resultActions.andExpect(status().isOk());
     }
 }
