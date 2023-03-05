@@ -13,9 +13,12 @@ public interface CompanyskillRepository {
 
         public User findById(int id);
 
-        public int insert(@Param("noticeId") int noticeId, @Param("companyId") int companyId, @Param("companyskillName") String companyskillName);
+        public int insert(@Param("noticeId") int noticeId, @Param("companyId") int companyId,
+                        @Param("companyskillName") String companyskillName);
 
         public int updateById(CompanyskillSaveReqDto companyskillSaveReqDto);
 
         public int deleteById(int id);
+
+        public int deleteByNoticeId(int noticeId);
 }

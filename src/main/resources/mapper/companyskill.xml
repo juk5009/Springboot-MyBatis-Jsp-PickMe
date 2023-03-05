@@ -23,5 +23,9 @@
 
     <update id="updateById" >
         update companyskill_tb set username= #{username},password= #{password}, email= #{email} where id = #{id} 
-    </update>    
+    </update>  
+
+    <delete id="deleteByNoticeId" >
+        delete from companyskill_tb where notice_id = #{noticeId} 
+    </delete>      
 </mapper>

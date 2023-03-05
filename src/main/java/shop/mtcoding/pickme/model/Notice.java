@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
+import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,5 +36,18 @@ public class Notice {
         this.noticeGrade = NoticeSaveReqDto.getNoticeGrade();
         this.noticeLocation = NoticeSaveReqDto.getNoticeLocation();
         this.noticeContent = NoticeSaveReqDto.getNoticeContent();
+    }
+
+    public Notice(NoticeUpdateReqDto noticeupdateReqDto) {
+        this.id = noticeupdateReqDto.getId();
+        this.companyId = noticeupdateReqDto.getCompanyId();
+        this.noticeCompanyname = noticeupdateReqDto.getNoticeCompanyname();
+        this.noticeTitle = noticeupdateReqDto.getNoticeTitle();
+        this.noticeCareer = noticeupdateReqDto.getNoticeCareer();
+        this.noticePay = noticeupdateReqDto.getNoticePay();
+        this.noticeEmploytype = noticeupdateReqDto.getNoticeEmploytype();
+        this.noticeGrade = noticeupdateReqDto.getNoticeGrade();
+        this.noticeLocation = noticeupdateReqDto.getNoticeLocation();
+        this.noticeContent = noticeupdateReqDto.getNoticeContent();
     }
 }
