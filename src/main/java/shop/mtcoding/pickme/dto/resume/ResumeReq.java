@@ -10,7 +10,7 @@ public class ResumeReq {
     public static class ResumeSaveReqDto {
         private Integer id;
         private Integer userId;
-        private String resumeResumename;
+        private String resumeUsername;
         private String resumeBirth;
         private String resumeEmail;
         private String resumeAddress;
