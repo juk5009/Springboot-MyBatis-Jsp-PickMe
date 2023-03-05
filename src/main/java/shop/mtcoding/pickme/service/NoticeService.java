@@ -74,6 +74,12 @@ public class NoticeService {
     public void 공고수정(int id, NoticeUpdateReqDto noticeUpdateReqDto, int comPrincipalId, String comSkill) {
 
         Notice noticePS = noticeRepository.findById(id);
+        if (noticePS == null) {
+            throw new CustomApiException("없는 공고입니다.");
+        }
+        if (noticePS.getCompanyId() != comPrincipalId) {
+            throw new CustomApiException("해당 공고를 수정할 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
         noticeUpdateReqDto.setId(noticePS.getId());
         noticeUpdateReqDto.setCompanyId(noticePS.getCompanyId());
 

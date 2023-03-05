@@ -77,6 +77,13 @@ public class ResumeService {
     public void 이력서수정(int id, ResumeUpdateReqDto resumeUpdateReqDto, int userPrincipalId, String usSkill) {
 
         Resume resumePS = resumeRepository.findById(id);
+
+        if (resumePS == null) {
+            throw new CustomApiException("없는 이력서입니다.");
+        }
+        if (resumePS.getId() != userPrincipalId) {
+            throw new CustomApiException("이력서를 삭제할 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
         resumeUpdateReqDto.setId(resumePS.getId());
         resumeUpdateReqDto.setUserId(resumePS.getId());
 
