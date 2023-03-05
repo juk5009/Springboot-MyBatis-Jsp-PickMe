@@ -15,6 +15,7 @@ public class ResumeReq {
         private String resumeEmail;
         private String resumeAddress;
         private String resumeLocation;
+        private String resumeCareer;
         private String resumeGrade;
         private String resumePhoneNumber;
         private String resumeSex;

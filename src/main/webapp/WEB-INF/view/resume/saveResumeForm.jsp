@@ -86,6 +86,13 @@
                   </select>
                 </div>
 
+                <!-- 공고정보(경력) -->
+                <div class="col-sm-6">
+                  <label for="my-saveNoticeForm-career" class="form-label">경력</label>
+                  <input type="text" class="form-control" name="resumeCareer" id="resumeCareer" placeholder="ex) 신입" value="" required>
+
+                </div>
+
                 <!-- 개인정보(성별) -->
                 <label for="user-sex" class="form-label">성별</label>
 
@@ -188,6 +195,7 @@
           "resumeEmail": $("#resumeEmail").val(),
           "resumeAddress": $("#resumeAddress").val(),
           "resumeLocation": $("#resumeLocation").val(),
+          "resumeCareer": $("#resumeCareer").val(),
           "resumeGrade": $("#resumeGrade").val(),
           "resumePhoneNumber": $("#resumePhoneNumber").val(),
           "resumeSex": $("input[name='resumeSex']:checked").val(),

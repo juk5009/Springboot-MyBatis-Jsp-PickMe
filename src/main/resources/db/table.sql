@@ -56,6 +56,7 @@ CREATE TABLE resume_tb(
 	resume_email varchar not null,
 	resume_address varchar(100) not null, 
 	resume_location varchar not null,
+    resume_career varchar,
 	resume_grade varchar,
 	resume_phone_number varchar not null,
 	resume_sex varchar not null,	
