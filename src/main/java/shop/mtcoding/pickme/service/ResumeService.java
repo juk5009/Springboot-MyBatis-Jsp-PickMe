@@ -31,20 +31,20 @@ public class ResumeService {
         resumeSaveReqDto.setUserId(principalId);
 
         Resume resume = new Resume(resumeSaveReqDto);
-        
+
         int result = resumeRepository.insert(resume);
         if (result != 1) {
             throw new CustomApiException("이력서 작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        // insert 성공 후 resume의 증가한 id(pk)값을 set 해줌 
-        resumeSaveReqDto.setId(resume.getId()); 
-        // insert 성공 후 resume의 usrId값을 set 해줌 
-        resumeSaveReqDto.setUserId(resume.getUserId());  
+        // insert 성공 후 resume의 증가한 id(pk)값을 set 해줌
+        resumeSaveReqDto.setId(resume.getId());
+        // insert 성공 후 resume의 usrId값을 set 해줌
+        resumeSaveReqDto.setUserId(resume.getUserId());
 
         /* checkbox의 체크된 값을 string으로 받아 왔기 때문에 split 하여 list에 담아줌 */
         List<String> userskillList = Arrays.asList(usSkill.split(","));
-        Userskill us = new Userskill(resumeSaveReqDto);     
+        Userskill us = new Userskill(resumeSaveReqDto);
 
         /* list 내용을 for문 돌려서 userskill_tb에 insert 해줌 */
         if (userskillList != null) {
@@ -57,6 +57,19 @@ public class ResumeService {
             }
 
         }
+    }
+
+    @Transactional
+    public void 이력서삭제(int id, int userPrincipalId) {
+        Resume resumePS = resumeRepository.findById(id);
+        if (resumePS == null) {
+            throw new CustomApiException("없는 공고입니다.");
+        }
+        if (resumePS.getId() != userPrincipalId) {
+            throw new CustomApiException("해당 공고를 삭제할 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
+        resumeRepository.deleteById(id);
+
     }
 
 }
