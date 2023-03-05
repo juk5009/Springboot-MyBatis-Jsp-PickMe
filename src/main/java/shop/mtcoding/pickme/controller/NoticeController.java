@@ -41,12 +41,6 @@ public class NoticeController {
     @Autowired
     private NoticeRepository noticeRepository;
 
-    @Autowired
-    private ResumeRepository resumeRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
     @PostMapping("/saveNotice")
     public @ResponseBody ResponseEntity<?> saveNotice(@RequestBody NoticeSaveReqDto noticeSaveReqDto) {
         String comSkill = noticeSaveReqDto.getCompanyskillList();
