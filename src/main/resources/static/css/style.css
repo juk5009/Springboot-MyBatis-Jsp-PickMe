@@ -914,6 +914,11 @@ form .btn input[type="submit"] {
   margin-bottom: 20px;
 }
 
+.my-applyUserList-table {
+  border: 1px solid #ccc;
+  margin-top: 50px;
+}
+
 .my-applyUserList-button-group {
   display: flex;
   justify-content: center;

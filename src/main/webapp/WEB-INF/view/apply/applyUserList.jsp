@@ -4,35 +4,41 @@
         <div class="container">
 
             <div class="my-applyUserList-box">
-                <h1>지원자페이지</h1>
-                <div class="my-applyUserList-box">
-                    <h1>지원자 정보</h1>
-                    <div class="form-group">
-                        <label for="name">이름</label>
-                        <input type="text" class="form-control" id="name" placeholder="">
-                    </div>
+                <h1>지원자 이력서 목록</h1>
 
-                    <div class="form-group">
-                        <label for="phone">번호</label>
-                        <input type="text" class="form-control" id="phone" placeholder="">
-                    </div>
+                <div class="my-applyUserList-table">
+                    <table class="table table-hover w-outo">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">지원자 이름</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">상세보기</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td><button type="button" class="btn btn-primary">이력서</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td><button type="button" class="btn btn-primary">이력서</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>Thornton</td>
+                                <td><button type="button" class="btn btn-primary">이력서</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">메일</label>
-                        <input type="text" class="form-control" id="email" placeholder="">
-                    </div>
-                    <button type="button" class="btn btn-outline-warning  ">지원자 상세보기</button>
-                </div>
-                <div class="my-applyUserList-box">
-                    <h1>지원자 이력서 </h1>
-                    <ul>
-                        <li>이력서 </li>
-                       
-                    </ul>
-                    <div class="my-applyUserList-button-group">
-                        <button type="button" class="btn btn-outline-warning">삭제하기</button>
-                    </div>
-                </div>
 
             </div>
         </div>
