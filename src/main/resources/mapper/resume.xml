@@ -6,7 +6,7 @@
 <mapper namespace="shop.mtcoding.pickme.model.ResumeRepository">
 
     <select id="findByUserIdWithResume" resultType="shop.mtcoding.pickme.dto.resume.ResumeReq$ResumeSaveReqDto">
-        select re.id, re.resume_username , re.resume_birth, re.resume_email,  re.resume_address,  re.resume_location,  re.resume_grade, re.resume_phone_number,  re.resume_sex,  re.resume_content
+        select re.id, re.resume_username , re.resume_birth, re.resume_email,  re.resume_address,  re.resume_location, re.resume_career, re.resume_grade, re.resume_phone_number,  re.resume_sex,  re.resume_content
         from user_tb ur 
         inner join resume_tb re
         on ur.id = re.user_id
@@ -22,7 +22,7 @@
     </select>   
 
      <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO resume_tb(user_id, resume_username , resume_birth, resume_email, resume_address, resume_location, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values(#{userId}, #{resumeUsername}, #{resumeBirth},  #{resumeEmail}, #{resumeAddress}, #{resumeLocation}, #{resumeGrade}, #{resumePhoneNumber}, #{resumeSex}, #{resumeContent}, now())
+        INSERT INTO resume_tb(user_id, resume_username , resume_birth, resume_email, resume_address, resume_location, resume_career, resume_grade, resume_phone_number, resume_sex, resume_content, created_at) values(#{userId}, #{resumeUsername}, #{resumeBirth},  #{resumeEmail}, #{resumeAddress}, #{resumeLocation}, #{resumeCareer}, #{resumeGrade}, #{resumePhoneNumber}, #{resumeSex}, #{resumeContent}, now())
     </insert>    
 
     <delete id="deleteById" >

@@ -59,6 +59,12 @@
               <label for="user-local" class="form-label">희망근무지역</label>
                 <div>${resumeDto.resumeLocation}</div>
             </div>
+
+            <!-- 개인정보(학력) -->
+            <div class="col-sm-6">
+              <label for="user-grade" class="form-label">학력</label>
+                <div>${resumeDto.resumeCareer}</div>
+            </div>            
             
             <!-- 개인정보(학력) -->
             <div class="col-sm-6">
@@ -72,7 +78,7 @@
               <!-- 자기소개서 -->
               <div class="container my-8">
                   <div>
-                    <h4 class="mb-3 ">공고문</h4>
+                    <h4 class="mb-3 ">자기소개</h4>
                   </div>
                   <br>
                   <div class="form-group">

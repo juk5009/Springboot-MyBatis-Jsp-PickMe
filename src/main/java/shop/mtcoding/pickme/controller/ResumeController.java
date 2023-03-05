@@ -57,6 +57,10 @@ public class ResumeController {
                 resumeSaveReqDto.getResumeAddress().isEmpty()) {
             throw new CustomApiException("주소를 작성해주세요");
         }
+        if (resumeSaveReqDto.getResumeCareer() == null ||
+                resumeSaveReqDto.getResumeCareer().isEmpty()) {
+            throw new CustomApiException("주소를 작성해주세요");
+        }
         if (resumeSaveReqDto.getResumeLocation() == null ||
                 resumeSaveReqDto.getResumeLocation().isEmpty()) {
             throw new CustomApiException("지역을 선택해주세요");

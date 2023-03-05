@@ -16,6 +16,7 @@ public class Resume {
     private String resumeEmail;
     private String resumeAddress;
     private String resumeLocation;
+    private String resumeCareer;
     private String resumeGrade;
     private String resumePhoneNumber;
     private String resumeSex;
@@ -28,6 +29,7 @@ public class Resume {
         this.resumeBirth = resumeSaveReqDto.getResumeBirth();
         this.resumeEmail = resumeSaveReqDto.getResumeEmail();
         this.resumeAddress = resumeSaveReqDto.getResumeAddress();
+        this.resumeCareer = resumeSaveReqDto.getResumeCareer();
         this.resumeLocation = resumeSaveReqDto.getResumeLocation();
         this.resumeGrade = resumeSaveReqDto.getResumeGrade();
         this.resumePhoneNumber = resumeSaveReqDto.getResumePhoneNumber();
