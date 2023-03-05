@@ -30,7 +30,7 @@ CREATE TABLE companyinfo_tb(
 CREATE TABLE notice_tb( 
     id int auto_increment primary key,
 	company_id int,
-    notice_noticename varchar not null,
+    notice_companyname varchar not null,
     notice_title varchar not null,
 	notice_employtype varchar not null,
 	notice_location varchar not null,

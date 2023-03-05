@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,6 +65,18 @@ public class NoticeController {
 
         noticeService.공고작성(noticeSaveReqDto, comPrincipal.getId(), comSkill);
         return new ResponseEntity<>(new ResponseDto<>(1, "공고 작성 완료", null), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/notice/{id}")
+    public @ResponseBody ResponseEntity<?> deleteNotice(@PathVariable int id) {
+
+        Company comPrincipal = (Company) session.getAttribute("comPrincipal");
+        if (comPrincipal == null) {
+            throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        noticeService.공고삭제(id, comPrincipal.getId());
+        return new ResponseEntity<>(new ResponseDto<>(1, "공고 삭제 완료", null), HttpStatus.OK);
+
     }
 
     @GetMapping("/notice/saveNoticeForm")
