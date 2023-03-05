@@ -26,7 +26,7 @@
               <!-- 개인정보(이름) -->
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">이름</label>
-                <div>${resumeDto.resumeName}</div>
+                <div>${resumeDto.resumeUsername}</div>
     
               </div>
               

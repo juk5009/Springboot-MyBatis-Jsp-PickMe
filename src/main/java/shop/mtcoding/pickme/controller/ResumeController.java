@@ -41,8 +41,8 @@ public class ResumeController {
             throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
 
-        if (resumeSaveReqDto.getResumeResumename() == null ||
-                resumeSaveReqDto.getResumeResumename().isEmpty()) {
+        if (resumeSaveReqDto.getResumeUsername() == null ||
+                resumeSaveReqDto.getResumeUsername().isEmpty()) {
             throw new CustomApiException("이름을 작성해주세요");
         }
         if (resumeSaveReqDto.getResumeBirth() == null ||
@@ -92,5 +92,5 @@ public class ResumeController {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
     }
-    
+
 }

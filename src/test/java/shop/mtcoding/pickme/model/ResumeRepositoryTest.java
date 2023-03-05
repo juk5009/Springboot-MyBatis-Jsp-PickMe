@@ -22,7 +22,7 @@ public class ResumeRepositoryTest {
         // given
         ResumeSaveReqDto resumeSaveReqDto = new ResumeSaveReqDto();
         resumeSaveReqDto.setUserId(1);
-        resumeSaveReqDto.setResumeResumename("홍길동");
+
         resumeSaveReqDto.setResumeBirth("1997-02-10");
         resumeSaveReqDto.setResumeEmail("hong@nate.com");
         resumeSaveReqDto.setResumeAddress("부산 사상");
@@ -31,7 +31,7 @@ public class ResumeRepositoryTest {
         resumeSaveReqDto.setResumePhoneNumber("01055558888");
         resumeSaveReqDto.setResumeSex("남");
         resumeSaveReqDto.setResumeContent("너너넝");
-        
+
         Resume resume = new Resume(resumeSaveReqDto);
         System.out.println("테스트2 pw : " + resumeSaveReqDto.getResumePhoneNumber());
 

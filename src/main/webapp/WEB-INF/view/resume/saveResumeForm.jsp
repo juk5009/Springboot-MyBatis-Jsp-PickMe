@@ -25,7 +25,7 @@
                 <!-- 개인정보(이름) -->
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">이름</label>
-                  <input type="text" class="form-control" id="resumeResumename" name="resumeResumename" placeholder="ex) 홍길동"
+                  <input type="text" class="form-control" id="resumeUsername" name="resumeUsername" placeholder="ex) 홍길동"
                     value="" required>
 
                 </div>
@@ -66,8 +66,12 @@
                   <label for="user-local" class="form-label">희망근무지역?</label>
                   <select class="form-select" id="resumeLocation" name="resumeLocation" required>
                     <option value="">희망근무지역을 선택해주세요</option>
-                    <option>부산</option>
                     <option>서울</option>
+                    <option>부산</option>
+                    <option>대전</option>
+                    <option>대구</option>
+                    <option>광주</option>
+                    <option>인천</option>
                   </select>
                 </div>
 
@@ -179,7 +183,7 @@
       let checkBoxValue =checkedValues.join();
         
         let data = {
-          "resumeResumename": $("#resumeResumename").val(),
+          "resumeUsername": $("#resumeUsername").val(),
           "resumeBirth": $("#resumeBirth").val(),
           "resumeEmail": $("#resumeEmail").val(),
           "resumeAddress": $("#resumeAddress").val(),
@@ -199,6 +203,7 @@
           dataType: "json"
         }).done((res) => { // 20X 일때
           alert(res.msg);
+          location.href = "/";
         }).fail((err) => {
           alert(err.responseJSON.msg);
         });

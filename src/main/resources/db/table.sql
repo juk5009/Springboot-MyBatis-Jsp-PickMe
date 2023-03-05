@@ -51,7 +51,7 @@ CREATE TABLE apply_tb(
 CREATE TABLE resume_tb(
     id int auto_increment primary key,
 	user_id int not null,
-	resume_resumename varchar not null,
+	resume_username  varchar not null,
 	resume_birth varchar,
 	resume_email varchar not null,
 	resume_address varchar(100) not null, 
