@@ -7,7 +7,7 @@ public class UserResp {
 
     @Setter
     @Getter
-    public static class userListRespDto {
+    public static class UserListRespDto {
         private int id;
         private String resumeCareer;
         private String resumeGrade;
