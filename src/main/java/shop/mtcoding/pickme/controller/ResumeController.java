@@ -19,6 +19,7 @@ import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
+import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.service.ResumeService;
@@ -165,6 +166,15 @@ public class ResumeController {
     public String resumeDetailForm(@PathVariable int id, Model model) {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
+    }
+
+    @GetMapping("/resume/{id}/updateResumeForm")
+    public String noticeUpdateForm(@PathVariable int id, Model model) {
+        Resume ResumePS = resumeRepository.findById(id);
+
+        model.addAttribute("resume", ResumePS);
+
+        return "resume/updateResumeForm";
     }
 
 }
