@@ -96,7 +96,7 @@
               <hr class="my-4">
             </div>
             <c:choose>
-                <c:when test="${userPrincipal != null}">
+                <c:when test="${userPrincipal != null && comPrincipal == null}">
                   <!-- Button trigger modal -->
                   <div class="my-notice-btnbox">
                     <button type="button" class="btn btn-primary my-notice-btn" data-bs-toggle="modal"
@@ -106,10 +106,12 @@
                   </div>
                 </c:when>
                 <c:otherwise>
+                <c:if test="${comPrincipal != null && userPrincipal == null}" >
                 <div class="mb-3">
                 <a href="/notice/${noticeDto.id}/updateNoticeForm" class="btn btn-warning">수정</a>
                 <button type="button" onclick="deleteById(${noticeDto.id})" class="btn btn-danger">삭제</button>
                 </div>
+                </c:if>
                 </c:otherwise>
               </c:choose>
           </form>
