@@ -1,5 +1,7 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeResp.ResumeSelectRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.Notice;
 import shop.mtcoding.pickme.model.NoticeRepository;
+import shop.mtcoding.pickme.model.ResumeRepository;
+import shop.mtcoding.pickme.model.User;
+import shop.mtcoding.pickme.model.UserRepository;
 import shop.mtcoding.pickme.service.NoticeService;
 
 @Controller
@@ -35,6 +41,12 @@ public class NoticeController {
 
     @Autowired
     private NoticeRepository noticeRepository;
+
+    @Autowired
+    private ResumeRepository resumeRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/saveNotice")
     public @ResponseBody ResponseEntity<?> saveNotice(@RequestBody NoticeSaveReqDto noticeSaveReqDto) {
@@ -132,6 +144,13 @@ public class NoticeController {
     @GetMapping("/notice/{id}")
     public String noticeDetailForm(@PathVariable int id, Model model) {
         model.addAttribute("noticeDto", noticeRepository.findByCompanyIdWithNotice(id));
+        List<ResumeSelectRespDto> resumeSelectList = noticeRepository.findAllWithResume();
+        model.addAttribute("resumeSelectList", resumeSelectList);
+        // User userPrincipal = (User) session.getAttribute("userPrincipal");
+        // model.addAttribute("resume",
+        // resumeRepository.findById(userPrincipal.getId()));
+        // model.addAttribute("user", userRepository.findById(userPrincipal.getId()));
+        // model.addAttribute("notice", noticeRepository.findById(id));
         return "notice/noticeDetailForm";
     }
 

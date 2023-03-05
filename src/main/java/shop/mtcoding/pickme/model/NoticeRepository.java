@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
+import shop.mtcoding.pickme.dto.resume.ResumeResp.ResumeSelectRespDto;
 
 @Mapper
 public interface NoticeRepository {
@@ -28,5 +29,7 @@ public interface NoticeRepository {
             @Param("noticeContent") String noticeContent);
 
     public int deleteById(int id);
+
+    public List<ResumeSelectRespDto> findAllWithResume();
 
 }

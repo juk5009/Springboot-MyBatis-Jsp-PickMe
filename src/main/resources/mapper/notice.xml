@@ -11,6 +11,11 @@
         ON nt.company_id = ct.id;
     </select>
 
+    <select id="findAllWithResume" resultType="shop.mtcoding.pickme.dto.resume.ResumeResp$ResumeSelectRespDto">
+        SELECT  ut.user_profile, rt.resume_username, rt.id , rt.user_id
+        FROM user_tb ut
+        INNER JOIN resume_tb rt ON ut.id = rt.user_id;
+    </select>
 
     <select id="findByCompanyIdWithNotice" resultType="shop.mtcoding.pickme.dto.notice.NoticeReq$NoticeSaveReqDto">
         select nt.id, nt.notice_companyname, nt.notice_title, nt.notice_career, nt.notice_pay, nt.notice_employtype, nt.notice_grade, nt.notice_location, nt.notice_content

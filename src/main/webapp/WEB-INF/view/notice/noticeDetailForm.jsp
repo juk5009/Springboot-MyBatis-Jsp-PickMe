@@ -95,13 +95,23 @@
               </div>
               <hr class="my-4">
             </div>
-
-            
-            <div class="mb-3">
-            <a href="/notice/${noticeDto.id}/updateNoticeForm" class="btn btn-warning">수정</a>
-            <button type="button" onclick="deleteById(${noticeDto.id})" class="btn btn-danger">삭제</button>
-            </div>
-
+            <c:choose>
+                <c:when test="${userPrincipal != null}">
+                  <!-- Button trigger modal -->
+                  <div class="my-notice-btnbox">
+                    <button type="button" class="btn btn-primary my-notice-btn" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal">
+                      지원하기
+                    </button>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                <div class="mb-3">
+                <a href="/notice/${noticeDto.id}/updateNoticeForm" class="btn btn-warning">수정</a>
+                <button type="button" onclick="deleteById(${noticeDto.id})" class="btn btn-danger">삭제</button>
+                </div>
+                </c:otherwise>
+              </c:choose>
           </form>
         </div>
       </div>
@@ -111,6 +121,46 @@
   </main><!-- End #main -->
   <br>
   <br>
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">이력서 목록</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <c:forEach items="${resumeSelectList}" var="resumeSelect">
+              <c:if test="${userPrincipal.id == resumeSelect.userId}">
+
+                <div class="container">
+                  <form>
+                    <div class="my-applyUserList-box" style="border-radius: 30px">
+                      <input type="hidden" id="userId" name="userId" value="${user.id}">
+                        <input type="hidden" id="resumeId" name="resumeId" value="${resume.id}">
+                        <input type="hidden" id="noticeId" name="noticeId" value="${notice.id}">
+                        <div style="display: flex;">
+                          <img
+                            src="${resumeSelect.userProfile == null ? '/images/profile.jfif' : resumeSelect.userProfile}"
+                            alt="orange22" class="rounded-circle" style="height: 50px; width: 50px; border: 1px black;">
+                          <h2>${resumeSelect.resumeUsername}</h2>
+                        </div>
+                        <div class="my-applyUserList-button-group">
+                          <button type="button" class="btn btn-outline-primary" onclick="apply()">지원하기</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+              </c:if>
+            </c:forEach>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <!-- 공고 스크립트 -->
   <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
@@ -136,6 +186,31 @@
     }
     </script>
 
+  <script>
+
+
+      function apply(notice, user, resume) {
+        let data = {
+          "userId": user,
+          "resumeId": resume,
+          "noticeId": notice
+        };
+
+        $.ajax({
+          type: "post",
+          url: "/apply/applyResumeSelect",
+          data: JSON.stringify(data),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json" //default : 응답의 mime 타입으로 유추함
+        }).done((res) => { // 20x일때
+          alert(res.msg);
+          $('#exampleModal').modal('hide');
+        }).fail((err) => { // 40x, 50x 일때
+          alert(err.responseJSON.msg);
+        });
+      }
+
+    </script>
     <!-- 공고 삭제 스크립트 끝 -->
 
         <%@ include file="../layout/footer.jsp" %>
