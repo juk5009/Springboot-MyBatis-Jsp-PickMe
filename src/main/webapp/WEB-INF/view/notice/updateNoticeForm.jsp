@@ -9,7 +9,7 @@
       <div id="my-saveNoticeForm-title-box-1" class="container">
         <div class="py-5 text-center">
 
-          <h2>공고 작성</h2>
+          <h2>공고 수정</h2>
         </div>
       </div>
 

@@ -22,7 +22,12 @@ public interface ResumeRepository {
 
         public int insert(Resume resume);
 
-        public int updateById(ResumeSaveReqDto resumeSaveReqDto);
+        public int updateById(@Param("id") int id, @Param("resumeUsername") String resumeUsername,
+                        @Param("resumeBirth") String resumeBirth, @Param("resumeEmail") String resumeEmail,
+                        @Param("resumeAddress") String resumeAddress, @Param("resumeLocation") String resumeLocation,
+                        @Param("resumeCareer") String resumeCareer,
+                        @Param("resumeGrade") String resumeGrade, @Param("resumePhoneNumber") String resumePhoneNumber,
+                        @Param("resumeSex") String resumeSex, @Param("resumeContent") String resumeContent);
 
         public int deleteById(int id);
 }

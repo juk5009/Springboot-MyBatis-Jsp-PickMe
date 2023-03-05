@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
@@ -70,6 +71,47 @@ public class ResumeService {
         }
         resumeRepository.deleteById(id);
 
+    }
+
+    @Transactional
+    public void 이력서수정(int id, ResumeUpdateReqDto resumeUpdateReqDto, int userPrincipalId, String usSkill) {
+
+        Resume resumePS = resumeRepository.findById(id);
+        resumeUpdateReqDto.setId(resumePS.getId());
+        resumeUpdateReqDto.setUserId(resumePS.getId());
+
+        int result = resumeRepository.updateById(id,
+                resumeUpdateReqDto.getResumeUsername(),
+                resumeUpdateReqDto.getResumeBirth(),
+                resumeUpdateReqDto.getResumeEmail(),
+                resumeUpdateReqDto.getResumeAddress(),
+                resumeUpdateReqDto.getResumeLocation(),
+                resumeUpdateReqDto.getResumeCareer(),
+                resumeUpdateReqDto.getResumeGrade(), resumeUpdateReqDto.getResumePhoneNumber(),
+                resumeUpdateReqDto.getResumeSex(),
+                resumeUpdateReqDto.getResumeContent());
+        if (result != 1) {
+            throw new CustomApiException("공고수정실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        System.out.println("수정테스트31 notice grade : ");
+
+        userskillRespository.deleteByResumeId(id);
+
+        List<String> userskillList = Arrays.asList(usSkill.split(","));
+        Userskill us = new Userskill(resumeUpdateReqDto);
+
+        /* list 내용을 for문 돌려서 userskill_tb에 insert 해줌 */
+        if (userskillList != null) {
+            for (String userskill : userskillList) {
+
+                int result2 = userskillRespository.insert(us.getResumeId(), us.getUserId(), userskill);
+                if (result2 != 1) {
+                    throw new CustomApiException("보유기술작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+            }
+
+        }
     }
 
 }

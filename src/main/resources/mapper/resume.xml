@@ -27,9 +27,9 @@
 
     <delete id="deleteById" >
         delete from resume_tb where id = #{id} 
-    </delete>    
-
+    </delete>
+   
     <update id="updateById" >
-        update resume_tb set resumename= #{resumename},password= #{password}, email= #{email} where id = #{id} 
+        update notice_tb set resume_username= #{resumeUsername}, resume_birth= #{resumeBirth}, resume_email= #{resumeEmail}, resume_address= #{resumeAddress}, resume_location= #{resumeLocation}, resume_career= #{resumeCareer}, resume_grade= #{resumeGrade}, resume_phone_number= #{resumePhoneNumber}, resume_sex= #{resumeSex}, resume_content= #{resumeContent} where id = #{id} 
     </update>    
 </mapper>

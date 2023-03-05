@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,6 +40,21 @@ public class Resume {
         this.resumePhoneNumber = resumeSaveReqDto.getResumePhoneNumber();
         this.resumeSex = resumeSaveReqDto.getResumeSex();
         this.resumeContent = resumeSaveReqDto.getResumeContent();
+    }
+
+    public Resume(ResumeUpdateReqDto resumeUpdateReqDto) {
+        this.id = resumeUpdateReqDto.getId();
+        this.userId = resumeUpdateReqDto.getUserId();
+        this.resumeUsername = resumeUpdateReqDto.getResumeUsername();
+        this.resumeBirth = resumeUpdateReqDto.getResumeBirth();
+        this.resumeEmail = resumeUpdateReqDto.getResumeEmail();
+        this.resumeAddress = resumeUpdateReqDto.getResumeAddress();
+        this.resumeCareer = resumeUpdateReqDto.getResumeCareer();
+        this.resumeLocation = resumeUpdateReqDto.getResumeLocation();
+        this.resumeGrade = resumeUpdateReqDto.getResumeGrade();
+        this.resumePhoneNumber = resumeUpdateReqDto.getResumePhoneNumber();
+        this.resumeSex = resumeUpdateReqDto.getResumeSex();
+        this.resumeContent = resumeUpdateReqDto.getResumeContent();
     }
 
 };

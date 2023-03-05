@@ -100,7 +100,7 @@
             </div>
 
             <div class="mb-3">
-            <a href="/notice/${resumeDto.id}/updateNoticeForm" class="btn btn-warning">수정</a>
+            <a href="/resume/${resumeDto.id}/updateResumeForm" class="btn btn-warning">수정</a>
             <button type="button" onclick="deleteById(${resumeDto.id})" class="btn btn-danger">삭제</button>
             </div>
 

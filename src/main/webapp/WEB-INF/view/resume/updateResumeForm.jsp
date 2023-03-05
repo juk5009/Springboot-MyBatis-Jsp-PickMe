@@ -9,7 +9,7 @@
       <div id="my-resumeForm-title-box-1" class="container">
         <div class="py-5 text-center">
 
-          <h2>이력서 작성</h2>
+          <h2>이력서 수정</h2>
         </div>
       </div>
 
@@ -26,7 +26,7 @@
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">이름</label>
                   <input type="text" class="form-control" id="resumeUsername" name="resumeUsername" placeholder="ex) 홍길동"
-                    value="" required>
+                    value="${resume.resumeUsername}"  required>
 
                 </div>
 
@@ -34,7 +34,7 @@
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">생년월일</label>
                   <input type="text" class="form-control" id="resumeBirth" name="resumeBirth"
-                    placeholder="ex) 1991-03-01" value="" required>
+                    placeholder="ex) 1991-03-01" value="${resume.resumeBirth}" required>
                 </div>
 
 
@@ -43,7 +43,7 @@
                   <label for="user-phoneNumber" class="form-label">전화번호</label>
                   <div class="input-group has-validation">
                     <input type="text" class="form-control" id="resumePhoneNumber" name="resumePhoneNumber"
-                      placeholder="ex) 010-1234-5678" required>
+                      placeholder="ex) 010-1234-5678" value="${resume.resumePhoneNumber}" required>
                   </div>
                 </div>
 
@@ -51,20 +51,20 @@
                 <div class="col-12">
                   <label for="user-email" class="form-label">Email </label>
                   <input type="email" class="form-control" id="resumeEmail" name="resumeEmail"
-                    placeholder="ex) ssar1234@example.com">
+                    placeholder="ex) ssar1234@example.com" value="${resume.resumeEmail}">
                 </div>
 
                 <!-- 개인정보(주소) -->
                 <div class="col-12">
                   <label for="user-address" class="form-label">주소</label>
                   <input type="text" class="form-control" id="resumeAddress" name="resumeAddress"
-                    placeholder="ex) 서울특별시 성동구 연무장 15길 11 " required>
+                    placeholder="ex) 서울특별시 성동구 연무장 15길 11 " value="${resume.resumeAddress}" required>
                 </div>
 
                 <!-- 개인정보(희망근무지역?) -->
                 <div class="col-sm-6">
                   <label for="user-local" class="form-label">희망근무지역?</label>
-                  <select class="form-select" id="resumeLocation" name="resumeLocation" required>
+                  <select class="form-select" id="resumeLocation" name="resumeLocation" value="${resume.resumeLocation}" required>
                     <option value="">희망근무지역을 선택해주세요</option>
                     <option>서울</option>
                     <option>부산</option>
@@ -78,7 +78,7 @@
                 <!-- 개인정보(학력) -->
                 <div class="col-sm-6">
                   <label for="user-grade" class="form-label">학력</label>
-                  <select class="form-select" id="resumeGrade" name="resumeGrade" required>
+                  <select class="form-select" id="resumeGrade" name="resumeGrade" value="${resume.resumeGrade}" required>
                     <option value="">학력을 선택해주세요</option>
                     <option>전문학사</option>
                     <option>학사</option>
@@ -89,7 +89,7 @@
                 <!-- 공고정보(경력) -->
                 <div class="col-sm-6">
                   <label for="my-saveNoticeForm-career" class="form-label">경력</label>
-                  <input type="text" class="form-control" name="resumeCareer" id="resumeCareer" placeholder="ex) 신입" value="" required>
+                  <input type="text" class="form-control" name="resumeCareer" id="resumeCareer" value="${resume.resumeCareer}" placeholder="ex) 신입" value="" required>
 
                 </div>
 
@@ -98,18 +98,25 @@
 
                 <div class="my-3 d-flex">
                   <div class="my-resumeForm-sex-male-box-1 form-check">
-                    <input id="resumeSex" name="resumeSex" type="radio" value="남" class="form-radio-input" default="on" required
+                    <input id="resumeSex" name="resumeSex" type="radio" value="${resume.resumeSex}" class="form-radio-input" default="on" required
                       checked>&nbsp;&nbsp;
                     <label class="form-radio-label" for="user-sex-male">남</label>
                   </div>
                   <div class="my-resumeForm-sex-female-box-1 form-check">
-                    <input id="resumeSex" name="resumeSex" type="radio" value="여" class="form-radio-input" required>&nbsp;&nbsp;
+                    <input id="resumeSex" name="resumeSex" type="radio" value="${resume.resumeSex}" class="form-radio-input" required>&nbsp;&nbsp;
                     <label class="form-radio-label" for="user-sex-female">여</label>
                   </div>
                 </div>
 
-
-                
+                <%-- <div class="col-sm-6">
+                  <label for="my-saveNoticeForm-grade"  class="form-label">성별</label>
+                  <select class="form-select" value="" name="resumeSex" id="resumeSex" value="${resume.resumeSex}" required>
+                    <option value="">성별을 선택해주세요.</option>
+                    <option>남</option>
+                    <option>여</option>
+                    
+                  </select>
+                </div> --%>
 
                 <hr class="my-2"> <!-- 구분선 -->
 
@@ -123,7 +130,7 @@
                     <br>
                     <div class="form-group">
                       <textarea class="form-control summernote" rows="5" name="resumeContent"
-                        id="resumeContent"></textarea>
+                        id="resumeContent" value="${resume.resumeContent}"></textarea>
                     </div>
 
                   </form>
@@ -165,7 +172,7 @@
               <!-- 이력서 등록 버튼  -->
 
               <div class="my-resumeForm-btn-1 mycol-md-12">
-                <button class="w-100 btn btn-primary btn-lg" onclick="saveResume()" type="button">이력서 등록</button>
+                <button class="w-100 btn btn-primary btn-lg" onclick="updateById()" type="button">이력서 수정</button>
               </div>
 
             </form>
@@ -181,7 +188,7 @@
     <!-- 이력서 스크립트 -->
 
  <script>
-      function saveResume() {
+      function updateById() {
 
         var checkedValues = [];
 

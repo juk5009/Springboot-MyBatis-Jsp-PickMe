@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
+import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
+import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.service.ResumeService;
@@ -87,6 +90,61 @@ public class ResumeController {
         return new ResponseEntity<>(new ResponseDto<>(1, "이력서 작성 성공", null), HttpStatus.CREATED);
     }
 
+    @PutMapping("/resume/{id}")
+    public @ResponseBody ResponseEntity<?> updateNotice(@PathVariable int id,
+            @RequestBody ResumeUpdateReqDto resumeUpdateReqDto) {
+        String usSkill = resumeUpdateReqDto.getUserskillList();
+
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            throw new CustomApiException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        if (resumeUpdateReqDto.getResumeUsername() == null ||
+                resumeUpdateReqDto.getResumeUsername().isEmpty()) {
+            throw new CustomApiException("이름을 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeBirth() == null ||
+                resumeUpdateReqDto.getResumeBirth().isEmpty()) {
+            throw new CustomApiException("생년월일을 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeEmail() == null ||
+                resumeUpdateReqDto.getResumeEmail().isEmpty()) {
+            throw new CustomApiException("email 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeAddress() == null ||
+                resumeUpdateReqDto.getResumeAddress().isEmpty()) {
+            throw new CustomApiException("주소를 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeCareer() == null ||
+                resumeUpdateReqDto.getResumeCareer().isEmpty()) {
+            throw new CustomApiException("주소를 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeLocation() == null ||
+                resumeUpdateReqDto.getResumeLocation().isEmpty()) {
+            throw new CustomApiException("지역을 선택해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeGrade() == null ||
+                resumeUpdateReqDto.getResumeGrade().isEmpty()) {
+            throw new CustomApiException("학력을 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumePhoneNumber() == null ||
+                resumeUpdateReqDto.getResumePhoneNumber().isEmpty()) {
+            throw new CustomApiException("전화번호를 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeSex() == null ||
+                resumeUpdateReqDto.getResumeSex().isEmpty()) {
+            throw new CustomApiException("성별을 작성해주세요");
+        }
+        if (resumeUpdateReqDto.getResumeContent() == null ||
+                resumeUpdateReqDto.getResumeContent().isEmpty()) {
+            throw new CustomApiException("자기소개서를 작성해주세요");
+        }
+
+        resumeService.이력서수정(id, resumeUpdateReqDto, userPrincipal.getId(), usSkill);
+
+        return new ResponseEntity<>(new ResponseDto<>(1, "공고 수정 완료", null), HttpStatus.CREATED);
+    }
+
     @DeleteMapping("/resume/{id}")
     public @ResponseBody ResponseEntity<?> deleteResume(@PathVariable int id) {
 
@@ -108,6 +166,15 @@ public class ResumeController {
     public String resumeDetailForm(@PathVariable int id, Model model) {
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
+    }
+
+    @GetMapping("/resume/{id}/updateResumeForm")
+    public String noticeUpdateForm(@PathVariable int id, Model model) {
+        Resume ResumePS = resumeRepository.findById(id);
+
+        model.addAttribute("resume", ResumePS);
+
+        return "resume/updateResumeForm";
     }
 
 }
