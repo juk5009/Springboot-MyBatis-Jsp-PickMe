@@ -6,7 +6,7 @@
 
       <!-- main 슬라이드 쇼 -->
 
-      <div id="myCarousel" class="carousel slide d-block" data-bs-ride="carousel">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
             aria-label="Slide 1"></button>
@@ -78,9 +78,8 @@
                       alt=" lg">
                     <a href="/notice/${noticeMain.id}">
                       <div class="card-body">
-                        <h5 class="card-title description" style="font-size: 22px;">${noticeMain.noticeCompanyname}</h5>
-                        <br>
-                        <p class="card-text description">${noticeMain.noticeTitle}</p>
+                        <h5 class="card-title description" style="font-size: 22px; margin-bottom: 5px;">${noticeMain.noticeCompanyname}</h5>
+                        <p class="card-text description" style="font-size: 18px; margin-bottom: 5px;">${noticeMain.noticeTitle}</p>
                       </div>
                     </a>
                   </div>
