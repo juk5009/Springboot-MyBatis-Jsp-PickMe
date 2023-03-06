@@ -10,8 +10,7 @@ import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
 
 @Mapper
 public interface CompanyRepository {
-        public int insert(@Param("companyName") String companyName, @Param("companyPassword") String companyPassword,
-                        @Param("companyEmail") String companyEmail);
+        public int insert(CompanyJoinReqDto companyJoinReqDto);
 
         public int updateById(@Param("id") int id, @Param("companyName") String companyName,
                         @Param("companyPassword") String companyPassword, @Param("companyEmail") String companyEmail);
@@ -22,12 +21,12 @@ public interface CompanyRepository {
 
         public Company findById(int id);
 
-        public Company findByUsernameAndPassword(CompanyLoginReqDto CompanyLoginReqDto);
+        public Company findByCompanynameAndPassword(CompanyLoginReqDto CompanyLoginReqDto);
 
         public int updateCompanyProfile(@Param("id") int id, @Param("companyName") String companyName,
                         @Param("companyPassword") String companyPassword, @Param("companyEmail") String companyEmail,
                         @Param("companyProfile") String companyProfile);
 
-        public Company findByUsername(String companyName);
+        public Company findByCompanyname(String companyName);
 
 }

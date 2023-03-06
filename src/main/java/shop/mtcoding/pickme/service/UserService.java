@@ -27,8 +27,8 @@ public class UserService {
         if (sameUser != null) {
             throw new CustomException("동일한 username이 존재합니다");
         }
-        int result = userRepository.insert(userJoinReqDto.getUserName(), userJoinReqDto.getUserPassword(),
-                userJoinReqDto.getUserEmail());
+        int result = userRepository.insert(userJoinReqDto);
+        ;
         if (result != 1) {
             throw new CustomException("회원가입실패");
         }
