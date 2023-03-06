@@ -11,13 +11,7 @@
         inner join resume_tb re
         on ur.id = re.user_id
         where re.id = #{id}
-    </select>
-
-    <select id="findAllWithResume" resultType="shop.mtcoding.pickme.dto.resume.ResumeResp$ResumeSelectRespDto">
-        SELECT  ut.user_profile, rt.resume_username, rt.id , rt.user_id
-        FROM user_tb ut
-        INNER JOIN resume_tb rt ON ut.id = rt.user_id;
-    </select>
+    </select>    
 
     <select id="findAll" resultType="shop.mtcoding.pickme.model.Resume">
         select * from resume_tb
@@ -36,6 +30,6 @@
     </delete>
    
     <update id="updateById" >
-        update notice_tb set resume_username= #{resumeUsername}, resume_birth= #{resumeBirth}, resume_email= #{resumeEmail}, resume_address= #{resumeAddress}, resume_location= #{resumeLocation}, resume_career= #{resumeCareer}, resume_grade= #{resumeGrade}, resume_phone_number= #{resumePhoneNumber}, resume_sex= #{resumeSex}, resume_content= #{resumeContent} where id = #{id} 
+        update resume_tb set resume_username= #{resumeUsername}, resume_birth= #{resumeBirth}, resume_email= #{resumeEmail}, resume_address= #{resumeAddress}, resume_location= #{resumeLocation}, resume_career= #{resumeCareer}, resume_grade= #{resumeGrade}, resume_phone_number= #{resumePhoneNumber}, resume_sex= #{resumeSex}, resume_content= #{resumeContent} where id = #{id} 
     </update>    
 </mapper>

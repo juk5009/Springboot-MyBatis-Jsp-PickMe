@@ -21,4 +21,5 @@ public interface CompanyskillRepository {
         public int deleteById(int id);
 
         public int deleteByNoticeId(int noticeId);
+
 }

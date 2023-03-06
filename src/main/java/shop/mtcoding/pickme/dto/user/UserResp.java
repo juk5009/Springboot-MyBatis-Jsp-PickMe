@@ -9,6 +9,7 @@ public class UserResp {
     @Getter
     public static class UserListRespDto {
         private int id;
+        private String resumeUsername;
         private String resumeCareer;
         private String resumeGrade;
         private String userProfile;

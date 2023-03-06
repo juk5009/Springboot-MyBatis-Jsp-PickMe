@@ -17,7 +17,8 @@
                   <img src="${userList.userProfile}" class="card-img-top" style="object-fit: cover; height: 55%;" alt=" lg">
                   <a href="/resume/${userList.id}">
                     <div class="card-body">
-                      <h5 class="card-title description" style="font-size: 24px;">${userList.resumeCareer}</h5><br>
+                      <h5 class="card-title description" style="font-size: 24px;">${userList.resumeUsername}</h5><br>
+                      <p class="card-text description">${userList.resumeCareer}</p>
                       <p class="card-text description">${userList.resumeGrade}</p>
                     </div>
                   </a>
