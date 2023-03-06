@@ -12,29 +12,22 @@
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col">지원자 이름</th>
-                                <th scope="col">Last</th>
+                                <th scope="col">경력</th>
+                                <th scope="col">학력</th>
                                 <th scope="col">상세보기</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <c:forEach items="${applyUserList}" var="userList">
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <th scope="row">${userList.id}</th>
+                                <td>${userList.resumeUsername}</td>
+                                <td>${userList.resumeCareer}</td>
+                                <td>${userList.resumeGrade}</td>
                                 <td><button type="button" class="btn btn-primary">이력서</button></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td><button type="button" class="btn btn-primary">이력서</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>Thornton</td>
-                                <td><button type="button" class="btn btn-primary">이력서</button></td>
-                            </tr>
+                            </c:forEach>
+
                         </tbody>
                     </table>
                 </div>

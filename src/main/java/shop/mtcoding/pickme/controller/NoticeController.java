@@ -25,8 +25,6 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.Notice;
 import shop.mtcoding.pickme.model.NoticeRepository;
-import shop.mtcoding.pickme.model.ResumeRepository;
-import shop.mtcoding.pickme.model.UserRepository;
 import shop.mtcoding.pickme.service.NoticeService;
 
 @Controller
