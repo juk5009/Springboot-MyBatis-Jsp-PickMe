@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
+import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 import shop.mtcoding.pickme.model.Company;
 
 @Transactional
@@ -81,20 +82,6 @@ public class NoticeControllerTest {
         resultActions.andExpect(status().isCreated());
     }
 
-    // public static class NoticeSaveReqDto {
-    // private Integer id;
-    // private Integer companyId;
-    // private String noticeCompanyname;
-    // private String noticeTitle;
-    // private String noticeCareer;
-    // private String noticePay;
-    // private String noticeEmploytype;
-    // private String noticeGrade;
-    // private String noticeLocation;
-    // private String noticeContent;
-    // private String companyskillList;
-    // }
-
     @Test
     public void deleteNotice_test() throws Exception {
         // given
@@ -106,13 +93,6 @@ public class NoticeControllerTest {
         String responseBody = resultActions.andReturn().getResponse().getContentAsString();
         System.out.println("delete_test : " + responseBody);
 
-        /**
-         * jsonPath
-         * 최상위 : $
-         * 객체탐색 : 닷(.)
-         * 배열 : [0]
-         */
-        // then
         resultActions.andExpect(jsonPath("$.code").value(1));
         resultActions.andExpect(status().isOk());
     }
@@ -121,18 +101,19 @@ public class NoticeControllerTest {
     public void updateNotice_test() throws Exception {
         // given
         int id = 1;
-        NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
-        noticeSaveReqDto.setNoticeCompanyname("lg");
-        noticeSaveReqDto.setNoticeTitle("다다다닥");
-        noticeSaveReqDto.setNoticeEmploytype("정규직");
-        noticeSaveReqDto.setNoticePay("3500");
-        noticeSaveReqDto.setNoticeGrade("전문학사");
-        noticeSaveReqDto.setNoticeLocation("부산");
-        noticeSaveReqDto.setNoticeContent("다다다다다다닥");
-        noticeSaveReqDto.setNoticeCareer("1년");
-        noticeSaveReqDto.setCompanyskillList("java,jsp");
+        NoticeUpdateReqDto noticeUpdateReqDto = new NoticeUpdateReqDto();
+        noticeUpdateReqDto.setCompanyId(1);
+        noticeUpdateReqDto.setNoticeCompanyname("lg");
+        noticeUpdateReqDto.setNoticeTitle("다다다닥");
+        noticeUpdateReqDto.setNoticeEmploytype("정규직");
+        noticeUpdateReqDto.setNoticePay("3500");
+        noticeUpdateReqDto.setNoticeGrade("전문학사");
+        noticeUpdateReqDto.setNoticeLocation("부산");
+        noticeUpdateReqDto.setNoticeContent("다다다다다다닥");
+        noticeUpdateReqDto.setNoticeCareer("1년");
+        noticeUpdateReqDto.setCompanyskillList("java");
 
-        String requestBody = om.writeValueAsString(noticeSaveReqDto);
+        String requestBody = om.writeValueAsString(noticeUpdateReqDto);
 
         System.out.println("테스트 : " + requestBody);
         // when
