@@ -2,6 +2,7 @@ package shop.mtcoding.pickme.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -56,7 +57,7 @@ public class NoticeControllerTest {
         // given
 
         NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
-
+        noticeSaveReqDto.setNoticeCompanyname("lg");
         noticeSaveReqDto.setNoticeTitle("다다다닥");
         noticeSaveReqDto.setNoticeEmploytype("정규직");
         noticeSaveReqDto.setNoticePay("3500");
@@ -64,6 +65,7 @@ public class NoticeControllerTest {
         noticeSaveReqDto.setNoticeLocation("부산");
         noticeSaveReqDto.setNoticeContent("다다다다다다닥");
         noticeSaveReqDto.setNoticeCareer("1년");
+        noticeSaveReqDto.setCompanyskillList("java,jsp");
 
         String requestBody = om.writeValueAsString(noticeSaveReqDto);
         // when
@@ -78,6 +80,20 @@ public class NoticeControllerTest {
         // then
         resultActions.andExpect(status().isCreated());
     }
+
+    // public static class NoticeSaveReqDto {
+    // private Integer id;
+    // private Integer companyId;
+    // private String noticeCompanyname;
+    // private String noticeTitle;
+    // private String noticeCareer;
+    // private String noticePay;
+    // private String noticeEmploytype;
+    // private String noticeGrade;
+    // private String noticeLocation;
+    // private String noticeContent;
+    // private String companyskillList;
+    // }
 
     @Test
     public void deleteNotice_test() throws Exception {
@@ -100,4 +116,34 @@ public class NoticeControllerTest {
         resultActions.andExpect(jsonPath("$.code").value(1));
         resultActions.andExpect(status().isOk());
     }
+
+    @Test
+    public void updateNotice_test() throws Exception {
+        // given
+        int id = 1;
+        NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
+        noticeSaveReqDto.setNoticeCompanyname("lg");
+        noticeSaveReqDto.setNoticeTitle("다다다닥");
+        noticeSaveReqDto.setNoticeEmploytype("정규직");
+        noticeSaveReqDto.setNoticePay("3500");
+        noticeSaveReqDto.setNoticeGrade("전문학사");
+        noticeSaveReqDto.setNoticeLocation("부산");
+        noticeSaveReqDto.setNoticeContent("다다다다다다닥");
+        noticeSaveReqDto.setNoticeCareer("1년");
+        noticeSaveReqDto.setCompanyskillList("java,jsp");
+
+        String requestBody = om.writeValueAsString(noticeSaveReqDto);
+
+        System.out.println("테스트 : " + requestBody);
+        // when
+        ResultActions resultActions = mvc.perform(put("/notice/" + id)
+                .content(requestBody)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .session(mockSession));
+
+        // then
+        resultActions.andExpect(status().isCreated());
+        resultActions.andExpect(jsonPath("$.code").value(1));
+    }
+
 }

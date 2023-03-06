@@ -50,6 +50,7 @@ public class NoticeService {
         /* checkbox의 체크된 값을 string으로 받아 왔기 때문에 split 하여 list에 담아줌 */
         List<String> companyskillList = Arrays.asList(comSkill.split(","));
         Companyskill com = new Companyskill(noticeSaveReqDto);
+        System.out.println("테스트 companyskillList" + companyskillList);
         System.out.println("테스트 Companyskill : " + com.getCompanyskillName());
         System.out.println("테스트44 : " + companyskillList.size());
         System.out.println("테스트444 : " + com.getNoticeId());
