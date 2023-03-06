@@ -119,7 +119,7 @@ public class ResumeControllerTest {
     }
 
     @Test
-    public void updateNotice_test() throws Exception {
+    public void updateResume_test() throws Exception {
         // given
         int id = 1;
         ResumeUpdateReqDto resumeUpdateReqDto = new ResumeUpdateReqDto();
