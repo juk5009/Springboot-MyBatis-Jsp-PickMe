@@ -14,4 +14,5 @@ public class ApplyResp {
         private String resumeCareer;
         private String resumeGrade;
     }
+
 }
