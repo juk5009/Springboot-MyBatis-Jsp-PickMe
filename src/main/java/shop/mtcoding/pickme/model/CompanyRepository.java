@@ -10,21 +10,24 @@ import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
 
 @Mapper
 public interface CompanyRepository {
-    public int insert(CompanyJoinReqDto companyJoinReqDto);
+        public int insert(@Param("companyName") String companyName, @Param("companyPassword") String companyPassword,
+                        @Param("companyEmail") String companyEmail);
 
-    public int updateById(@Param("id") int id, @Param("companyName") String companyName,
-            @Param("companyPassword") String companyPassword, @Param("companyEmail") String companyEmail);
+        public int updateById(@Param("id") int id, @Param("companyName") String companyName,
+                        @Param("companyPassword") String companyPassword, @Param("companyEmail") String companyEmail);
 
-    public int deleteById(int id);
+        public int deleteById(int id);
 
-    public List<Company> findAll();
+        public List<Company> findAll();
 
-    public Company findById(int id);
+        public Company findById(int id);
 
-    public Company findByUsernameAndPassword(CompanyLoginReqDto CompanyLoginReqDto);
+        public Company findByUsernameAndPassword(CompanyLoginReqDto CompanyLoginReqDto);
 
-    public int updateCompanyProfile(@Param("id") int id, @Param("companyName") String companyName,
-            @Param("companyPassword") String companyPassword, @Param("companyEmail") String companyEmail,
-            @Param("companyProfile") String companyProfile);
+        public int updateCompanyProfile(@Param("id") int id, @Param("companyName") String companyName,
+                        @Param("companyPassword") String companyPassword, @Param("companyEmail") String companyEmail,
+                        @Param("companyProfile") String companyProfile);
+
+        public Company findByUsername(String companyName);
 
 }
