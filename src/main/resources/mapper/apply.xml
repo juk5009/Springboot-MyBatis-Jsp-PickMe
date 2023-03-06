@@ -26,7 +26,7 @@
     </update>
 
     <select id="findApplyList" resultType="shop.mtcoding.pickme.dto.apply.ApplyResp$ApplyListRespDto">
-        SELECT DISTINCT at.id, rt.resume_username, rt.resume_career, rt.resume_grade
+        SELECT DISTINCT at.id, at.company_id, rt.resume_username, rt.resume_career, rt.resume_grade
         FROM apply_tb at
         INNER JOIN resume_tb rt ON at.resume_id = rt.id;
     </select>

@@ -10,7 +10,6 @@
                     <table class="table table-hover w-outo">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
                                 <th scope="col">지원자 이름</th>
                                 <th scope="col">경력</th>
                                 <th scope="col">학력</th>
@@ -19,13 +18,14 @@
                         </thead>
                         <tbody>
                             <c:forEach items="${applyUserList}" var="userList">
+                            <c:if test="${userList.companyId == comPrincipal.id}" >
                             <tr>
-                                <th scope="row">${userList.id}</th>
                                 <td>${userList.resumeUsername}</td>
                                 <td>${userList.resumeCareer}</td>
                                 <td>${userList.resumeGrade}</td>
                                 <td><button type="button" class="btn btn-primary">이력서</button></td>
                             </tr>
+                            </c:if>
                             </c:forEach>
 
                         </tbody>

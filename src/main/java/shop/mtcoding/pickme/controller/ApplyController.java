@@ -20,12 +20,16 @@ import shop.mtcoding.pickme.dto.apply.ApplyResp.ApplyListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.ApplyRepository;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.NoticeRepository;
 
 @Controller
 public class ApplyController {
 
     @Autowired
     private ApplyRepository applyRepository;
+
+    @Autowired
+    private NoticeRepository noticeRepository;
 
     @Autowired
     private HttpSession session;
