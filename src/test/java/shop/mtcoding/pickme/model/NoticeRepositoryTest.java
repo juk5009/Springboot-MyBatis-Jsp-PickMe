@@ -22,6 +22,7 @@ public class NoticeRepositoryTest {
         // given
         NoticeSaveReqDto noticeSaveReqDto = new NoticeSaveReqDto();
         noticeSaveReqDto.setCompanyId(1);
+        noticeSaveReqDto.setNoticeCompanyname("lg");
         noticeSaveReqDto.setNoticeTitle("다다닥");
         noticeSaveReqDto.setNoticeCareer("1년");
         noticeSaveReqDto.setNoticeEmploytype("정규직");
@@ -29,7 +30,7 @@ public class NoticeRepositoryTest {
         noticeSaveReqDto.setNoticeLocation("서울");
         noticeSaveReqDto.setNoticePay("5000");
         noticeSaveReqDto.setNoticeContent("다다다닥");
-        
+
         Notice notice = new Notice(noticeSaveReqDto);
         System.out.println("테스트 1 : " + noticeSaveReqDto.getNoticeContent());
 
