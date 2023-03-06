@@ -9,9 +9,11 @@ import shop.mtcoding.pickme.dto.companyskill.CompanyskillReqDto.CompanyskillSave
 
 @Mapper
 public interface CompanyskillRepository {
-        public List<Userskill> findAll();
+        public List<Companyskill> findAll();
 
-        public User findById(int id);
+        public Companyskill findById(int id);
+
+        public List<Companyskill> findByNoticeId(int id);
 
         public int insert(@Param("noticeId") int noticeId, @Param("companyId") int companyId,
                         @Param("companyskillName") String companyskillName);
