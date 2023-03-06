@@ -144,14 +144,12 @@ public class NoticeController {
 
     @GetMapping("/notice/{id}")
     public String noticeDetailForm(@PathVariable int id, Model model) {
-        Company comPrincipal = (Company) session.getAttribute("comPrincipal");
-        if (comPrincipal == null) {
-            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
-        }
 
-        model.addAttribute("noticeDto", noticeRepository.findByCompanyIdWithNotice(id));
+        NoticeSaveReqDto noticeDto = noticeRepository.findByCompanyIdWithNotice(id);
 
-        List<Companyskill> comskill = companyskillRepository.findByNoticeId(comPrincipal.getId());
+        model.addAttribute("noticeDto", noticeDto);
+
+        List<Companyskill> comskill = companyskillRepository.findByNoticeId(id);
 
         model.addAttribute("comskillDto", comskill);
 

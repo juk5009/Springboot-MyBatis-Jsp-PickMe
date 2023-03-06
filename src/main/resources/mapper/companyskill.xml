@@ -14,7 +14,7 @@
     </select>
 
     <select id="findByNoticeId" resultType="shop.mtcoding.pickme.model.Companyskill">
-        select * from companyskill_tb where noticeId = #{id}
+        select * from companyskill_tb where notice_id = #{id}
     </select>
 
 

@@ -87,14 +87,14 @@
               
               <!-- 보유 기술 --> 
               <h4 class="mb-3">보유 기술</h4>
-
+              <c:forEach items="${comskillDto}" var="comskill">
               <div class="my-resumeForm-skill-box-1 d-flex" ">
-                <span class="badge text-bg-success" style="margin-right: 10px">Java</span>
-                <span class="badge text-bg-success" style="margin-right: 10px">JavaScript</span>
-                <span class="badge text-bg-success" style="margin-right: 10px">Spring</span>
+                <span class="badge text-bg-success" style="margin-right: 10px">"${comskill.companyskillName}"</span>               
               </div>
               <hr class="my-4">
             </div>
+              </c:forEach>
+
             <c:choose>
                 <c:when test="${userPrincipal != null && comPrincipal == null}">
                   <!-- Button trigger modal -->

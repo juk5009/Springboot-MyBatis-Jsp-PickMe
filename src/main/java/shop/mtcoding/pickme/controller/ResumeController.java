@@ -173,7 +173,8 @@ public class ResumeController {
         if (userPrincipal == null) {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
-        model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
+        ResumeSaveReqDto resumeDto = resumeRepository.findByUserIdWithResume(id);
+        model.addAttribute("resumeDto", resumeDto);
         return "resume/resumeDetailForm";
     }
 
