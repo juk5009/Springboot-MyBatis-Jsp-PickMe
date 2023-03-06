@@ -16,8 +16,9 @@
       <!-- 이력서(개인정보) -->
       <div class="my-resumeForm-content-box-1">
         <div id="my-resumeForm-content-box-2" class="container">
-          <div class="col-md-7 col-lg-6 justify-content-center">
+          <div class="col-md-10 col-lg-6 justify-content-center">
             <h4 class="mb-3 ">개인정보</h4>
+            
 
             <form id="my-resumeForm-content-form-1">
               <div class="row g-3">
@@ -25,8 +26,8 @@
                 <!-- 개인정보(이름) -->
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">이름</label>
-                  <input type="text" class="form-control" id="resumeUsername" name="resumeUsername" placeholder="ex) 홍길동"
-                    value="" required>
+                  <input type="text" class="form-control" id="resumeUsername" name="resumeUsername"
+                    placeholder="ex) 홍길동" value="" required>
 
                 </div>
 
@@ -89,7 +90,8 @@
                 <!-- 공고정보(경력) -->
                 <div class="col-sm-6">
                   <label for="my-saveNoticeForm-career" class="form-label">경력</label>
-                  <input type="text" class="form-control" name="resumeCareer" id="resumeCareer" placeholder="ex) 신입" value="" required>
+                  <input type="text" class="form-control" name="resumeCareer" id="resumeCareer" placeholder="ex) 신입"
+                    value="" required>
 
                 </div>
 
@@ -98,18 +100,19 @@
 
                 <div class="my-3 d-flex">
                   <div class="my-resumeForm-sex-male-box-1 form-check">
-                    <input id="resumeSex" name="resumeSex" type="radio" value="남" class="form-radio-input" default="on" required
-                      checked>&nbsp;&nbsp;
+                    <input id="resumeSex" name="resumeSex" type="radio" value="남" class="form-radio-input" default="on"
+                      required checked>&nbsp;&nbsp;
                     <label class="form-radio-label" for="user-sex-male">남</label>
                   </div>
                   <div class="my-resumeForm-sex-female-box-1 form-check">
-                    <input id="resumeSex" name="resumeSex" type="radio" value="여" class="form-radio-input" required>&nbsp;&nbsp;
+                    <input id="resumeSex" name="resumeSex" type="radio" value="여" class="form-radio-input"
+                      required>&nbsp;&nbsp;
                     <label class="form-radio-label" for="user-sex-female">여</label>
                   </div>
                 </div>
 
 
-                
+
 
                 <hr class="my-2"> <!-- 구분선 -->
 
@@ -136,28 +139,42 @@
                 <small>보유한 기술을 선택</small>
 
                 <div class="my-resumeForm-skill-box-1 d-flex">
-                  <input type="checkbox" class="btn-check" id="btncheck1" name="userskillName" value="Java"
-                    autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck1">Java</label>
+                  <!-- <div class="me-2"> -->
+                    <input type="checkbox" class="btn-check" id="btncheck1" name="userskillName" value="Java"
+                      autocomplete="off">
+                    <label class="btn btn-outline-success" for="btncheck1">Java</label>
+                  <!-- </div> -->
 
-                  <input type="checkbox" class="btn-check" id="btncheck2" name="userskillName" value="JavaScript"
-                    autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck2">JavaScript</label>
+                  <!-- <div class="me-2"> -->
+                    <input type="checkbox" class="btn-check" id="btncheck2" name="userskillName" value="JavaScript"
+                      autocomplete="off">
+                    <label class="btn btn-outline-success" for="btncheck2">JavaScript</label>
+                  <!-- </div> -->
 
-                  <input type="checkbox" class="btn-check" id="btncheck3" name="userskillName" value="Spring"
-                    autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck3">Spring</label>
+                  <!-- <div class="me-2"> -->
+                    <input type="checkbox" class="btn-check" id="btncheck3" name="userskillName" value="Spring"
+                      autocomplete="off">
+                    <label class="btn btn-outline-success" for="btncheck3">Spring</label>
+                  <!-- </div> -->
 
-                  <input type="checkbox" class="btn-check" id="btncheck4" name="userskillName" value="Jsp" autocomplete="off">
-                  <label class="btn btn-outline-primary"  for="btncheck4">Jsp</label>
+                  <!-- <div class="me-2"> -->
+                    <input type="checkbox" class="btn-check" id="btncheck4" name="userskillName" value="Jsp"
+                      autocomplete="off">
+                    <label class="btn btn-outline-success" for="btncheck4">Jsp</label>
+                  <!-- </div> -->
 
-                  <input type="checkbox" class="btn-check" id="btncheck5" name="userskillName" value="React"
-                    autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck5">React</label>
+                  <!-- <div class="me-2"> -->
+                    <input type="checkbox" class="btn-check" id="btncheck5" name="userskillName" value="React"
+                      autocomplete="off">
+                    <label class="btn btn-outline-success" for="btncheck5">React</label>
+                  <!-- </div> -->
 
-                  <input type="checkbox" class="btn-check" id="btncheck6" name="userskillName" value="Flutter"
-                    autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck6">Flutter</label>
+                  <!-- <div class="me-2"> -->
+                    <input type="checkbox" class="btn-check" id="btncheck6" name="userskillName" value="Flutter"
+                      autocomplete="off">
+                    <label class="btn btn-outline-success" for="btncheck6">Flutter</label>
+                  <!-- </div> -->
+
                 </div>
                 <hr class="my-4">
               </div>
@@ -165,7 +182,7 @@
               <!-- 이력서 등록 버튼  -->
 
               <div class="my-resumeForm-btn-1 mycol-md-12">
-                <button class="w-100 btn btn-primary btn-lg" onclick="saveResume()" type="button">이력서 등록</button>
+                <button class="w-100 btn btn-success btn-lg" onclick="saveResume()" type="button">이력서 등록</button>
               </div>
 
             </form>
@@ -180,18 +197,18 @@
 
     <!-- 이력서 스크립트 -->
 
- <script>
+    <script>
       function saveResume() {
 
         var checkedValues = [];
 
-      $('input:checkbox[name=userskillName]:checked').each(function (index) {
-        checkedValues.push($(this).val());
-      });
-     
-      console.log(checkedValues);
-      let checkBoxValue =checkedValues.join();
-        
+        $('input:checkbox[name=userskillName]:checked').each(function (index) {
+          checkedValues.push($(this).val());
+        });
+
+        console.log(checkedValues);
+        let checkBoxValue = checkedValues.join();
+
         let data = {
           "resumeUsername": $("#resumeUsername").val(),
           "resumeBirth": $("#resumeBirth").val(),
