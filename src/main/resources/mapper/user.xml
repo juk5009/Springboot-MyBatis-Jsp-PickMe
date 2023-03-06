@@ -5,7 +5,7 @@
 
 <mapper namespace="shop.mtcoding.pickme.model.UserRepository">
     <select id="findUserList" resultType="shop.mtcoding.pickme.dto.user.UserResp$UserListRespDto">
-        SELECT rt.id, rt.resume_career, rt.resume_grade, ut.user_profile
+        SELECT rt.id, rt.resume_username, rt.resume_career, rt.resume_grade, ut.user_profile
         FROM resume_tb rt
         JOIN user_tb ut
         ON rt.user_id = ut.id;
