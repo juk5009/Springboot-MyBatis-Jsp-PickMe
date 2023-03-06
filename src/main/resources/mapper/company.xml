@@ -9,6 +9,10 @@
         select * from company_tb
     </select>
 
+    <select id="findByCompanyname" resultType="shop.mtcoding.pickme.model.Company">
+        select * from company_tb where company_name = #{companyName}
+    </select>
+
     <select id="findById" resultType="shop.mtcoding.pickme.model.Company">
         select * from company_tb where id = #{id}
     </select>   
@@ -25,7 +29,7 @@
         update company_tb set company_name= #{companyName}, company_password= #{companyPassword}, company_email= #{companyEmail} where id = #{id} 
     </update>
 
-    <select id="findByUsernameAndPassword" resultType="shop.mtcoding.pickme.model.Company">
+    <select id="findByCompanynameAndPassword" resultType="shop.mtcoding.pickme.model.Company">
         select * from company_tb where company_name = #{companyName} and company_password = #{companyPassword}
     </select> 
 

@@ -19,6 +19,7 @@ import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
+import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
@@ -159,18 +160,31 @@ public class ResumeController {
 
     @GetMapping("/resume/saveResumeForm")
     public String saveResumeForm() {
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
         return "resume/saveResumeForm";
     }
 
     @GetMapping("/resume/{id}")
     public String resumeDetailForm(@PathVariable int id, Model model) {
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "resume/resumeDetailForm";
     }
 
     @GetMapping("/resume/{id}/updateResumeForm")
     public String noticeUpdateForm(@PathVariable int id, Model model) {
+
         Resume ResumePS = resumeRepository.findById(id);
+        User userPrincipal = (User) session.getAttribute("userPrincipal");
+        if (userPrincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
 
         model.addAttribute("resume", ResumePS);
 

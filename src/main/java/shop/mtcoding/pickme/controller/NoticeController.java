@@ -22,6 +22,7 @@ import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeResp.ResumeSelectRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
+import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.Notice;
 import shop.mtcoding.pickme.model.NoticeRepository;
@@ -129,6 +130,10 @@ public class NoticeController {
 
     @GetMapping("/notice/saveNoticeForm")
     public String saveNoticeForm() {
+        Company comPrincipal = (Company) session.getAttribute("comPrincipal");
+        if (comPrincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
         return "notice/saveNoticeForm";
     }
 
@@ -142,6 +147,10 @@ public class NoticeController {
 
     @GetMapping("/notice/{id}/updateNoticeForm")
     public String noticeUpdateForm(@PathVariable int id, Model model) {
+        Company comPrincipal = (Company) session.getAttribute("comPrincipal");
+        if (comPrincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
         Notice NoticePS = noticeRepository.findById(id);
 
         model.addAttribute("notice", NoticePS);

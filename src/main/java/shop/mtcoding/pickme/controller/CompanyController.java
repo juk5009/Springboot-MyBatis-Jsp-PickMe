@@ -129,4 +129,9 @@ public class CompanyController {
         return "redirect:/";
     }
 
+    @GetMapping("/company/companyList")
+    public String companyList() {
+        return "/company/companyList";
+    }
+
 }

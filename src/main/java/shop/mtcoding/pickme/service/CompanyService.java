@@ -23,15 +23,19 @@ public class CompanyService {
 
     @Transactional
     public void 기업회원가입(CompanyJoinReqDto companyJoinReqDto) {
+        Company CompanyUser = companyRepository.findByCompanyname(companyJoinReqDto.getCompanyName());
+        if (CompanyUser != null) {
+            throw new CustomException("동일한 companyname이 존재합니다");
+        }
         int result = companyRepository.insert(companyJoinReqDto);
         if (result != 1) {
-            throw new CustomException("회원가입실패", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new CustomException("회원가입실패");
         }
     }
 
     @Transactional
     public Company 기업로그인(CompanyLoginReqDto companyLoginReqDto) {
-        Company comPrincipal = companyRepository.findByUsernameAndPassword(companyLoginReqDto);
+        Company comPrincipal = companyRepository.findByCompanynameAndPassword(companyLoginReqDto);
         if (comPrincipal == null) {
             throw new CustomException("아이디 혹은 패스워드가 잘못 입력되었습니다.");
         }

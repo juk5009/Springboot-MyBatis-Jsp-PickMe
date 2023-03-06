@@ -5,7 +5,7 @@
 
             <div class="my-companyMyPage-box">
                 <h1>기업 마이페이지</h1>
-                div class="my-profile-body">
+                <div class="my-profile-body">
             <div class="container my-3 my-profile">
                 <h2 class="text-center my-profile-h2">기업 프로필 사진 변경 페이지</h2>
                 
