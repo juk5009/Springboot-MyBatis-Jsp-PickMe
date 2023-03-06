@@ -149,7 +149,7 @@
                           <h2>${resumeSelect.resumeUsername}</h2>
                         </div>
                         <div class="my-applyUserList-button-group">
-                          <button type="button" class="btn btn-outline-primary" onclick="apply(${userPrincipal.id},${resumeSelect.id},${noticeDto.id})">지원하기</button>
+                          <button type="button" class="btn btn-outline-primary" onclick="apply(${userPrincipal.id},${resumeSelect.id},${noticeDto.id}, ${noticeDto.companyId})">지원하기</button>
                         </div>
                     </div>
                 </div>
@@ -191,11 +191,12 @@
   <script>
 
 
-      function apply(user, resume, notice) {
+      function apply(user, resume, notice, company) {
         let data = {
           "userId": user,
           "resumeId": resume,
           "noticeId": notice,
+          "companyId": company,
         };
 
         $.ajax({

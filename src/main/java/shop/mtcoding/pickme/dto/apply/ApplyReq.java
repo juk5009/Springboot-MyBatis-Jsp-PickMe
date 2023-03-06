@@ -11,5 +11,6 @@ public class ApplyReq {
         private Integer resumeId;
         private Integer noticeId;
         private Integer userId;
+        private Integer companyId;
     }
 }

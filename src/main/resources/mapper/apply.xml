@@ -14,7 +14,7 @@
     </select>   
 
     <insert id="insert">
-        insert into apply_tb (resume_id, notice_id, user_id, created_at) values(#{resumeId}, #{noticeId}, #{userId}, now())
+        insert into apply_tb (resume_id, notice_id, user_id, company_id, created_at) values(#{resumeId}, #{noticeId}, #{userId}, #{companyId}, now())
     </insert>
     
     <delete id="deleteById" >
