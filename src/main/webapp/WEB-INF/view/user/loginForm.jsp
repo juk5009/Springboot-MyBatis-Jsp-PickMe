@@ -28,7 +28,7 @@
                                 <input type="password" name="userPassword" placeholder="Password를 입력해주세요" required>
                             </div>
                             <div class="login-btn">
-                                <button type="submit" class="btn btn-lg">로그인</button>
+                                <button type="submit" class="btn btn-lg" style="color: #fff;">로그인</button>
                             </div>
                             <br>
                             <div>아직 회원가입을 안하셨나요? <a href="/user/joinType" style="text-decoration-line: none;"><b
@@ -44,7 +44,7 @@
                                 <input type="password" name="companyPassword" placeholder="Password를 입력해주세요" required>
                             </div>
                             <div class="login-btn">
-                                <button type="submit" class="btn btn-lg">로그인</button>
+                                <button type="submit" class="btn btn-lg" style="color: #fff;">로그인</button>
                             </div>
                             <br>
                             <div>아직 회원가입을 안하셨나요? <a href="/user/joinType" style="text-decoration-line: none;"><b
