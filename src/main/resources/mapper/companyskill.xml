@@ -4,6 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="shop.mtcoding.pickme.model.CompanyskillRepository">
+    
+    <select id="findByCompanyWithCompanySkill" resultType="shop.mtcoding.pickme.model.Companyskill">
+        SELECT ct.id, st.COMPANYSKILL_NAME
+        FROM COMPANYSKILL_TB st
+        JOIN company_tb ct
+        ON st.company_id = #{id}
+    </select>
 
     <select id="findAll" resultType="shop.mtcoding.pickme.model.Companyskill">
         select * from companyskill_tb
@@ -28,7 +35,7 @@
 
     <update id="updateById" >
         update companyskill_tb set username= #{username},password= #{password}, email= #{email} where id = #{id} 
-    </update>  
+    </update>
 
     <delete id="deleteByNoticeId" >
         delete from companyskill_tb where notice_id = #{noticeId} 

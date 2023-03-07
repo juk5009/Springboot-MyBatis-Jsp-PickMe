@@ -26,6 +26,8 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.CompanyRepository;
+import shop.mtcoding.pickme.model.Companyskill;
+import shop.mtcoding.pickme.model.CompanyskillRepository;
 import shop.mtcoding.pickme.service.CompanyService;
 
 @Controller
@@ -39,6 +41,9 @@ public class CompanyController {
 
     @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    private CompanyskillRepository companyskillRepository;
 
     @PostMapping("/companyJoin")
     public String companyJoin(CompanyJoinReqDto companyJoinReqDto) {
@@ -133,10 +138,24 @@ public class CompanyController {
     }
 
     @GetMapping("/company/companyList")
-    public String companyList(Model model) {
+    public String companyList(Model model, CompanyListRespDto companyListRespDto) {
         List<CompanyListRespDto> companyList = companyRepository.findCompanyList();
         model.addAttribute("companyList", companyList);
+        Companyskill comskill = companyskillRepository.findByCompanyWithCompanySkill(companyListRespDto.getId());
+        model.addAttribute("comskillDto", comskill);
         return "company/companyList";
     }
+
+    // @GetMapping("/company/companyList")
+    // public String companyList(Model model, @RequestParam int id) {
+    // Company company = companyRepository.findById(id);
+    // model.addAttribute("company", company);
+    // List<CompanyListRespDto> companyList = companyRepository.findCompanyList();
+    // model.addAttribute("companyList", companyList);
+    // Companyskill comskill =
+    // companyskillRepository.findByCompanyWithCompanySkill(id);
+    // model.addAttribute("comskillDto", comskill);
+    // return "company/companyList";
+    // }
 
 }

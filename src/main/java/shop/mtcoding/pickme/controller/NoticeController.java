@@ -150,7 +150,6 @@ public class NoticeController {
         model.addAttribute("noticeDto", noticeDto);
 
         List<Companyskill> comskill = companyskillRepository.findByNoticeId(id);
-
         model.addAttribute("comskillDto", comskill);
 
         List<ResumeSelectRespDto> resumeSelectList = noticeRepository.findAllWithResume();
