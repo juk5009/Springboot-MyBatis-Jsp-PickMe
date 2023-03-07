@@ -172,7 +172,7 @@
               <!-- 이력서 등록 버튼  -->
 
               <div class="my-resumeForm-btn-1 mycol-md-12">
-                <button class="w-100 btn btn-primary btn-lg" onclick="updateById()" type="button">이력서 수정</button>
+                <button class="w-100 btn btn-primary btn-lg" onclick="updateById(${resume.id})" type="button">이력서 수정</button>
               </div>
 
             </form>
@@ -188,7 +188,7 @@
     <!-- 이력서 스크립트 -->
 
  <script>
-      function updateById() {
+      function updateById(id) {
 
         var checkedValues = [];
 
@@ -214,8 +214,8 @@
         };
 
         $.ajax({
-          type: "post",
-          url: "/saveResume",
+          type: "put",
+          url: "/resume/" + id,
           data: JSON.stringify(data),
           contentType: "application/json; charset=utf-8",
           dataType: "json"

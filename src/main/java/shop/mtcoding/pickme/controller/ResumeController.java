@@ -150,7 +150,7 @@ public class ResumeController {
 
         resumeService.이력서수정(id, resumeUpdateReqDto, userPrincipal.getId(), usSkill);
 
-        return new ResponseEntity<>(new ResponseDto<>(1, "공고 수정 완료", null), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDto<>(1, "이력서 수정 완료", null), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/resume/{id}")

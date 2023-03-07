@@ -66,7 +66,7 @@ public class ResumeService {
         if (resumePS == null) {
             throw new CustomApiException("없는 공고입니다.");
         }
-        if (resumePS.getId() != userPrincipalId) {
+        if (resumePS.getUserId() != userPrincipalId) {
             throw new CustomApiException("해당 공고를 삭제할 권한이 없습니다.", HttpStatus.FORBIDDEN);
         }
 
@@ -85,7 +85,7 @@ public class ResumeService {
         if (resumePS == null) {
             throw new CustomApiException("없는 이력서입니다.");
         }
-        if (resumePS.getId() != userPrincipalId) {
+        if (resumePS.getUserId() != userPrincipalId) {
             throw new CustomApiException("이력서를 삭제할 권한이 없습니다.", HttpStatus.FORBIDDEN);
         }
         resumeUpdateReqDto.setId(resumePS.getId());
