@@ -9,6 +9,7 @@ public class ApplyResp {
     @Getter
     public static class ApplyListRespDto {
         private Integer id;
+        private Integer userId;
         private Integer companyId;
         private String resumeUsername;
         private String resumeCareer;

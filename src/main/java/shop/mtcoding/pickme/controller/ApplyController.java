@@ -20,12 +20,16 @@ import shop.mtcoding.pickme.dto.apply.ApplyResp.ApplyListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.ApplyRepository;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.ResumeRepository;
 
 @Controller
 public class ApplyController {
 
     @Autowired
     private ApplyRepository applyRepository;
+
+    @Autowired
+    private ResumeRepository resumeRepository;
 
     @Autowired
     private HttpSession session;
@@ -42,7 +46,12 @@ public class ApplyController {
     }
 
     @GetMapping("/apply/{id}")
-    public String applyDetailForm(@PathVariable int id) {
+    public String applyDetailForm(@PathVariable int id, Model model) {
+        Company comprincipal = (Company) session.getAttribute("comPrincipal");
+        if (comprincipal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+        model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
         return "apply/applyDetailForm";
     }
 

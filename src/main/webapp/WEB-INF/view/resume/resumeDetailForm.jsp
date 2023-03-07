@@ -62,7 +62,7 @@
 
             <!-- 개인정보(학력) -->
             <div class="col-sm-6">
-              <label for="user-grade" class="form-label">학력</label>
+              <label for="user-grade" class="form-label">경력</label>
                 <div>${resumeDto.resumeCareer}</div>
             </div>            
             
