@@ -232,6 +232,7 @@
   color: #000000;
 
 }
+
 .featured-services {
   padding-left: 20px;
   padding-right: 20px;
@@ -278,7 +279,7 @@
 }
 
 .featured-services .card:hover::before {
-  background:#7CC98A;
+  background: #7CC98A;
   top: 0;
   border-radius: 0px;
 }
@@ -884,6 +885,7 @@ form .btn input[type="submit"] {
 .my-applyUserList-box {
   border: 1px solid #ccc;
   padding: 20px;
+  margin-top: 10%;
   margin-bottom: 20px;
 }
 
@@ -995,7 +997,7 @@ form .btn input[type="submit"] {
 
 .my-profile h2 {
   margin-top: 2rem;
-  
+
 }
 
 .my-profile-form-group img {
@@ -1037,6 +1039,7 @@ form .btn input[type="submit"] {
   border-radius: 16px;
   background-color: #eff5ff;
 }
+
 /*--------------------------------------------------------------
 # 이력서 상세 페이지 끝
 --------------------------------------------------------------*/
@@ -1047,6 +1050,7 @@ form .btn input[type="submit"] {
 .my-page-form-group {
   margin-bottom: 15px;
 }
+
 /*--------------------------------------------------------------
 # 마이 페이지
 --------------------------------------------------------------*/

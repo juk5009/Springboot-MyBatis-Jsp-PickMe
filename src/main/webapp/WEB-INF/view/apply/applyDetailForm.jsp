@@ -106,10 +106,10 @@
               </div>
               <div class="my-applyDetail-btn">
                 <div>
-                  <button type="button" class="btn btn-success">합격!</button>
+                  <button type="button" class="btn btn-success" onclick="good()">합격!</button>
                 </div>
                 <div>
-                  <button type="button" class="btn btn-danger">불합격</button>
+                  <button type="button" class="btn btn-danger" onclick="bad()">불합격</button>
                 </div>
               </div>
             </form>
@@ -129,5 +129,14 @@
     <script src="form-validation.js"></script>
 
     <!-- 이력서 스크립트 끝 -->
+
+    <script>
+      function good() {
+        alert("합격 메세지가 전송되었습니다. \uD83D\uDC4D");
+      }
+      function bad() {
+        alert("불합격 메세지가 전송되었습니다. \uD83D\uDC4E");
+      }
+    </script>
 
     <%@ include file="../layout/footer.jsp" %>

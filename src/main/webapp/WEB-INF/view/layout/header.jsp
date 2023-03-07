@@ -65,6 +65,7 @@
                                 <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
                                 <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
+                                <li><a class="nav-link scrollto " href="/apply/applyUserList">지원자목록</a></li>
                                 <li><a class="nav-link scrollto " href="/notice/saveNoticeForm">공고 작성</a></li>
                                 </c:if>
                                 </c:otherwise>          
