@@ -22,9 +22,8 @@
             <!-- </svg> -->
             <div class="container">
               <div class="carousel-caption text-start">
-                <h1>Example headline.</h1>
-                <p>Some representative placeholder content for the first slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                <h1 style="color:black;">원하는 기업을 Pick</h1>
+                <p><a class="btn btn-lg btn-success" href="/company/companyList">더 보기</a></p>
               </div>
             </div>
           </div>
@@ -32,9 +31,8 @@
             <img style="width: 100%; height: 103%; justify-content: center;" src="/images/person1.jpg" alt="">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Some representative placeholder content for the second slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                <h1 style="color:black;">원하는 인재를 Pick</h1>
+                <p><a class="btn btn-lg btn-success" href="/user/userList">더 보기</a></p>
               </div>
             </div>
           </div>
@@ -45,9 +43,8 @@
             </svg>
             <div class="container">
               <div class="carousel-caption text-end">
-                <h1>One more for good measure.</h1>
-                <p>Some representative placeholder content for the third slide of this carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                <h1 style="color:black;">추천 기업을 Pick</h1>
+                <p><a class="btn btn-lg btn-success" href="#">더 보기</a></p>
               </div>
             </div>
           </div>

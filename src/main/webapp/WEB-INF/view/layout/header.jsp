@@ -19,7 +19,9 @@
             <!-- 구글 폰트 -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+            <link
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+                rel="stylesheet">
 
             <!-- 이력서 head 시작 -->
 
@@ -47,21 +49,21 @@
                                 </a>
                                 <c:choose>
                                 <c:when test="${userPrincipal == null && comPrincipal == null}">
-                                <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
-                                <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
+                                <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
+                                <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
                                 </c:when>
 
                                 <c:otherwise>
                                 <c:if test="${userPrincipal != null || comPrincipal == null}">
-                                <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
-                                <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
+                                <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
+                                <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
                                 <li><a class="nav-link scrollto " href="/resume/saveResumeForm">이력서 작성</a></li>
                                 </c:if>
                                 <c:if test="${comPrincipal != null || userPrincipal == null}">
-                                <li><a class="nav-link scrollto " href="#hero">채용정보</a></li>
-                                <li><a class="nav-link scrollto " href="#about">기업목록</a></li>
+                                <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
+                                <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
                                 <li><a class="nav-link scrollto " href="/notice/saveNoticeForm">공고 작성</a></li>
                                 </c:if>
