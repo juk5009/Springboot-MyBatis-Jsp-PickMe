@@ -87,13 +87,18 @@
               
               <!-- 보유 기술 --> 
               <h4 class="mb-3">보유 기술</h4>
+              
+               <div class="my-resumeForm-skill-box-1 d-flex" ">
+                
               <c:forEach items="${comskillDto}" var="comskill">
-              <div class="my-resumeForm-skill-box-1 d-flex" ">
-                <span class="badge text-bg-success" style="margin-right: 10px">"${comskill.companyskillName}"</span>               
-              </div>
-              <hr class="my-4">
-            </div>
+                <span class="badge text-bg-success" style="margin-right: 10px">"${comskill.companyskillName}"</span>      
+                            
+              
               </c:forEach>
+              </div>
+            </div>
+            
+              <hr class="my-4">
 
             <c:choose>
                 <c:when test="${userPrincipal != null && comPrincipal == null}">
