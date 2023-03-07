@@ -10,36 +10,28 @@
                     <table class="table table-hover w-outo">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
+                                <th scope="col">공고번호</th>
                                 <th scope="col">지원자 이름</th>
-                                <th scope="col">Last</th>
+                                <th scope="col">경력</th>
+                                <th scope="col">학력</th>
                                 <th scope="col">상세보기</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><button type="button" class="btn btn-primary">이력서</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td><button type="button" class="btn btn-primary">이력서</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>Thornton</td>
-                                <td><button type="button" class="btn btn-primary">이력서</button></td>
-                            </tr>
+                            <c:forEach items="${applyUserList}" var="userList">
+                                <c:if test="${userList.companyId == comPrincipal.id}">
+                                    <tr>
+                                        <td>${userList.noticeId}</td>
+                                        <td>${userList.resumeUsername}</td>
+                                        <td>${userList.resumeCareer}</td>
+                                        <td>${userList.resumeGrade}</td>
+                                        <td><a href="/apply/${userList.resumeId}"><button>이력서</button></a></td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
         </div>
 
