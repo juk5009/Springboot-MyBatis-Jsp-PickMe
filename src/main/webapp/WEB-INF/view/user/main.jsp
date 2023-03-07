@@ -23,7 +23,7 @@
             <div class="container">
               <div class="carousel-caption text-start">
                 <h1 style="color:black;">원하는 기업을 Pick</h1>
-                <p><a class="btn btn-lg btn-success" href="#">더 보기</a></p>
+                <p><a class="btn btn-lg btn-success" href="/company/companyList">더 보기</a></p>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1 style="color:black;">원하는 인재를 Pick</h1>
-                <p><a class="btn btn-lg btn-success" href="#">더 보기</a></p>
+                <p><a class="btn btn-lg btn-success" href="/user/userList">더 보기</a></p>
               </div>
             </div>
           </div>
