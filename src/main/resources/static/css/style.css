@@ -891,6 +891,10 @@ form .btn input[type="submit"] {
 /*--------------------------------------------------------------
 # mypage / applyUserList 시작
 --------------------------------------------------------------*/
+.my-applyDetail-btn {
+  display: flex;
+  justify-content: end;
+}
 
 .my-mypage-box {
   border: 1px solid #ccc;

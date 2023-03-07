@@ -104,6 +104,14 @@
                 </div>
                 <hr class="my-4">
               </div>
+              <div class="my-applyDetail-btn">
+                <div>
+                  <button type="button" class="btn btn-success">합격</button>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-danger">불합격</button>
+                </div>
+              </div>
             </form>
           </div>
         </div>

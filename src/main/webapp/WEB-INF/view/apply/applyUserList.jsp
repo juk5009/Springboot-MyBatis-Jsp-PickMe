@@ -10,6 +10,7 @@
                     <table class="table table-hover w-outo">
                         <thead>
                             <tr>
+                                <th scope="col">공고번호</th>
                                 <th scope="col">지원자 이름</th>
                                 <th scope="col">경력</th>
                                 <th scope="col">학력</th>
@@ -20,13 +21,11 @@
                             <c:forEach items="${applyUserList}" var="userList">
                                 <c:if test="${userList.companyId == comPrincipal.id}">
                                     <tr>
+                                        <td>${userList.noticeId}</td>
                                         <td>${userList.resumeUsername}</td>
                                         <td>${userList.resumeCareer}</td>
                                         <td>${userList.resumeGrade}</td>
-                                        <td><a href="/apply/${userList.userId}"><button>이력서</button></a></td>
-                                        <%-- <button type="button" class="btn btn-primary my-notice-btn"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            이력서</button> --%>
+                                        <td><a href="/apply/${userList.resumeId}"><button>이력서</button></a></td>
                                     </tr>
                                 </c:if>
                             </c:forEach>
