@@ -2,7 +2,7 @@
     <%@ include file="../layout/header.jsp" %>
 
         <div class="container">
-            <br/>
+            <br />
             <div class="my-mypage-box d-block">
                 <h1>마이페이지</h1>
 
@@ -29,12 +29,12 @@
                             <input type="text" class="form-control" id="userEmail" placeholder=""
                                 value="${user.userEmail}">
                         </div>
-                        
+
                         <div>
-                            <button onclick="updateById(${user.id})" type="button"
-                            class="btn" style="background-color:#4BB58F; color: #fff;">정보수정완료</button>
+                            <button onclick="updateById(${user.id})" type="button" class="btn"
+                                style="background-color:#4BB58F; color: #fff;">정보수정완료</button>
                         </div>
-                        
+
                     </div>
                     <!-- 왼쪽 박스 끝 -->
 
@@ -56,23 +56,36 @@
                     <!-- 오른쪽 박스 끝 -->
 
                 </div>
-
-
             </div>
 
             <div class="my-mypage-box">
                 <h1>나의 이력서</h1>
                 <hr>
-                <ul>
-                    <li>이력서</li>
-                </ul>
+                <c:forEach items="${resumeSelectList}" var="resumeSelect">
+                    <c:if test="${userPrincipal.id == resumeSelect.userId}">
+                        <div class="my-mypage-box d-flex" style="justify-content: space-between;">
 
-                <c:if test="${userDto.userId == principal.id}">
-                    <div class="mb-3">
-                        <a href="/board/${userDto.id}/updateForm" class="btn btn-warning">수정</a>
-                        <button onclick="deleteById(${userDto.id})" class="btn btn-danger">삭제</button>
-                    </div>
-                </c:if>
+                            <div style="display: flex;">
+                                <div>
+                                    <img src="${resumeSelect.userProfile == null ? '/images/profile.jfif' : resumeSelect.userProfile}"
+                                        alt="orange22" class="rounded-circle"
+                                        style="height: 50px; width: 50px; border: 1px black;">
+                                </div>
+                                <div>
+                                    <h2>${resumeSelect.resumeUsername}</h2>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a href="/resume/${resumeSelect.id}" class="btn"
+                                    style="background-color:#4BB58F; color: #fff;">상세보기</a>
+                            </div>
+
+                        </div>
+
+
+                    </c:if>
+                </c:forEach>
             </div>
 
         </div>
@@ -138,8 +151,5 @@
                 }
             }
         </script>
-
-
-
 
         <%@ include file="../layout/footer.jsp" %>

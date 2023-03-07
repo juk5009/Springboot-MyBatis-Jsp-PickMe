@@ -1,5 +1,7 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyMypageReqDto;
+import shop.mtcoding.pickme.dto.company.CompanyResp.CompanyListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
@@ -130,8 +133,10 @@ public class CompanyController {
     }
 
     @GetMapping("/company/companyList")
-    public String companyList() {
-        return "/company/companyList";
+    public String companyList(Model model) {
+        List<CompanyListRespDto> companyList = companyRepository.findCompanyList();
+        model.addAttribute("companyList", companyList);
+        return "company/companyList";
     }
 
 }

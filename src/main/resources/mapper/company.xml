@@ -5,6 +5,13 @@
 
 <mapper namespace="shop.mtcoding.pickme.model.CompanyRepository">
 
+    <select id="findCompanyList" resultType="shop.mtcoding.pickme.dto.company.CompanyResp$CompanyListRespDto">  
+        SELECT nt.id, nt.notice_companyname
+        FROM notice_tb nt
+        JOIN company_tb ct
+        ON nt.company_id = ct.id
+    </select>
+
     <select id="findAll" resultType="shop.mtcoding.pickme.model.Company">
         select * from company_tb
     </select>
