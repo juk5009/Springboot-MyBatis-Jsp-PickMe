@@ -69,8 +69,12 @@ public class ResumeService {
         if (resumePS.getId() != userPrincipalId) {
             throw new CustomApiException("해당 공고를 삭제할 권한이 없습니다.", HttpStatus.FORBIDDEN);
         }
-        resumeRepository.deleteById(id);
 
+        try {
+            resumeRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new CustomApiException("서버에 일시적인 문제가 생겼습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Transactional
