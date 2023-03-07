@@ -2,27 +2,32 @@
     <%@ include file="../layout/header.jsp" %>
 
         <div class="container">
-            <div class="my-applyUserList-box">
-                <div class="my-applyUserList-box img">
-                    <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F732%2F732455.png&type=a340"
-                        alt="">
-                    <h1>카카오</h1>
-                    <h3>대방건설(주)</h3>
-                    <h3>지원자 요구 기술</h3>
-                    <button type="button" class="btn btn-outline-warning">상세보기</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="container">
             <div class="my-applyUserList-box">
-                <div class="my-applyUserList-box-img">
-                    <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F732%2F732455.png&type=a340"
-                        alt="">
-                    <h1>카카오</h1>
-                    <h3>대방건설(주)</h3>
-                    <h3>지원자 요구 기술</h3>
-                    <button type="button" class="btn btn-outline-warning">상세보기</button>
+                <h1>기업 목록 리스트</h1>
+
+                <div class="my-applyUserList-table">
+                    <table class="table table-hover w-outo">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">기업 이름</th>
+                                <th scope="col">Companyskill</th>
+                                <th scope="col">상세보기</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${companyList}" var="companyList">
+                                <tr>
+                                    <th scope="row">${companyList.id}</th>
+                                    <td>${companyList.noticeCompanyname}</td>
+                                    <td>Java,Flutter,CSS</td>
+                                        <td><button type="button" class="btn btn-primary">공고보기</button></td>
+                                    </a>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

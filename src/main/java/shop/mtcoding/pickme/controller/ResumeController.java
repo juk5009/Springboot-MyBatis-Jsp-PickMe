@@ -125,7 +125,7 @@ public class ResumeController {
         }
         if (resumeUpdateReqDto.getResumeCareer() == null ||
                 resumeUpdateReqDto.getResumeCareer().isEmpty()) {
-            throw new CustomApiException("주소를 작성해주세요");
+            throw new CustomApiException("경력사항을 작성해주세요");
         }
         if (resumeUpdateReqDto.getResumeLocation() == null ||
                 resumeUpdateReqDto.getResumeLocation().isEmpty()) {

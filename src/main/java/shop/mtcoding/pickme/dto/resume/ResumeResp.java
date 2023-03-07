@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class ResumeResp {
-
     @Setter
     @Getter
     public static class ResumeSelectRespDto {

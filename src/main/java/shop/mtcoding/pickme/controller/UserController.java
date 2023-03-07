@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import shop.mtcoding.pickme.dto.ResponseDto;
 import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeMainRespDto;
+import shop.mtcoding.pickme.dto.resume.ResumeResp.ResumeSelectRespDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserJoinReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserLoginReqDto;
 import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
@@ -149,6 +150,8 @@ public class UserController {
         model.addAttribute("user", userPS);
         User userProfilePS = userRepository.findById(principal.getId());
         model.addAttribute("userProfile", userProfilePS);
+        List<ResumeSelectRespDto> resumeSelectList = noticeRepository.findAllWithResume();
+        model.addAttribute("resumeSelectList", resumeSelectList);
         return "user/userMyPage";
     }
 
