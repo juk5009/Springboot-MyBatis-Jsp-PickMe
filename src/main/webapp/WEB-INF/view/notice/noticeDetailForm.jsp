@@ -91,7 +91,7 @@
                <div class="my-resumeForm-skill-box-1 d-flex" ">
                 
               <c:forEach items="${comskillDto}" var="comskill">
-                <span class="badge text-bg-success" style="margin-right: 10px">"${comskill.companyskillName}"</span>      
+                <span class="badge text-bg-success" style="margin-right: 10px">${comskill.companyskillName}</span>      
                             
               
               </c:forEach>
