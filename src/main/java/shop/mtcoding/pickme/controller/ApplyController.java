@@ -21,6 +21,8 @@ import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.ApplyRepository;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.ResumeRepository;
+import shop.mtcoding.pickme.model.Userskill;
+import shop.mtcoding.pickme.model.UserskillRespository;
 
 @Controller
 public class ApplyController {
@@ -33,6 +35,9 @@ public class ApplyController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private UserskillRespository userskillRespository;
 
     @GetMapping("/apply/applyUserList")
     public String applyUserList(Model model) {
@@ -52,6 +57,8 @@ public class ApplyController {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
         model.addAttribute("resumeDto", resumeRepository.findByUserIdWithResume(id));
+        List<Userskill> userskill = userskillRespository.findByResumeId(id);
+        model.addAttribute("userskillDto", userskill);
         return "apply/applyDetailForm";
     }
 
