@@ -1,5 +1,7 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
+import shop.mtcoding.pickme.model.Userskill;
+import shop.mtcoding.pickme.model.UserskillRespository;
 import shop.mtcoding.pickme.service.ResumeService;
 
 @Controller
@@ -33,6 +37,9 @@ public class ResumeController {
 
     @Autowired
     private ResumeRepository resumeRepository;
+
+    @Autowired
+    private UserskillRespository userskillRespository;
 
     @Autowired
     private HttpSession session;
@@ -175,6 +182,10 @@ public class ResumeController {
         }
         ResumeSaveReqDto resumeDto = resumeRepository.findByUserIdWithResume(id);
         model.addAttribute("resumeDto", resumeDto);
+
+        List<Userskill> userskill = userskillRespository.findByResumeId(id);
+
+        model.addAttribute("userskillDto", userskill);
         return "resume/resumeDetailForm";
     }
 

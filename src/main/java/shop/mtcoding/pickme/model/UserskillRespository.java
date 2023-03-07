@@ -13,6 +13,8 @@ public interface UserskillRespository {
 
         public User findById(int id);
 
+        public List<Userskill> findByResumeId(int id);
+
         public int insert(@Param("resumeId") int resumeId, @Param("userId") int userId,
                         @Param("userskillName") String userskillName);
 
