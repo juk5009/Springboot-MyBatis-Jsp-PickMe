@@ -11,7 +11,12 @@
 
     <select id="findById" resultType="shop.mtcoding.pickme.model.Companyskill">
         select * from companyskill_tb where id = #{id}
-    </select>   
+    </select>
+
+    <select id="findByNoticeId" resultType="shop.mtcoding.pickme.model.Companyskill">
+        select * from companyskill_tb where notice_id = #{id}
+    </select>
+
 
     <insert id="insert">
         INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values(#{noticeId}, #{companyId}, #{companyskillName}, now())
@@ -27,5 +32,6 @@
 
     <delete id="deleteByNoticeId" >
         delete from companyskill_tb where notice_id = #{noticeId} 
-    </delete>      
+    </delete>
+
 </mapper>

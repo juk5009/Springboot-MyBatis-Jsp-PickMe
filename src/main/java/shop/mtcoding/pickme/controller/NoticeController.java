@@ -24,6 +24,8 @@ import shop.mtcoding.pickme.dto.resume.ResumeResp.ResumeSelectRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.Companyskill;
+import shop.mtcoding.pickme.model.CompanyskillRepository;
 import shop.mtcoding.pickme.model.Notice;
 import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.service.NoticeService;
@@ -39,6 +41,9 @@ public class NoticeController {
 
     @Autowired
     private NoticeRepository noticeRepository;
+
+    @Autowired
+    private CompanyskillRepository companyskillRepository;
 
     @PostMapping("/saveNotice")
     public @ResponseBody ResponseEntity<?> saveNotice(@RequestBody NoticeSaveReqDto noticeSaveReqDto) {
@@ -139,7 +144,19 @@ public class NoticeController {
 
     @GetMapping("/notice/{id}")
     public String noticeDetailForm(@PathVariable int id, Model model) {
-        model.addAttribute("noticeDto", noticeRepository.findByCompanyIdWithNotice(id));
+
+        NoticeSaveReqDto noticeDto = noticeRepository.findByCompanyIdWithNotice(id);
+
+        model.addAttribute("noticeDto", noticeDto);
+
+        List<Companyskill> comskill = companyskillRepository.findByNoticeId(id);
+
+        for (Companyskill companyskill : comskill) {
+            System.out.println("테스트 : " + companyskill);
+        }
+
+        model.addAttribute("comskillDto", comskill);
+
         List<ResumeSelectRespDto> resumeSelectList = noticeRepository.findAllWithResume();
         model.addAttribute("resumeSelectList", resumeSelectList);
         return "notice/noticeDetailForm";
