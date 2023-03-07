@@ -10,9 +10,11 @@ import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 @Mapper
 public interface ResumeRepository {
 
-        public ResumeSaveReqDto findByUserIdWithResume(int id);
+        public ResumeSaveReqDto findByUserIdWithResume(@Param("userId") int userId, @Param("id") int id);
 
         public List<Resume> findAll();
+
+        public List<ResumeSaveReqDto> findByUserId(@Param("userId") int userId, @Param("id") int id);
 
         public Resume findById(int id);
 

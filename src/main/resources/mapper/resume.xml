@@ -23,8 +23,14 @@
         select * from resume_tb
     </select>
 
+    <select id="findAll" resultType="shop.mtcoding.pickme.model.Resume">
+        select * from resume_tb
+        where user_id = #{userId}
+    </select>
+
     <select id="findById" resultType="shop.mtcoding.pickme.model.Resume">
-        select * from resume_tb where id = #{id}
+        select * from resume_tb
+        where id = #{id}
     </select>   
 
      <insert id="insert" useGeneratedKeys="true" keyProperty="id">

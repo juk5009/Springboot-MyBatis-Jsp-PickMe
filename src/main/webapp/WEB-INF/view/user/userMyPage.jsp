@@ -62,8 +62,17 @@
             <div class="my-mypage-box">
                 <h2>나의 이력서</h2>
                 <hr>
+                    <h4>1번 이력서</h4>
                 <ul>
-                    <li>이력서</li>
+                    <li>이름 : ${resumeDto.resumeUsername}</li>
+                    <li>Email : ${resumeDto.resumeEmail}</li>
+                    <li>Email : ${resumeDto.resumeAddress}</li>
+                </ul>
+                    <h4>1번 이력서</h4>
+                <ul>
+                    <li>이름 :</li>
+                    <li>Email :</li>
+                    <li>주소 : </li>
                 </ul>
 
                 <c:if test="${userDto.userId == principal.id}">
