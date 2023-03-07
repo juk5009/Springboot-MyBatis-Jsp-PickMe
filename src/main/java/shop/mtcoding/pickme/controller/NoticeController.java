@@ -151,10 +151,6 @@ public class NoticeController {
 
         List<Companyskill> comskill = companyskillRepository.findByNoticeId(id);
 
-        for (Companyskill companyskill : comskill) {
-            System.out.println("테스트 : " + companyskill);
-        }
-
         model.addAttribute("comskillDto", comskill);
 
         List<ResumeSelectRespDto> resumeSelectList = noticeRepository.findAllWithResume();

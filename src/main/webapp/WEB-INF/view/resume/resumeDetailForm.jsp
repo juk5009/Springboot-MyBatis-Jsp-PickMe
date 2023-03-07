@@ -92,9 +92,11 @@
               <h4 class="mb-3">보유 기술</h4>
 
               <div class="my-resumeForm-skill-box-1 d-flex" ">
-                <span class="badge text-bg-success" style="margin-right: 10px">Java</span>
-                <span class="badge text-bg-success" style="margin-right: 10px">JavaScript</span>
-                <span class="badge text-bg-success" style="margin-right: 10px">Spring</span>
+                 <c:forEach items="${userskillDto}" var="userskill">
+                <span class="badge text-bg-success" style="margin-right: 10px">${userskill.userskillName}</span>      
+                            
+              
+              </c:forEach>
               </div>
               <hr class="my-4">
             </div>
