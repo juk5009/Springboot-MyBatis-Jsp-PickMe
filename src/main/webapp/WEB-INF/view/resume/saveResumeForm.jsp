@@ -64,7 +64,7 @@
 
                 <!-- 개인정보(희망근무지역?) -->
                 <div class="col-sm-6">
-                  <label for="user-local" class="form-label">희망근무지역?</label>
+                  <label for="user-local" class="form-label">희망근무지역</label>
                   <select class="form-select" id="resumeLocation" name="resumeLocation" required>
                     <option value="">희망근무지역을 선택해주세요</option>
                     <option>서울</option>
