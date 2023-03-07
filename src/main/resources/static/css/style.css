@@ -176,7 +176,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 3px;
-  font-size: 21px;
+  font-size: 23px;
   font-weight: 600;
   color: #000;
   white-space: nowrap;
@@ -215,7 +215,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #F2F2F2;
+  color: #7CC98A;
 }
 
 .my-header-name {
@@ -258,7 +258,7 @@
 .card {
   height: 300px;
   width: 280px;
-  border-top: 3px solid #7CC98A;
+  border-top: 2px solid #7CC98A;
   border-bottom: 1px solid #7CC98A;
   border-left: 1px solid #7CC98A;
   border-right: 1px solid #7CC98A;
@@ -278,7 +278,7 @@
 }
 
 .featured-services .card:hover::before {
-  background:#F2F2F2;
+  background:#7CC98A;
   top: 0;
   border-radius: 0px;
 }
@@ -680,6 +680,7 @@ form .btn input[type="submit"] {
   border: none;
   outline: none;
   border-bottom: 1px solid black;
+  margin-bottom: 20px;
   color: #636e72;
   font-size: 16px;
   height: 25px;
@@ -699,12 +700,18 @@ form .btn input[type="submit"] {
 
 .my-joinForm-btn {
   margin-top: 40px;
-  margin-left: 10px;
-  background: linear-gradient(125deg, rgb(255, 220, 150), #4BB58F, rgb(255, 220, 150));
+  background: #4BB58F;
   width: 400px;
   height: 50px;
   color: white;
+  border: none;
+  border-radius: 15px;
 }
+
+.my-joinForm-btn:hover {
+  background: #7CC98A;
+}
+
 
 .my-joinForm-body {
   display: grid;
@@ -858,10 +865,6 @@ form .btn input[type="submit"] {
 /*--------------------------------------------------------------
 # mypage / applyUserList 시작
 --------------------------------------------------------------*/
-.my-applyDetail-btn {
-  display: flex;
-  justify-content: end;
-}
 
 .my-mypage-box {
   padding: 20px;
@@ -881,8 +884,7 @@ form .btn input[type="submit"] {
 .my-applyUserList-box {
   border: 1px solid #ccc;
   padding: 20px;
-  margin-top: 10%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .my-applyUserList-table {
@@ -940,28 +942,11 @@ form .btn input[type="submit"] {
   margin-bottom: 20px;
 }
 
-.my-companyMyPage-noticeListBox-1 {
-  border: 1px solid #ccc;
+.my-companyMyPage-noticeListBox {
+  background-color: #eef9ef;
   padding: 20px;
   margin-bottom: 20px;
-}
-
-.my-companyMyPage-noticeListBox-2 {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.my-companyMyPage-noticeListBox-3 {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.my-companyMyPage-noticeListBox-4 {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .my-companyMyPage-button-group {
