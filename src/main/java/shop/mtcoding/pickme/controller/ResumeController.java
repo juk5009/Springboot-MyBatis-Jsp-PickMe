@@ -180,6 +180,10 @@ public class ResumeController {
         if (userPrincipal == null) {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
+        Resume resume = resumeRepository.findById(id);
+        if (resume.getUserId() != userPrincipal.getId()) {
+            throw new CustomException("권한이 없습니다", HttpStatus.FORBIDDEN);
+        }
         ResumeSaveReqDto resumeDto = resumeRepository.findByUserIdWithResume(id);
         model.addAttribute("resumeDto", resumeDto);
 
