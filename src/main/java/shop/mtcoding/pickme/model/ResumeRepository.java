@@ -16,10 +16,6 @@ public interface ResumeRepository {
 
         public Resume findById(int id);
 
-        public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
-
-        public User findByUsername(@Param("username") String username);
-
         public int insert(Resume resume);
 
         public int updateById(@Param("id") int id, @Param("resumeUsername") String resumeUsername,

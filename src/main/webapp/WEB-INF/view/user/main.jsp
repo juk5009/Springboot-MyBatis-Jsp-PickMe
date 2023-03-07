@@ -15,11 +15,9 @@
         </div>
         <div class="carousel-inner container d-flex">
           <div class="carousel-item active">
-            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <rect width="100%" height="100%" fill="#777" /> -->
+            
             <img style="width: 100%; height: 100%; justify-content: center;" src="/images/company.jpg" alt="">
-            <!-- </svg> -->
+            
             <div class="container">
               <div class="carousel-caption text-start">
                 <h1 style="color:black;">원하는 기업을 Pick</h1>
@@ -28,7 +26,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img style="width: 100%; height: 103%; justify-content: center;" src="/images/person1.jpg" alt="">
+            <img style="width: 100%; height: 100%; justify-content: center;" src="/images/person1.jpg" alt="">
             <div class="container">
               <div class="carousel-caption">
                 <h1 style="color:black;">원하는 인재를 Pick</h1>
@@ -37,10 +35,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <rect width="100%" height="100%" fill="#777" />
-            </svg>
+           <img style="width: 100%; height: 100%; justify-content: center;" src="/images/hehe.png" alt="">
             <div class="container">
               <div class="carousel-caption text-end">
                 <h1 style="color:black;">추천 기업을 Pick</h1>

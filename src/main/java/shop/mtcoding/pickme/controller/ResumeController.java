@@ -197,9 +197,7 @@ public class ResumeController {
         if (userPrincipal == null) {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
-
         model.addAttribute("resume", ResumePS);
-
         return "resume/updateResumeForm";
     }
 

@@ -21,18 +21,10 @@
         delete from apply_tb where id = #{id} 
     </delete>
 
-    <update id="updateById" >
-        
-    </update>
-
     <select id="findApplyList" resultType="shop.mtcoding.pickme.dto.apply.ApplyResp$ApplyListRespDto">
         SELECT DISTINCT at.id, at.company_id, rt.resume_username, rt.resume_career, rt.resume_grade, rt.user_id, at.resume_id, at.notice_id
         FROM apply_tb at
         INNER JOIN resume_tb rt ON at.resume_id = rt.id;
     </select>
-
-    
-
-    
 
 </mapper>
