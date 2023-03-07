@@ -11,7 +11,11 @@
 
     <select id="findById" resultType="shop.mtcoding.pickme.model.Userskill">
         select * from userskill_tb where id = #{id}
-    </select>   
+    </select>
+
+    <select id="findByResumeId" resultType="shop.mtcoding.pickme.model.Userskill">
+        select * from userskill_tb where resume_id = #{id}
+    </select>  
 
     <insert id="insert">
         INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values(#{resumeId}, #{userId}, #{userskillName}, now())
