@@ -215,7 +215,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #F2F2F2;
+  color: #7CC98A;
 }
 
 .my-header-name {
@@ -258,7 +258,7 @@
 .card {
   height: 300px;
   width: 280px;
-  border-top: 3px solid #7CC98A;
+  border-top: 2px solid #7CC98A;
   border-bottom: 1px solid #7CC98A;
   border-left: 1px solid #7CC98A;
   border-right: 1px solid #7CC98A;
@@ -278,7 +278,7 @@
 }
 
 .featured-services .card:hover::before {
-  background:#F2F2F2;
+  background:#7CC98A;
   top: 0;
   border-radius: 0px;
 }

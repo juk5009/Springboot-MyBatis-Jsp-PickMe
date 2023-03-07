@@ -32,7 +32,7 @@
                             </div>
                             <br>
                             <div>아직 회원가입을 안하셨나요? <a href="/user/joinType" style="text-decoration-line: none;"><b
-                                        style="color: orange">
+                                        style="color: #F6716F;">
                                         회원가입</b></a></div>
                         </form>
                         
@@ -48,7 +48,7 @@
                             </div>
                             <br>
                             <div>아직 회원가입을 안하셨나요? <a href="/user/joinType" style="text-decoration-line: none;"><b
-                                        style="color: orange">
+                                        style="color: #F6716F;">
                                         회원가입</b></a>
                             </div>
                         </form>
