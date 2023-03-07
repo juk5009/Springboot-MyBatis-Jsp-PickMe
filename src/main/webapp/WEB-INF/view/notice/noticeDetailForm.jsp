@@ -144,9 +144,6 @@
                 <div class="container">
                   <form>
                     <div class="my-applyUserList-box" style="border-radius: 30px">
-                      <%-- <input type="hidden" id="userId" name="userId" value="${userPrincipal.id}">
-                        <input type="hidden" id="resumeId" name="resumeId" value="${resumeSelectList.id}">
-                        <input type="hidden" id="noticeId" name="noticeId" value="${noticeDto.id}"> --%>
                         <div style="display: flex;">
                           <img
                             src="${resumeSelect.userProfile == null ? '/images/profile.jfif' : resumeSelect.userProfile}"
@@ -154,7 +151,7 @@
                           <h2>${resumeSelect.resumeUsername}</h2>
                         </div>
                         <div class="my-applyUserList-button-group">
-                          <button type="button" class="btn btn-outline-primary" onclick="apply(${userPrincipal.id},${resumeSelect.id},${noticeDto.id})">지원하기</button>
+                          <button type="button" class="btn btn-outline-primary" onclick="apply(${userPrincipal.id},${resumeSelect.id},${noticeDto.id}, ${noticeDto.companyId})">지원하기</button>
                         </div>
                     </div>
                 </div>
@@ -184,10 +181,10 @@
             type: "delete",
             url: "/notice/" + id,
             dataType: "json"
-        }).done((res) => { // 20X 일때
+        }).done((res) => { 
             alert(res.msg);
             location.href = "/";
-        }).fail((err) => { // 40X, 50X 일때
+        }).fail((err) => { 
             alert(err.responseJSON.msg);
         });
     }
@@ -196,11 +193,12 @@
   <script>
 
 
-      function apply(user, resume, notice) {
+      function apply(user, resume, notice, company) {
         let data = {
           "userId": user,
           "resumeId": resume,
           "noticeId": notice,
+          "companyId": company,
         };
 
         $.ajax({
@@ -208,11 +206,11 @@
           url: "/apply/applyResumeSelect",
           data: JSON.stringify(data),
           contentType: "application/json; charset=utf-8",
-          dataType: "json" //default : 응답의 mime 타입으로 유추함
-        }).done((res) => { // 20x일때
+          dataType: "json" 
+        }).done((res) => { 
           alert(res.msg);
           $('#exampleModal').modal('hide');
-        }).fail((err) => { // 40x, 50x 일때
+        }).fail((err) => { 
           alert(err.responseJSON.msg);
         });
       }

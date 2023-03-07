@@ -18,7 +18,7 @@
     </select>    
 
     <select id="findByCompanyIdWithNotice" resultType="shop.mtcoding.pickme.dto.notice.NoticeReq$NoticeSaveReqDto">
-        select nt.id, nt.notice_companyname, nt.notice_title, nt.notice_career, nt.notice_pay, nt.notice_employtype, nt.notice_grade, nt.notice_location, nt.notice_content
+        select nt.id, nt.notice_companyname, nt.notice_title, nt.notice_career, nt.notice_pay, nt.notice_employtype, nt.notice_grade, nt.notice_location, nt.notice_content ,nt.company_id
         from company_tb tr 
         inner join notice_tb nt
         on tr.id = nt.company_id

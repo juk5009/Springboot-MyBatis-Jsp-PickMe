@@ -12,5 +12,6 @@ public class Apply {
     private int resumeId;
     private int noticeId;
     private int userId;
-    private Timestamp createrAt;
+    private int companyId;
+    private Timestamp createdAt;
 }

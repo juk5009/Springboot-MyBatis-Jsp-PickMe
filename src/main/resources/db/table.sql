@@ -46,6 +46,7 @@ CREATE TABLE apply_tb(
     resume_id int ,
     notice_id int ,
     user_id int ,
+    company_id int,
     created_at timestamp not null
 );
 
