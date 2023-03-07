@@ -935,28 +935,11 @@ form .btn input[type="submit"] {
   margin-bottom: 20px;
 }
 
-.my-companyMyPage-noticeListBox-1 {
-  border: 1px solid #ccc;
+.my-companyMyPage-noticeListBox {
+  background-color: #eef9ef;
   padding: 20px;
   margin-bottom: 20px;
-}
-
-.my-companyMyPage-noticeListBox-2 {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.my-companyMyPage-noticeListBox-3 {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.my-companyMyPage-noticeListBox-4 {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .my-companyMyPage-button-group {

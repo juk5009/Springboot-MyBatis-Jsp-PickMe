@@ -7,11 +7,11 @@
                 <h1>마이페이지</h1>
 
 
-                <div class="my-mypage-box d-flex">
+                <div class="my-mypage d-flex">
 
                     <!-- 왼쪽 박스 시작 -->
                     <div class="my-mypage-box col-md-8">
-                        <h1>회원 정보</h1>
+                        <h2>회원 정보</h2>
                         <div class="my-page-form-group">
                             <label for="userName">이름</label>
                             <input type="text" class="form-control" id="userName" placeholder=""
@@ -34,7 +34,6 @@
                             <button onclick="updateById(${user.id})" type="button"
                             class="btn" style="background-color:#4BB58F; color: #fff;">정보수정완료</button>
                         </div>
-                        
                     </div>
                     <!-- 왼쪽 박스 끝 -->
 
@@ -61,7 +60,7 @@
             </div>
 
             <div class="my-mypage-box">
-                <h1>나의 이력서</h1>
+                <h2>나의 이력서</h2>
                 <hr>
                 <ul>
                     <li>이력서</li>
@@ -69,7 +68,7 @@
 
                 <c:if test="${userDto.userId == principal.id}">
                     <div class="mb-3">
-                        <a href="/board/${userDto.id}/updateForm" class="btn btn-warning">수정</a>
+                        <a href="/board/${userDto.id}/updateForm" class="btn btn-success">수정</a>
                         <button onclick="deleteById(${userDto.id})" class="btn btn-danger">삭제</button>
                     </div>
                 </c:if>
