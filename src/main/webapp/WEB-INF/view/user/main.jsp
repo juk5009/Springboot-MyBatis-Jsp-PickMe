@@ -44,7 +44,7 @@
             <div class="container">
               <div class="carousel-caption text-end">
                 <h1 style="color:black;">추천 기업을 Pick</h1>
-                <p><a class="btn btn-lg btn-success" href="#">더 보기</a></p>
+                <p><a class="btn btn-lg btn-success" href="user/userSkillMatchForm">더 보기</a></p>
               </div>
             </div>
           </div>
