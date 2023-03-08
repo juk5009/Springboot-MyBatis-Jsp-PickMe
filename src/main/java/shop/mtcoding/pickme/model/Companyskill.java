@@ -6,11 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@ToString
 @Getter
 @Setter
 public class Companyskill {
@@ -18,6 +18,7 @@ public class Companyskill {
     private Integer noticeId;
     private Integer companyId;
     private String companyskillName;
+    private String color = "N";
     private Timestamp createdAt;
 
     public Companyskill(NoticeSaveReqDto NoticeSaveReqDto) {
@@ -32,4 +33,7 @@ public class Companyskill {
         this.companyskillName = noticeUpdateReqDto.getCompanyskillList();
     }
 
+    public Companyskill() {
+
+    }
 }

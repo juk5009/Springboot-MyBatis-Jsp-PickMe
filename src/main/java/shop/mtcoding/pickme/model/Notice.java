@@ -1,16 +1,13 @@
 package shop.mtcoding.pickme.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 public class Notice {
@@ -24,6 +21,7 @@ public class Notice {
     private String noticeGrade;
     private String noticeLocation;
     private String noticeContent;
+    private List<Companyskill> skill;
     private Timestamp createdAt;
 
     public Notice(NoticeSaveReqDto NoticeSaveReqDto) {
@@ -50,4 +48,9 @@ public class Notice {
         this.noticeLocation = noticeupdateReqDto.getNoticeLocation();
         this.noticeContent = noticeupdateReqDto.getNoticeContent();
     }
+
+    public Notice() {
+
+    }
+
 }
