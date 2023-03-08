@@ -141,7 +141,7 @@ public class CompanyController {
     }
 
     @GetMapping("/company/companyList")
-    public String companyList(Model model) {
+    public String companyList(Model model, CompanyListRespDto companyListRespDto) {
         List<CompanyListRespDto> companyList = companyRepository.findCompanyList();
         model.addAttribute("companyList", companyList);
         return "company/companyList";
