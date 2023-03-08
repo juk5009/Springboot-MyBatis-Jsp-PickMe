@@ -115,26 +115,26 @@
                 <div class="my-saveNoticeForm-skill-box-1 d-flex">
                   <input type="checkbox" class="btn-check" id="btncheck1" name="companyskillName" value="Java"
                     autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck1">Java</label>
+                  <label class="btn btn-outline-success" for="btncheck1">Java</label>
 
                   <input type="checkbox" class="btn-check" id="btncheck2" name="companyskillName" value="JavaScript"
                     autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck2">JavaScript</label>
+                  <label class="btn btn-outline-success" for="btncheck2">JavaScript</label>
 
                   <input type="checkbox" class="btn-check" id="btncheck3" name="companyskillName" value="Spring"
                     autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck3">Spring</label>
+                  <label class="btn btn-outline-success" for="btncheck3">Spring</label>
 
                   <input type="checkbox" class="btn-check" id="btncheck4" name="companyskillName" value="Jsp" autocomplete="off">
-                  <label class="btn btn-outline-primary"  for="btncheck4">Jsp</label>
+                  <label class="btn btn-outline-success"  for="btncheck4">Jsp</label>
 
                   <input type="checkbox" class="btn-check" id="btncheck5" name="companyskillName" value="React"
                     autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck5">React</label>
+                  <label class="btn btn-outline-success" for="btncheck5">React</label>
 
                   <input type="checkbox" class="btn-check" id="btncheck6" name="companyskillName" value="Flutter"
                     autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btncheck6">Flutter</label>
+                  <label class="btn btn-outline-success" for="btncheck6">Flutter</label>
                 </div>
                 <hr class="my-4">
               </div>
@@ -142,7 +142,7 @@
               <!-- 공고작성 등록 버튼  -->
 
               <div class="my-saveNoticeForm-submit-btn-1 mycol-md-12">
-                <button class="w-100 btn btn-primary btn-lg" onclick="saveNotice()" type="button">공고 등록</button>
+                <button class="w-100 btn btn-lg" onclick="saveNotice()" style="background-color: #7CC98A;color: #fff; font-weight: 200px;" type="button">공고 등록</button>
               </div>
 
             </form>

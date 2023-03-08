@@ -4,14 +4,14 @@
         <div class="container">
             <br />
             <div class="my-mypage-box d-block">
-                <h1>마이페이지</h1>
+                <h1>개인 마이페이지</h1>
 
 
                 <div class="my-mypage-box d-flex">
 
                     <!-- 왼쪽 박스 시작 -->
                     <div class="my-mypage-box col-md-8">
-                        <h1>회원 정보</h1>
+                        <h1>개인 회원 정보</h1>
                         <div class="my-page-form-group">
                             <label for="userName">이름</label>
                             <input type="text" class="form-control" id="userName" placeholder=""
@@ -32,7 +32,7 @@
 
                         <div>
                             <button onclick="updateById(${user.id})" type="button" class="btn"
-                                style="background-color:#4BB58F; color: #fff;">정보수정완료</button>
+                                style="background-color: #7CC98A;color: #fff; font-weight: 200px;">정보수정완료</button>
                         </div>
 
                     </div>
@@ -78,7 +78,7 @@
 
                             <div>
                                 <a href="/resume/${resumeSelect.id}" class="btn"
-                                    style="background-color:#4BB58F; color: #fff;">상세보기</a>
+                                    style="background-color: #7CC98A;color: #fff; font-weight: 200px;">상세보기</a>
                             </div>
 
                         </div>

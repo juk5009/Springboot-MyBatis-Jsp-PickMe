@@ -701,7 +701,7 @@ form .btn input[type="submit"] {
 
 .my-joinForm-btn {
   margin-top: 40px;
-  background: #4BB58F;
+  background: #7CC98A;
   width: 400px;
   height: 50px;
   color: white;
@@ -710,7 +710,7 @@ form .btn input[type="submit"] {
 }
 
 .my-joinForm-btn:hover {
-  background: #7CC98A;
+  background:  #4BB58F;
 }
 
 
@@ -769,10 +769,6 @@ form .btn input[type="submit"] {
 .my-notice-btnbox {
   display: grid;
   justify-content: end;
-}
-
-.my-notice-btn {
-  border: 3px solid gray;
 }
 
 .my-saveNoticeForm-content-box-1 {
@@ -1024,6 +1020,7 @@ form .btn input[type="submit"] {
 --------------------------------------------------------------*/
 * {
   font-family: 'BMJUA';
+  font-weight: 100;
 }
 
 /*--------------------------------------------------------------
@@ -1055,15 +1052,24 @@ form .btn input[type="submit"] {
 # 마이 페이지
 --------------------------------------------------------------*/
 
-
-
-
-
 /*--------------------------------------------------------------
-# carousel 시작
+# 지원자 목록 보기 페이지 시작
 --------------------------------------------------------------*/
 
+.my-applyUserList-btn:hover{
+  background-color: #4BB58F;
+  color: #fff;
+  font-weight: 200px;
+}
+
+.my-applyUserList-btn{
+  background-color: #7CC98A;
+  color: #fff;
+  font-weight: 200px;
+}
+
+
 
 /*--------------------------------------------------------------
-# carousel 끝
+# 지원자 목록 보기 페이지 끝
 --------------------------------------------------------------*/

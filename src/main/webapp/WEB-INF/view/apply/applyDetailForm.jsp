@@ -3,92 +3,96 @@
     <!-- main 소스 -->
     <main id="main">
 
-      <!-- start 이력서 폼 -->
+      <!-- start 지원자 상세보기 폼 -->
 
-      <!-- 이력서(title) -->
-      <div id="my-resumeForm-title-box-1" class="container">
-        <div class="py-5 text-center">
+      <!-- 지원자 상세보기(title) -->
+      <div class="container">
+        <br>
+        <div class="py-4 text-center">
 
           <h2>지원자 상세보기</h2>
         </div>
       </div>
 
       <!-- 이력서(개인정보) -->
-      <div class="my-resumeForm-content-box-1">
-        <div id="my-resumeForm-content-box-2 " class="container">
-          <div class="border border-primary col-md-7 col-lg-6 justify-content-center">
-            <h4 class="mb-3 ">개인정보</h4>
+      <div class="my-mypage container" style="padding-left: 340px;">
+        <div class="my-mypage-box col-md-8 pe-5" style="padding-left: 50px; padding-top: 40px;">
+          <div id="my-resumeForm-content-box-2 " class="container">
+            <h4 class="mb-3">개인정보</h4>
+            <hr>
 
             <form id="my-resumeForm-content-form-1" novalidate>
 
               <div class="row g-3">
 
                 <!-- 개인정보(이름) -->
-                <div class="col-sm-6">
-                  <label for="firstName" class="form-label">이름</label>
-                  <input type="text" class="form-control" id="name" value="${resumeDto.resumeUsername}" readonly>
+                <div class="col-sm-6 d-flex">
+                  <label for="firstName" class="form-label d-flex">이름&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeUsername}
+                    </p></label>
+                  <div></div>
 
                 </div>
 
                 <!-- 개인정보(생년월일) -->
                 <div class="col-sm-6">
-                  <label for="firstName" class="form-label">생년월일</label>
-                  <input type="text" class="form-control" id="age" value="${resumeDto.resumeBirth}" readonly>
+                  <label for="firstName" class="form-label d-flex">생년월일&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeBirth}
+                    </p></label>
                 </div>
-
 
                 <!-- 개인정보(전화번호) -->
                 <div class="col-12">
-                  <label for="user-phoneNumber" class="form-label">전화번호</label>
-                  <div class="input-group has-validation">
-                    <input type="text" class="form-control" id="user-phoneNumber" value="${resumeDto.resumePhoneNumber}"
-                      readonly>
-                  </div>
+                  <label for="user-phoneNumber" class="form-label  d-flex">전화번호&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumePhoneNumber}
+                    </p></label>
                 </div>
 
                 <!-- 개인정보(email) -->
                 <div class="col-12">
-                  <label for="user-email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="user-email" value="${resumeDto.resumeEmail}">
+                  <label for="user-email" class="form-label  d-flex">Email&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeEmail}
+                    </p></label>
                 </div>
 
                 <!-- 개인정보(주소) -->
                 <div class="col-12">
-                  <label for="user-address" class="form-label">주소</label>
-                  <input type="text" class="form-control" id="user-address" value="${resumeDto.resumeAddress}" readonly>
+                  <label for="user-address" class="form-label  d-flex">주소&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeAddress}
+                    </p></label>
                 </div>
 
                 <!-- 개인정보(희망근무지역?) -->
                 <div class="col-sm-6">
-                  <label for="user-local" class="form-label">희망근무지역</label>
-                  <input type="text" class="form-control" id="user-address" value="${resumeDto.resumeLocation}"
-                    readonly>
-
+                  <label for="user-local" class="form-label  d-flex">희망근무지역&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeLocation}
+                    </p></label>
                 </div>
 
                 <!-- 개인정보(학력) -->
                 <div class="col-sm-6">
-                  <label for="user-grade" class="form-label">경력</label>
-                  <input type="text" class="form-control" id="user-address" value="${resumeDto.resumeCareer}" readonly>
+                  <label for="user-grade" class="form-label  d-flex">경력&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeCareer}
+                    </p></label>
                 </div>
-
+                <!-- 개인정보(학력) -->
                 <div class="col-sm-6">
-                  <label for="user-grade" class="form-label">학력</label>
-                  <input type="text" class="form-control" id="user-address" value="${resumeDto.resumeGrade}" readonly>
+                  <label for="user-grade" class="form-label d-flex">학력&nbsp;| &nbsp;<p style="color: #4BB58F;">
+                      ${resumeDto.resumeGrade}
+                    </p></label>
                 </div>
+                
 
                 <hr class="my-2"> <!-- 구분선 -->
 
                 <!-- 자기소개서 -->
                 <div class="container my-8">
                   <div>
-                    <h4 class="mb-3 ">자기소개서</h4>
+                    <h3 class="mb-2">자기소개</h3>
                   </div>
                   <br>
                   <div class="form-group">
-                    <textarea name="content" style="width: 480px;" id="content">
-                      ${resumeDto.resumeContent}
-                    </textarea>
+                    <div>${resumeDto.resumeContent}</div>
                   </div>
                 </div>
 
@@ -97,20 +101,19 @@
                 <!-- 보유 기술 -->
                 <h4 class="mb-3">보유 기술</h4>
 
-                <div class="my-resumeForm-skill-box-1 d-flex" ">
-                <c:forEach items="${userskillDto}" var="userskill">
-                <span class="badge text-bg-success" style="margin-right: 10px">${userskill.userskillName}</span>      
-                </c:forEach>
+              
+              <div class="my-resumeForm-skill-box-1 d-flex">
+                  <c:forEach items="${userskillDto}" var="userskill">
+                    <span class="badge text-bg-success"
+                      style="margin-right: 10px; font-weight: 200;">${userskill.userskillName}</span>
+                  </c:forEach>
                 </div>
                 <hr class="my-4">
               </div>
-              <div class="my-applyDetail-btn">
-                <div>
-                  <button type="button" class="btn btn-success" onclick="good()">합격!</button>
-                </div>
-                <div>
+
+              <div class="my-applyDetail-btn col-lg-4 mb-3 d-flex">
+                  <button type="button" class="btn btn-primary" onclick="good()">합격!</button>
                   <button type="button" class="btn btn-danger" onclick="bad()">불합격</button>
-                </div>
               </div>
             </form>
           </div>
