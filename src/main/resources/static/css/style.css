@@ -701,7 +701,7 @@ form .btn input[type="submit"] {
 
 .my-joinForm-btn {
   margin-top: 40px;
-  background: #4BB58F;
+  background: #7CC98A;
   width: 400px;
   height: 50px;
   color: white;
@@ -710,7 +710,7 @@ form .btn input[type="submit"] {
 }
 
 .my-joinForm-btn:hover {
-  background: #7CC98A;
+  background:  #4BB58F;
 }
 
 

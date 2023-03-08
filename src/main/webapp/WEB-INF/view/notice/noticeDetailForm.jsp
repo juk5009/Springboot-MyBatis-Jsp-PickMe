@@ -100,7 +100,7 @@
                 <c:otherwise>
                 <c:if test="${comPrincipal != null && userPrincipal == null}" >
                 <div class="col-lg-4 mb-3 d-flex">
-                <button type="button" class="btn" onclick="updateNoticeForm(${noticeDto.id})" style="background-color:#4BB58F; color:#fff; margin-right: 5px;">수정</button>
+                <button type="button" class="btn" onclick="updateNoticeForm(${noticeDto.id})" style="background-color:#4BB58F; color:#fff; margin-right: 3px;">수정</button>
                 <button type="button" onclick="deleteById(${noticeDto.id})" class="btn btn-danger">삭제</button>
                 </div>
                 </c:if>
