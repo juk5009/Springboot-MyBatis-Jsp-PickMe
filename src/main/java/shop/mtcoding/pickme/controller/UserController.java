@@ -1,5 +1,6 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -27,6 +28,8 @@ import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
 import shop.mtcoding.pickme.dto.user.UserResp.UserListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
+import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.CompanyRepository;
 import shop.mtcoding.pickme.model.Companyskill;
 import shop.mtcoding.pickme.model.CompanyskillRepository;
 import shop.mtcoding.pickme.model.Notice;
@@ -57,6 +60,9 @@ public class UserController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private CompanyRepository companyRepository;
 
     @PutMapping("/user/{id}")
     public @ResponseBody ResponseEntity<?> MyPage(@PathVariable int id,
@@ -130,14 +136,16 @@ public class UserController {
         }
 
         List<Notice> userSkillMatch = userskillRepository.findByCompanyskillName(principal.getId(), resumeId);
-
-        System.out.println("토스테 : " + userSkillMatch.size());
         List<Userskill> Uskill = userskillRepository.findByUserId(principal.getId());
 
         for (int i = 0; i < userSkillMatch.size(); i++) {// 공고문 수만큼 도는 for문
 
             userSkillMatch.get(i)
                     .setSkill(companyskillRepository.findByNoticeId(userSkillMatch.get(i).getId()));
+            userSkillMatch.get(i)
+                    .setCompanyProfile(
+                            companyRepository.findById(userSkillMatch.get(i).getCompanyId()).getCompanyProfile());
+
             List<Companyskill> Cskill = userSkillMatch.get(i).getSkill();
             for (int x = 0; x < Uskill.size(); x++) {// user가 가진 skill 수만큼 도는 for문
                 for (int j = 0; j < Cskill.size(); j++) {// notice가 가진 skill 수만큼 도는 for문
@@ -148,12 +156,8 @@ public class UserController {
                     }
                 } // for j end
             } // for x end
-
-            System.out.println("테스트11211 : " + userSkillMatch.get(i).getSkill().toString());
         } // for i end
 
-        System.out.println("테스트1 : " + userSkillMatch.size() + "  ");
-        System.out.println("테스트2 : " + principal.getId() + "  ");
         model.addAttribute("userSkillMatch", userSkillMatch);
 
         return "user/userSkillMatchForm";

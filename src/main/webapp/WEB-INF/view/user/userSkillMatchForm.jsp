@@ -26,7 +26,7 @@
                         <c:forEach items="${userSkillMatch}" var="userSkillMatch">
                             <div class="d-flex container">
                                 <div class="d-flex">
-                                    <img src="/images/dora.png" style="width: 200px; height: 200px;">
+                                    <img src="${userSkillMatch.companyProfile}" style="width: 200px; height: 200px;">
                                 </div>
 
                                 <div class="my-mypage-box container">
@@ -35,7 +35,7 @@
                                             <h1>${userSkillMatch.noticeTitle}</h1>
                                         </div>
                                         <div>
-                                            <button onclick="" type="button" class="btn"
+                                            <button onclick="noticeDetailForm(${userSkillMatch.id})" type="button" class="btn"
                                                 style="background-color:#7CC98A; color: #fff;">상세보기</button>
                                         </div>
                                     </div>
@@ -78,7 +78,11 @@
             }
         </script>
 
-
+        <script>
+            function noticeDetailForm(id) {
+                location.href = "/notice/" + id;
+            }
+        </script>
 
 
         <%@ include file="../layout/footer.jsp" %>

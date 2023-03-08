@@ -25,6 +25,7 @@ public class Notice {
     private String noticeContent;
     private Timestamp createdAt;
     private List<Companyskill> skill;
+    private String companyProfile;
 
     public Notice(NoticeSaveReqDto NoticeSaveReqDto) {
         this.companyId = NoticeSaveReqDto.getCompanyId();
