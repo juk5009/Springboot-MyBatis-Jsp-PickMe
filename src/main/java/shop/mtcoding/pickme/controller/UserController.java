@@ -47,7 +47,7 @@ public class UserController {
     private NoticeRepository noticeRepository;
 
     @Autowired
-    private UserskillRepository userskillRespository;
+    private UserskillRepository userskillRepository;
 
     @Autowired
     private CompanyskillRepository companyskillRepository;
@@ -129,8 +129,8 @@ public class UserController {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
 
-        List<Notice> userSkillMatch = userskillRespository.findByCompanyskillName(principal.getId(), resumeId);
-        List<Userskill> Uskill = userskillRespository.findByUserId(principal.getId());
+        List<Notice> userSkillMatch = userskillRepository.findByCompanyskillName(principal.getId(), resumeId);
+        List<Userskill> Uskill = userskillRepository.findByUserId(principal.getId());
 
         for (int i = 0; i < userSkillMatch.size(); i++) {// 공고문 수만큼 도는 for문
 
