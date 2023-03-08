@@ -1,5 +1,6 @@
 package shop.mtcoding.pickme.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,9 +28,16 @@ import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
 import shop.mtcoding.pickme.dto.user.UserResp.UserListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
+import shop.mtcoding.pickme.model.Company;
+import shop.mtcoding.pickme.model.CompanyRepository;
+import shop.mtcoding.pickme.model.Companyskill;
+import shop.mtcoding.pickme.model.CompanyskillRepository;
+import shop.mtcoding.pickme.model.Notice;
 import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.UserRepository;
+import shop.mtcoding.pickme.model.Userskill;
+import shop.mtcoding.pickme.model.UserskillRepository;
 import shop.mtcoding.pickme.service.UserService;
 
 @Controller
@@ -41,10 +50,19 @@ public class UserController {
     private NoticeRepository noticeRepository;
 
     @Autowired
+    private UserskillRepository userskillRepository;
+
+    @Autowired
+    private CompanyskillRepository companyskillRepository;
+
+    @Autowired
     private UserService userService;
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private CompanyRepository companyRepository;
 
     @PutMapping("/user/{id}")
     public @ResponseBody ResponseEntity<?> MyPage(@PathVariable int id,
@@ -103,6 +121,46 @@ public class UserController {
         User userPrincipal = userService.유저로그인(userLoginReqDto);
         session.setAttribute("userPrincipal", userPrincipal);
         return "redirect:/";
+    }
+
+    /*
+     * 23. 3. 5. 안정훈
+     * 추천공고 페이지 호출
+     */
+    @GetMapping("/user/userSkillMatchForm")
+    public String userSkillMatchForm(Model model,
+            @RequestParam(name = "resumeId", defaultValue = "1") int resumeId) {
+        User principal = (User) session.getAttribute("userPrincipal");
+        if (principal == null) {
+            throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
+        }
+
+        List<Notice> userSkillMatch = userskillRepository.findByCompanyskillName(principal.getId(), resumeId);
+        List<Userskill> Uskill = userskillRepository.findByUserId(principal.getId());
+
+        for (int i = 0; i < userSkillMatch.size(); i++) {// 공고문 수만큼 도는 for문
+
+            userSkillMatch.get(i)
+                    .setSkill(companyskillRepository.findByNoticeId(userSkillMatch.get(i).getId()));
+            userSkillMatch.get(i)
+                    .setCompanyProfile(
+                            companyRepository.findById(userSkillMatch.get(i).getCompanyId()).getCompanyProfile());
+
+            List<Companyskill> Cskill = userSkillMatch.get(i).getSkill();
+            for (int x = 0; x < Uskill.size(); x++) {// user가 가진 skill 수만큼 도는 for문
+                for (int j = 0; j < Cskill.size(); j++) {// notice가 가진 skill 수만큼 도는 for문
+                    if (Cskill.get(j).getCompanyskillName().equals(Uskill.get(x).getUserskillName())) {
+                        Companyskill skill = Cskill.get(j);
+                        skill.setColor("Y");
+                        Cskill.set(j, skill);
+                    }
+                } // for j end
+            } // for x end
+        } // for i end
+
+        model.addAttribute("userSkillMatch", userSkillMatch);
+
+        return "user/userSkillMatchForm";
     }
 
     @GetMapping("/")

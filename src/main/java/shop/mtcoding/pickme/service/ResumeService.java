@@ -14,7 +14,7 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.Userskill;
-import shop.mtcoding.pickme.model.UserskillRespository;
+import shop.mtcoding.pickme.model.UserskillRepository;
 
 @Transactional(readOnly = true)
 @Service
@@ -24,7 +24,7 @@ public class ResumeService {
     private ResumeRepository resumeRepository;
 
     @Autowired
-    private UserskillRespository userskillRespository;
+    private UserskillRepository userskillRepository;
 
     @Transactional
     public void 이력서작성(ResumeSaveReqDto resumeSaveReqDto, int principalId, String usSkill) {
@@ -43,7 +43,7 @@ public class ResumeService {
 
         if (userskillList != null) {
             for (String userskill : userskillList) {
-                int result2 = userskillRespository.insert(us.getResumeId(), us.getUserId(), userskill);
+                int result2 = userskillRepository.insert(us.getResumeId(), us.getUserId(), userskill);
                 if (result2 != 1) {
                     throw new CustomApiException("보유기술작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
                 }
@@ -96,14 +96,14 @@ public class ResumeService {
             throw new CustomApiException("공고수정실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        userskillRespository.deleteByResumeId(id);
+        userskillRepository.deleteByResumeId(id);
 
         List<String> userskillList = Arrays.asList(usSkill.split(","));
         Userskill us = new Userskill(resumeUpdateReqDto);
 
         if (userskillList != null) {
             for (String userskill : userskillList) {
-                int result2 = userskillRespository.insert(us.getResumeId(), us.getUserId(), userskill);
+                int result2 = userskillRepository.insert(us.getResumeId(), us.getUserId(), userskill);
                 if (result2 != 1) {
                     throw new CustomApiException("보유기술작성 실패", HttpStatus.INTERNAL_SERVER_ERROR);
                 }

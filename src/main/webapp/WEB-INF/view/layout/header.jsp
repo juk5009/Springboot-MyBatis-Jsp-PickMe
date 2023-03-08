@@ -49,20 +49,20 @@
                                 </a>
                                 <c:choose>
                                 <c:when test="${userPrincipal == null && comPrincipal == null}">
-                                <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
+                                <li><a class="nav-link scrollto " href="/user/userSkillMatchForm">추천목록</a></li>
                                 <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
                                 </c:when>
 
                                 <c:otherwise>
                                 <c:if test="${userPrincipal != null || comPrincipal == null}">
-                                <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
+                                <li><a class="nav-link scrollto " href="/user/userSkillMatchForm">추천목록</a></li>
                                 <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
                                 <li><a class="nav-link scrollto " href="/resume/saveResumeForm">이력서 작성</a></li>
                                 </c:if>
                                 <c:if test="${comPrincipal != null || userPrincipal == null}">
-                                <li><a class="nav-link scrollto " href="#hero">추천목록</a></li>
+                                <li><a class="nav-link scrollto " href="/user/userSkillMatchForm">추천목록</a></li>
                                 <li><a class="nav-link scrollto " href="/company/companyList">기업목록</a></li>
                                 <li><a class="nav-link scrollto " href="/user/userList">인재목록</a></li>
                                 <li><a class="nav-link scrollto " href="/apply/applyUserList">지원자목록</a></li>
@@ -110,6 +110,5 @@
                             </ul>
                         </div>
                     </nav><!-- .navbar -->
-
                 </div>
             </header><!-- End 헤더 -->

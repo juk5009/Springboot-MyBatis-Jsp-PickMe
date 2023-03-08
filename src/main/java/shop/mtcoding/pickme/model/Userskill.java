@@ -9,8 +9,6 @@ import lombok.Setter;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class Userskill {
@@ -30,6 +28,10 @@ public class Userskill {
         this.userskillName = resumeUpdateReqDto.getUserskillList();
         this.resumeId = resumeUpdateReqDto.getId();
         this.userId = resumeUpdateReqDto.getUserId();
+    }
+
+    public Userskill() {
+
     }
 
 }

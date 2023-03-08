@@ -710,7 +710,7 @@ form .btn input[type="submit"] {
 }
 
 .my-joinForm-btn:hover {
-  background:  #4BB58F;
+  background: #4BB58F;
 }
 
 
@@ -1056,13 +1056,13 @@ form .btn input[type="submit"] {
 # 지원자 목록 보기 페이지 시작
 --------------------------------------------------------------*/
 
-.my-applyUserList-btn:hover{
+.my-applyUserList-btn:hover {
   background-color: #4BB58F;
   color: #fff;
   font-weight: 200px;
 }
 
-.my-applyUserList-btn{
+.my-applyUserList-btn {
   background-color: #7CC98A;
   color: #fff;
   font-weight: 200px;
@@ -1073,3 +1073,9 @@ form .btn input[type="submit"] {
 /*--------------------------------------------------------------
 # 지원자 목록 보기 페이지 끝
 --------------------------------------------------------------*/
+
+
+a {
+  color: #000;
+  text-decoration: none;
+}
