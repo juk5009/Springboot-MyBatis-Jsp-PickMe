@@ -63,16 +63,6 @@
                         <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
                     </ul>
 
-                    <ul class="my-companyMyPage-noticeListBox d-flex justify-content-between">
-                        <li>대방건설 개발자 모집</li>
-                        <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
-                    </ul>
-
-                    <ul class="my-companyMyPage-noticeListBox d-flex justify-content-between">
-                        <li>대방건설 영업직 모집</li>
-                        <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
-                    </ul>
-
                     <div class="my-companyMyPage-button-group">
 
                         <button type="button" class="btn btn-success">수정하기</button>

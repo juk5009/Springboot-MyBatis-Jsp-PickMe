@@ -771,10 +771,6 @@ form .btn input[type="submit"] {
   justify-content: end;
 }
 
-.my-notice-btn {
-  border: 3px solid gray;
-}
-
 .my-saveNoticeForm-content-box-1 {
   margin-left: 33%;
 }
