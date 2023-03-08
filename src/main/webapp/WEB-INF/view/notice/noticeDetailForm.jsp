@@ -65,7 +65,7 @@
               <!-- 자기소개서 -->
               <div class="container my-8">
                   <div>
-                    <h4 class="mb-3 ">자기소개서</h4>
+                    <h4 class="mb-3 ">상세내용</h4>
                   </div>
                   <br>
                   <div class="form-group">
