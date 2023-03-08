@@ -15,7 +15,13 @@
         SELECT  ut.user_profile, rt.resume_username, rt.id , rt.user_id
         FROM user_tb ut
         INNER JOIN resume_tb rt ON ut.id = rt.user_id;
-    </select>    
+    </select>
+
+    <select id="findAllWithNotice" resultType="shop.mtcoding.pickme.dto.notice.NoticeResp$NoticeSelectRespDto">
+        SELECT  ct.company_profile, nt.notice_title, nt.id , nt.company_id
+        FROM company_tb ct
+        INNER JOIN notice_tb nt ON ct.id = nt.company_id;
+    </select>   
 
     <select id="findByCompanyIdWithNotice" resultType="shop.mtcoding.pickme.dto.notice.NoticeReq$NoticeSaveReqDto">
         select nt.id, nt.notice_companyname, nt.notice_title, nt.notice_career, nt.notice_pay, nt.notice_employtype, nt.notice_grade, nt.notice_location, nt.notice_content ,nt.company_id
