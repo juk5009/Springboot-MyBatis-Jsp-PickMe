@@ -10,7 +10,7 @@
 
                     <!-- 왼쪽 박스 시작 -->
                     <div class="my-mypage-box col-md-8">
-                        <h2>회원 정보</h2>
+                        <h2>기업 회원 정보</h2>
                             <div class="my-page-form-group">
                                 <label for="name">아이디</label>
                                 <input type="text" value="${company.companyName}" class="form-control" id="companyName"
@@ -31,7 +31,7 @@
 
                             <div>
                                 <button onclick="updateById(${company.id})" type="button" class="btn"
-                                    style="background-color:#4BB58F; color: #fff;">기업정보 수정완료</button>
+                                    style="background-color:#4BB58F; color: #fff;">정보수정완료</button>
                             </div>
                     </div>
                     <!-- 왼쪽 박스 끝 -->
