@@ -110,7 +110,7 @@
             </div>
 
             <div class="col-lg-4 mb-3 d-flex">
-              <button type="button" class="btn" style="background-color: #4BB58F; color:#fff; margin-right: 3px;" onclick="updateResumeForm(${resumeDto.id})">수정</button>
+              <button type="button" class="btn" style="background-color: #7CC98A; color:#fff; margin-right: 3px;" onclick="updateResumeForm(${resumeDto.id})">수정</button>
               <button type="button" onclick="deleteById(${resumeDto.id})" class="btn btn-danger">삭제</button>
             </div>
 

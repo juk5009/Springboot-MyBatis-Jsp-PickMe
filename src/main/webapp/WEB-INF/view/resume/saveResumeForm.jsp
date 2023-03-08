@@ -182,7 +182,7 @@
               <!-- 이력서 등록 버튼  -->
 
               <div class="my-resumeForm-btn-1 mycol-md-12">
-                <button class="w-100 btn btn-success btn-lg" onclick="saveResume()" type="button">이력서 등록</button>
+                <button class="w-100 btn btn-lg" onclick="saveResume()" style="background-color: #7CC98A;color: #fff; font-weight: 200px;" type="button">이력서 등록</button>
               </div>
 
             </form>

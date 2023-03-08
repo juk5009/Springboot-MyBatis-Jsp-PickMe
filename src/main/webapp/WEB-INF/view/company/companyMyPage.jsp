@@ -31,7 +31,7 @@
 
                             <div>
                                 <button onclick="updateById(${company.id})" type="button" class="btn"
-                                    style="background-color:#4BB58F; color: #fff;">정보수정완료</button>
+                                    style="background-color: #7CC98A;color: #fff; font-weight: 200px;">정보수정완료</button>
                             </div>
                     </div>
                     <!-- 왼쪽 박스 끝 -->
@@ -60,12 +60,12 @@
                     <h2>공고 목록</h2>
                     <ul class="my-companyMyPage-noticeListBox d-flex justify-content-between">
                         <li>대방건설 경력직 모집</li>
-                        <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
+                        <button type="button" class="btn" style="background-color: #7CC98A;color: #fff; font-weight: 200px;">상세보기</button>
                     </ul>
 
                     <div class="my-companyMyPage-button-group">
 
-                        <button type="button" class="btn btn-success">수정하기</button>
+                        <button type="button" class="btn" style="background-color: #7CC98A;color: #fff; font-weight: 200px;">수정하기</button>
                         <button type="button" class="btn btn-danger">삭제하기</button>
                     </div>
                 </div>
