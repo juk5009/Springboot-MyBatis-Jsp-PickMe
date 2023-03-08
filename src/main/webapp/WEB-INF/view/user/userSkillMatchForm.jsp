@@ -3,12 +3,13 @@
 
         <div class="container">
 
-            <div class="my-mypage-box">
+            <div class="my-mypage">
+                <br>
 
                 <h1>추천기업 목록</h1>
-                <div class="my-profile-body d-inline-flex flex-row mb-3">
-                    <label for="user-grade" class="form-label">이력서 목록</label>
-                    <select class="form-select" id="resumeGrade" name="resumeGrade" required
+                <br>
+                <div class="my-mypage d-inline-flex row mb-3">
+                    <select class="form-select d-flex mx-3" id="resumeGrade" name="resumeGrade" required
                         onchange="updateResumeList(this.value)">
                         <option value="">이력서를 선택해주세요</option>
                         <option value="1">1번 이력서</option>
@@ -16,59 +17,67 @@
                         <option value="3">3번 이력서</option>
                     </select>
                 </div>
+                <hr>
+                <br>
 
 
-                <div class="my-mypage-box">
-                    <c:forEach items="${userSkillMatch}" var="userSkillMatch">
-                        <div class="container d-flex justify-content-center"
-                            style="border: 1px solid; padding-top: 10px; padding-bottom: 10px;">
-                            <div>
-                                <img src="/images/dora.png" style="width: 200px; height: 200px;">
-                            </div>
-
-                            <div class="my-mypage-box">
-                                <div class="my-skillmatch-box-2 d-flex">
-                                    <div>
-                                        <h1 style="margin-right: 200px;">${userSkillMatch.noticeTitle}</h1>
-                                    </div>
-                                    <div>
-                                        <button onclick="" type="button" class="btn btn-primary">상세보기</button>
-                                    </div>
-                                </div>
-                                <br>
-                                <ul>
-                                    <li>${userSkillMatch.noticeCompanyname}</li>
-                                </ul>
+                <div class="my-mypage">
+                    <div class="my-mypage px-2">
+                        <c:forEach items="${userSkillMatch}" var="userSkillMatch">
+                            <div class="d-flex container">
                                 <div class="d-flex">
-                                    <ul style="margin-right: 5px;">
-                                        <li>지원자 요구 기술</li>
-                                    </ul>
-                                    
-                                    <ul id="item${userSkillMatch.id}">
-                                    <c:forEach items="${userSkillMatch.skill}" var="comSkill">
-                                    <c:choose>
-                                       <c:when test="${comSkill.color == 'Y'}">
-                                         <span class="badge rounded-pill text-bg-primary">${comSkill.companyskillName} </span>
-                                       </c:when>
-                                       <c:otherwise>
-                                       <span class="badge rounded-pill text-bg-success">${comSkill.companyskillName}</span>
-                                       </c:otherwise>
-                                    </c:choose>
-                                    </c:forEach>
-                                    </ul>
+                                    <img src="/images/dora.png" style="width: 200px; height: 200px;">
+                                </div>
+
+                                <div class="my-mypage-box container">
+                                    <div class="my-skillmatch-box-2 d-flex" style="justify-content: space-between;">
+                                        <div class="mx-5">
+                                            <h1>${userSkillMatch.noticeTitle}</h1>
+                                        </div>
+                                        <div>
+                                            <button onclick="" type="button" class="btn btn-primary">상세보기</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex mx-5" style="font-size: x-large;">회사명&nbsp;| &nbsp;<p
+                                            style="color: #4BB58F;">
+                                            ${userSkillMatch.noticeCompanyname}</p>
+                                    </div>
+                                    <div class="d-flex mx-5">
+                                        <div style="margin-right: 5px;">지원자 요구 기술</div>
+
+                                        <ul id="item${userSkillMatch.id}">
+                                            <c:forEach items="${userSkillMatch.skill}" var="comSkill">
+                                                <c:choose>
+                                                    <c:when test="${comSkill.color == 'Y'}">
+                                                        <span class="badge rounded-pill text-bg-success"
+                                                            style="font-weight: 10px;">${comSkill.companyskillName}
+                                                        </span>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <span class="badge rounded-pill text"
+                                                            style="font-weight: 10px; background-color:#c0c0c0 ;">${comSkill.companyskillName}</span>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </c:forEach>
+                        </c:forEach>
+                    </div>
                 </div>
-                <script>
-    
-                    function updateResumeList(sel) {
-                        window.location.href = "/user/userSkillMatchForm?resumeId=" + sel;
-                    }
-                </script>
+            </div>
+
+        </div>
+        <script>
+
+            function updateResumeList(sel) {
+                window.location.href = "/user/userSkillMatchForm?resumeId=" + sel;
+            }
+        </script>
 
 
 
 
-                <%@ include file="../layout/footer.jsp" %>
+        <%@ include file="../layout/footer.jsp" %>
