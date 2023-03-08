@@ -35,7 +35,8 @@
                                             <h1>${userSkillMatch.noticeTitle}</h1>
                                         </div>
                                         <div>
-                                            <button onclick="" type="button" class="btn btn-primary">상세보기</button>
+                                            <button onclick="" type="button" class="btn"
+                                                style="background-color:#7CC98A; color: #fff;">상세보기</button>
                                         </div>
                                     </div>
                                     <br>
