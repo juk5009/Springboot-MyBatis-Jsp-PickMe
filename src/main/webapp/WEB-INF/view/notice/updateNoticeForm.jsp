@@ -142,7 +142,7 @@
               <!-- 공고작성 등록 버튼  -->
 
               <div class="my-saveNoticeForm-submit-btn-1 mycol-md-12">
-                <button class="w-100 btn btn-primary btn-lg" onclick="updateById(${notice.id})" type="button">공고 수정</button>
+                <button class="w-100 btn btn-lg" style="background-color:#7CC98A; color: #fff;" onclick="updateById(${notice.id})" type="button">공고 수정</button>
               </div>
 
             </form>

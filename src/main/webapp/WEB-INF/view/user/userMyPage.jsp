@@ -7,7 +7,7 @@
                 <h1>개인 마이페이지</h1>
 
 
-                <div class="my-mypage-box d-flex">
+                <div class="my-mypage d-flex">
 
                     <!-- 왼쪽 박스 시작 -->
                     <div class="my-mypage-box col-md-8">
