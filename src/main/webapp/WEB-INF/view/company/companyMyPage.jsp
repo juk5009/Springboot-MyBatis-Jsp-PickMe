@@ -45,7 +45,6 @@
                         </div>
                         <button onclick=" updateById(${company.id})" type="button" class="btn"
                             style="background-color:#4BB58F; color: #fff;">기업정보수정</button>
-
                     </div>
                 </form>
 

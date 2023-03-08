@@ -13,4 +13,13 @@ public class NoticeResp {
         private String noticeTitle;
         private String companyProfile;
     }
+
+    @Setter
+    @Getter
+    public static class NoticeSelectRespDto {
+        private String companyProfile;
+        private String noticeTitle;
+        private Integer id;
+        private Integer companyId;
+    }
 }

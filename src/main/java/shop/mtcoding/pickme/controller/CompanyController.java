@@ -22,10 +22,12 @@ import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyJoinReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyLoginReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyReq.CompanyMypageReqDto;
 import shop.mtcoding.pickme.dto.company.CompanyResp.CompanyListRespDto;
+import shop.mtcoding.pickme.dto.notice.NoticeResp.NoticeSelectRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.CompanyRepository;
+import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.service.CompanyService;
 
 @Controller
@@ -39,6 +41,9 @@ public class CompanyController {
 
     @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    private NoticeRepository noticeRepository;
 
     @PostMapping("/companyJoin")
     public String companyJoin(CompanyJoinReqDto companyJoinReqDto) {
@@ -94,6 +99,9 @@ public class CompanyController {
         model.addAttribute("company", companyPS);
         Company companyProfilePS = companyRepository.findById(comprincipal.getId());
         model.addAttribute("companyProfile", companyProfilePS);
+
+        List<NoticeSelectRespDto> noticeSelectList = noticeRepository.findAllWithNotice();
+        model.addAttribute("noticeSelectList", noticeSelectList);
         return "company/companyMyPage";
     }
 
