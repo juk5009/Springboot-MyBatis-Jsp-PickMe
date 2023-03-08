@@ -10,9 +10,8 @@
                     <table class="table table-hover w-outo">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
+                                <th scope="col">순서</th>
                                 <th scope="col">기업 이름</th>
-                                <th scope="col">Companyskill</th>
                                 <th scope="col">상세보기</th>
                             </tr>
                         </thead>
@@ -21,9 +20,9 @@
                                 <tr>
                                     <th scope="row">${companyList.id}</th>
                                     <td>${companyList.noticeCompanyname}</td>
-                                    <td>Java,Flutter,CSS</td>
-                                        <td><button type="button" class="btn btn-primary">공고보기</button></td>
-                                    </a>
+                                        <td><button type="button"
+                                                onclick="window.location.href = '/notice/${companyList.id}';"
+                                                class="btn btn-primary">공고보기</button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
