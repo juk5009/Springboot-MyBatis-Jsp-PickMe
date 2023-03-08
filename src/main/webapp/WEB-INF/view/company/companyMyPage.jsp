@@ -22,7 +22,7 @@
                         </form>
                     </div>
                 </div>
-    
+
                 <form>
                     <div class="my-mypage-box">
                         <h1>기업 정보</h1>
@@ -45,6 +45,7 @@
                         </div>
                         <button onclick=" updateById(${company.id})" type="button" class="btn"
                             style="background-color:#4BB58F; color: #fff;">기업정보수정</button>
+
                     </div>
                 </form>
 
