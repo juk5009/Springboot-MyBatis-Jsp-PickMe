@@ -17,7 +17,7 @@ import shop.mtcoding.pickme.dto.userskill.UserskillReqDto.UserskillSaveReqDto;
 public class UserskillRepositoryTest {
 
     @Autowired
-    private UserskillRespository userskillRespository;
+    private UserskillRepository userskillRespository;
 
     @Test
     public void insert_test() throws Exception {

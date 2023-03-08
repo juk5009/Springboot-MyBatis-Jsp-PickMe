@@ -22,7 +22,7 @@ import shop.mtcoding.pickme.model.ApplyRepository;
 import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.Userskill;
-import shop.mtcoding.pickme.model.UserskillRespository;
+import shop.mtcoding.pickme.model.UserskillRepository;
 
 @Controller
 public class ApplyController {
@@ -37,7 +37,7 @@ public class ApplyController {
     private HttpSession session;
 
     @Autowired
-    private UserskillRespository userskillRespository;
+    private UserskillRepository userskillRespository;
 
     @GetMapping("/apply/applyUserList")
     public String applyUserList(Model model) {

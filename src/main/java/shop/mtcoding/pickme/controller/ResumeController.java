@@ -26,7 +26,7 @@ import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.Userskill;
-import shop.mtcoding.pickme.model.UserskillRespository;
+import shop.mtcoding.pickme.model.UserskillRepository;
 import shop.mtcoding.pickme.service.ResumeService;
 
 @Controller
@@ -39,7 +39,7 @@ public class ResumeController {
     private ResumeRepository resumeRepository;
 
     @Autowired
-    private UserskillRespository userskillRespository;
+    private UserskillRepository userskillRepository;
 
     @Autowired
     private HttpSession session;
@@ -187,7 +187,7 @@ public class ResumeController {
         ResumeSaveReqDto resumeDto = resumeRepository.findByUserIdWithResume(id);
         model.addAttribute("resumeDto", resumeDto);
 
-        List<Userskill> userskill = userskillRespository.findByResumeId(id);
+        List<Userskill> userskill = userskillRepository.findByResumeId(id);
 
         model.addAttribute("userskillDto", userskill);
         return "resume/resumeDetailForm";

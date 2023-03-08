@@ -34,7 +34,7 @@ import shop.mtcoding.pickme.model.NoticeRepository;
 import shop.mtcoding.pickme.model.User;
 import shop.mtcoding.pickme.model.UserRepository;
 import shop.mtcoding.pickme.model.Userskill;
-import shop.mtcoding.pickme.model.UserskillRespository;
+import shop.mtcoding.pickme.model.UserskillRepository;
 import shop.mtcoding.pickme.service.UserService;
 
 @Controller
@@ -47,7 +47,7 @@ public class UserController {
     private NoticeRepository noticeRepository;
 
     @Autowired
-    private UserskillRespository userskillRespository;
+    private UserskillRepository userskillRespository;
 
     @Autowired
     private CompanyskillRepository companyskillRepository;

@@ -14,7 +14,7 @@ import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.Userskill;
-import shop.mtcoding.pickme.model.UserskillRespository;
+import shop.mtcoding.pickme.model.UserskillRepository;
 
 @Transactional(readOnly = true)
 @Service
@@ -24,7 +24,7 @@ public class ResumeService {
     private ResumeRepository resumeRepository;
 
     @Autowired
-    private UserskillRespository userskillRespository;
+    private UserskillRepository userskillRespository;
 
     @Transactional
     public void 이력서작성(ResumeSaveReqDto resumeSaveReqDto, int principalId, String usSkill) {

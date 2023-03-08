@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import shop.mtcoding.pickme.dto.userskill.UserskillReqDto.UserskillSaveReqDto;
 
 @Mapper
-public interface UserskillRespository {
+public interface UserskillRepository {
         public List<Userskill> findAll();
 
         public User findById(int id);
