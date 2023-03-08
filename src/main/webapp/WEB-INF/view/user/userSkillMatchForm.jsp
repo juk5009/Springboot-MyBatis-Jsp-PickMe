@@ -18,7 +18,7 @@
                 </div>
 
 
-                <div class="my-fE-box">
+                <div class="my-mypage-box">
                     <c:forEach items="${userSkillMatch}" var="userSkillMatch">
                         <div class="container d-flex justify-content-center"
                             style="border: 1px solid; padding-top: 10px; padding-bottom: 10px;">
@@ -37,7 +37,7 @@
                                 </div>
                                 <br>
                                 <ul>
-                                    <li>${userSkillMatch.noticeNoticename}</li>
+                                    <li>${userSkillMatch.noticeCompanyname}</li>
                                 </ul>
                                 <div class="d-flex">
                                     <ul style="margin-right: 5px;">
@@ -62,27 +62,7 @@
                     </c:forEach>
                 </div>
                 <script>
-                    function updateById(id) {
-                        let data = {
-                            "userName": $("#userName").val(),
-                            "userPassword": $("#userPassword").val(),
-                            "userEmail": $("#userEmail").val()
-                        };
-                        console.log(data.userName);
-                        $.ajax({
-                            type: "put",
-                            url: "/user/" + id,
-                            data: JSON.stringify(data),
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json"
-                        }).done((res) => {
-                            alert(res.msg);
-                            location.href = "/";
-                        }).fail((err) => {
-                            alert(err.responseJSON.msg);
-                        });
-                    }
-
+    
                     function updateResumeList(sel) {
                         window.location.href = "/user/userSkillMatchForm?resumeId=" + sel;
                     }

@@ -13,8 +13,6 @@ public interface UserskillRepository {
 
         public User findById(int id);
 
-        public Userskill findByIdwithUserskill(int id);
-
         public List<Userskill> findByUserId(int id);
 
         public List<Userskill> findByResumeId(int id);

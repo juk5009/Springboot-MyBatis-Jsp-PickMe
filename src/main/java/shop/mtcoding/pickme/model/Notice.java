@@ -5,9 +5,11 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeSaveReqDto;
 import shop.mtcoding.pickme.dto.notice.NoticeReq.NoticeUpdateReqDto;
 
+@ToString
 @Setter
 @Getter
 public class Notice {
@@ -21,8 +23,8 @@ public class Notice {
     private String noticeGrade;
     private String noticeLocation;
     private String noticeContent;
-    private List<Companyskill> skill;
     private Timestamp createdAt;
+    private List<Companyskill> skill;
 
     public Notice(NoticeSaveReqDto NoticeSaveReqDto) {
         this.companyId = NoticeSaveReqDto.getCompanyId();

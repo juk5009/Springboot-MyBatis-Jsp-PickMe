@@ -130,11 +130,14 @@ public class UserController {
         }
 
         List<Notice> userSkillMatch = userskillRepository.findByCompanyskillName(principal.getId(), resumeId);
+
+        System.out.println("토스테 : " + userSkillMatch.size());
         List<Userskill> Uskill = userskillRepository.findByUserId(principal.getId());
 
         for (int i = 0; i < userSkillMatch.size(); i++) {// 공고문 수만큼 도는 for문
 
-            userSkillMatch.get(i).setSkill(companyskillRepository.findByNoticeId(userSkillMatch.get(i).getId()));
+            userSkillMatch.get(i)
+                    .setSkill(companyskillRepository.findByNoticeId(userSkillMatch.get(i).getId()));
             List<Companyskill> Cskill = userSkillMatch.get(i).getSkill();
             for (int x = 0; x < Uskill.size(); x++) {// user가 가진 skill 수만큼 도는 for문
                 for (int j = 0; j < Cskill.size(); j++) {// notice가 가진 skill 수만큼 도는 for문
@@ -146,11 +149,11 @@ public class UserController {
                 } // for j end
             } // for x end
 
-            System.out.println(userSkillMatch.get(i).getSkill().toString());
+            System.out.println("테스트11211 : " + userSkillMatch.get(i).getSkill().toString());
         } // for i end
 
-        System.out.println(
-                "테스트 : " + principal.getId() + "  ");
+        System.out.println("테스트1 : " + userSkillMatch.size() + "  ");
+        System.out.println("테스트2 : " + principal.getId() + "  ");
         model.addAttribute("userSkillMatch", userSkillMatch);
 
         return "user/userSkillMatchForm";
