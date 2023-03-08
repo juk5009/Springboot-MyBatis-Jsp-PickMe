@@ -82,7 +82,7 @@ public class UserController {
         }
         userService.회원정보수정(id, userMyPageReqDto, principal.getId());
 
-        return new ResponseEntity<>(new ResponseDto<>(1, "게시글수정성공", null), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseDto<>(1, "정보수정완료", null), HttpStatus.OK);
     }
 
     @PostMapping("/userJoin")
