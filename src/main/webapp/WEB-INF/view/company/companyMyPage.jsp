@@ -2,84 +2,83 @@
     <%@ include file="../layout/header.jsp" %>
 
         <div class="container">
-            <br/>
-            <div class="my-mypage-box d-block">
+
+            <div class="my-companyMyPage-box">
                 <h1>기업 마이페이지</h1>
+                <div class="my-profile-body">
+                    <div class="container my-3 my-profile">
+                        <h2 class="text-center my-profile-h2">기업 프로필 사진 변경 페이지</h2>
 
-                <div class="my-mypage d-flex">
-
-                    <!-- 왼쪽 박스 시작 -->
-                    <div class="my-mypage-box col-md-8">
-                        <h2>회원 정보</h2>
-                            <div class="my-page-form-group">
-                                <label for="name">아이디</label>
-                                <input type="text" value="${company.companyName}" class="form-control" id="companyName"
-                                    name="companyName">
-                            </div>
-
-                            <div class="my-page-form-group">
-                                <label for="phone">비밀번호</label>
-                                <input type="text" value="${company.companyPassword}" class="form-control"
-                                    id="companyPassword" name="companyPassword">
-                            </div>
-
-                            <div class="my-page-form-group">
-                                <label for="email">이메일</label>
-                                <input type="text" value="${company.companyEmail}" class="form-control"
-                                    id="companyEmail" name="companyEmail">
-                            </div>
-
-                            <div>
-                                <button onclick="updateById(${company.id})" type="button" class="btn"
-                                    style="background-color:#4BB58F; color: #fff;">기업정보 수정완료</button>
-                            </div>
-                    </div>
-                    <!-- 왼쪽 박스 끝 -->
-
-                    <!-- 오른쪽 박스 시작 -->
-                    <div class="my-profile col-md-4">
                         <form action="/company/companyProfileUpdate" method="post" enctype="multipart/form-data">
-                            <div class="my-profile-form-group">
+                            <div class="form-group my-profile-form-group">
                                 <img src="${companyProfile.companyProfile == null ? '/images/profile.jfif' : companyProfile.companyProfile}"
                                     alt="Current Photo" class="img-fluid" id="imagePreview">
                             </div>
-                            <div class="my-profile-form-group mb-2">
+                            <div class="form-group my-profile-form-group">
                                 <input type="file" class="form-control" id="companyProfile" name="companyProfile"
                                     onchange="chooseImage(this)">
                             </div>
                             <button type="submit" class="btn btn-secondary">사진변경</button>
                         </form>
-
                     </div>
-                    <!-- 오른쪽 박스 끝 -->
                 </div>
 
-            </div>
-            <div>
+                <form>
+                    <div class="my-mypage-box">
+                        <h1>기업 정보</h1>
+                        <div class="form-group">
+                            <label for="name">아이디</label>
+                            <input type="text" value="${company.companyName}" class="form-control" id="companyName"
+                                name="companyName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">비밀번호</label>
+                            <input type="text" value="${company.companyPassword}" class="form-control"
+                                id="companyPassword" name="companyPassword">
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="email">이메일</label>
+                            <input type="text" value="${company.companyEmail}" class="form-control" id="companyEmail"
+                                name="companyEmail">
+                        </div>
+                        <button onclick=" updateById(${company.id})" type="button" class="btn"
+                            style="background-color:#4BB58F; color: #fff;">기업정보수정</button>
+
+                    </div>
+                </form>
+
                 <div class="my-mypage-box">
-                    <h2>공고 목록</h2>
-                    <ul class="my-companyMyPage-noticeListBox d-flex justify-content-between">
-                        <li>대방건설 경력직 모집</li>
-                        <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
-                    </ul>
+                    <h1>공고 목록</h1>
+                    <hr>
+                    <c:forEach items="${noticeSelectList}" var="noticeSelect">
+                        <c:if test="${comPrincipal.id == noticeSelect.companyId}">
+                            <div class="my-mypage-box d-flex" style="justify-content: space-between;">
 
-                    <ul class="my-companyMyPage-noticeListBox d-flex justify-content-between">
-                        <li>대방건설 개발자 모집</li>
-                        <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
-                    </ul>
+                                <div style="display: flex;">
+                                    <div>
+                                        <img src="${noticeSelect.companyProfile == null ? '/images/profile.jfif' : noticeSelect.companyProfile}"
+                                            alt="orange22" class="rounded-circle"
+                                            style="height: 50px; width: 50px; border: 1px black;">
+                                    </div>
+                                    <div>
+                                        <h4>${noticeSelect.noticeTitle}</h4>
+                                    </div>
+                                </div>
 
-                    <ul class="my-companyMyPage-noticeListBox d-flex justify-content-between">
-                        <li>대방건설 영업직 모집</li>
-                        <button type="button" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</button>
-                    </ul>
+                                <div>
+                                    <a href="/notice/${noticeSelect.id}" class="btn" style="background-color:#4BB58F; color: #fff;">상세보기</a>
+                                </div>
 
-                    <div class="my-companyMyPage-button-group">
+                            </div>
 
-                        <button type="button" class="btn btn-success">수정하기</button>
-                        <button type="button" class="btn btn-danger">삭제하기</button>
-                    </div>
+
+                        </c:if>
+                    </c:forEach>
                 </div>
             </div>
+        </div>
         </div>
         <script>
             function updateById(id) {
