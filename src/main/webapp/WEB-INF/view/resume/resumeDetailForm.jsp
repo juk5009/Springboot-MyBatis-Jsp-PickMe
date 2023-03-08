@@ -110,8 +110,7 @@
             </div>
 
             <div class="col-lg-4 mb-3 d-flex">
-              <button type="button" class="btn" style=" background-color: #4BB58F;"><a
-                  href="/resume/${resumeDto.id}/updateResumeForm">수정</a></button>
+              <button type="button" class="btn" style="background-color: #4BB58F; color:#fff;" onclick="updateResumeForm(${resumeDto.id})">수정</button>
               <button type="button" onclick="deleteById(${resumeDto.id})" class="btn btn-danger">삭제</button>
             </div>
 
@@ -145,6 +144,14 @@
         }).fail((err) => { // 40X, 50X 일때
           alert(err.responseJSON.msg);
         });
+      }
+    </script>
+
+     <script>
+      function updateResumeForm(id) {
+
+          location.href = "/resume/"+id+"/updateResumeForm";
+   
       }
     </script>
 
