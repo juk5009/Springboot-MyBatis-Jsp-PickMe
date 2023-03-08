@@ -17,6 +17,17 @@
         select * from userskill_tb where resume_id = #{id}
     </select>  
 
+     <select id="findByUserId" resultType="shop.mtcoding.pickme.model.Userskill">
+        select * from userskill_tb where user_id = #{id}
+    </select>
+
+    <select id="findByCompanyskillName" resultType="shop.mtcoding.pickme.model.Notice">
+        WITH USERSKILL AS (select usktb.userskill_name companyskill_name from resume_tb rt, userskill_tb usktb
+        where rt.user_id = ''||${userId}||'' and rt.user_id=usktb.user_id and rt.id = usktb.resume_id and usktb.resume_id = ''||${resumeId}||''),
+        FILTERING_COMPANYSKILL AS ( select notice_id id from companyskill_tb INNER JOIN USERSKILL A USING (companyskill_name) group by id)
+        select * from notice_tb INNER JOIN FILTERING_COMPANYSKILL A USING(id);
+    </select>
+
     <insert id="insert">
         INSERT INTO userskill_tb(resume_id, user_id, userskill_name, created_at) values(#{resumeId}, #{userId}, #{userskillName}, now())
     </insert>    
