@@ -13,7 +13,9 @@ public interface UserskillRespository {
 
         public User findById(int id);
 
-        public Userskill findByUserskillId(int id);
+        public Userskill findByIdwithUserskill(int id);
+
+        public List<Userskill> findByUserId(int id);
 
         public List<Userskill> findByResumeId(int id);
 
