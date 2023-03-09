@@ -16,17 +16,6 @@ CREATE TABLE company_tb(
 	created_at timestamp not null
 );
 
-CREATE TABLE companyinfo_tb(
-    id int auto_increment primary key,
-	company_id int, 
-    builddate varchar,
-    salemoney varchar,
-    owner_name varchar,
-    companyinfo_adress varchar,
-    employees varchar,
-    created_at timestamp not null
-);
-
 CREATE TABLE notice_tb( 
     id int auto_increment primary key,
 	company_id int,
