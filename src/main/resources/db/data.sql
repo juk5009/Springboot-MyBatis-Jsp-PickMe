@@ -41,9 +41,17 @@ INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at
 INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('1', '1', 'Spirng', now());
 INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('1', '1', 'Java', now());
 
-INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '2', 'JavaScript', now());
-INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '2', 'Spirng', now());
-INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '2', 'Flutter', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '1', 'JavaScript', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '1', 'Spirng', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('2', '1', 'Flutter', now());
+
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('3', '2', 'React', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('3', '2', 'Spirng', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('3', '2', 'Java', now());
+
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('4', '2', 'JavaScript', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('4', '2', 'Spirng', now());
+INSERT INTO companyskill_tb(notice_id, company_id, companyskill_name, created_at) values('4', '2', 'Flutter', now());
 
 commit;
 
