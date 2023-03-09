@@ -22,6 +22,7 @@ import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeSaveReqDto;
 import shop.mtcoding.pickme.dto.resume.ResumeReq.ResumeUpdateReqDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
+import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.Resume;
 import shop.mtcoding.pickme.model.ResumeRepository;
 import shop.mtcoding.pickme.model.User;
@@ -177,13 +178,11 @@ public class ResumeController {
     @GetMapping("/resume/{id}")
     public String resumeDetailForm(@PathVariable int id, Model model) {
         User userPrincipal = (User) session.getAttribute("userPrincipal");
-        if (userPrincipal == null) {
+        Company comprincipal = (Company) session.getAttribute("comPrincipal");
+        if (userPrincipal == null && comprincipal == null) {
             throw new CustomException("인증이 되지 않았습니다", HttpStatus.UNAUTHORIZED);
         }
-        Resume resume = resumeRepository.findById(id);
-        if (resume.getUserId() != userPrincipal.getId()) {
-            throw new CustomException("권한이 없습니다", HttpStatus.FORBIDDEN);
-        }
+        resumeRepository.findById(id);
         ResumeSaveReqDto resumeDto = resumeRepository.findByUserIdWithResume(id);
         model.addAttribute("resumeDto", resumeDto);
 

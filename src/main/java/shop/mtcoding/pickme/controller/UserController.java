@@ -1,6 +1,5 @@
 package shop.mtcoding.pickme.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -28,7 +27,6 @@ import shop.mtcoding.pickme.dto.user.UserReq.UserMyPageReqDto;
 import shop.mtcoding.pickme.dto.user.UserResp.UserListRespDto;
 import shop.mtcoding.pickme.handler.ex.CustomApiException;
 import shop.mtcoding.pickme.handler.ex.CustomException;
-import shop.mtcoding.pickme.model.Company;
 import shop.mtcoding.pickme.model.CompanyRepository;
 import shop.mtcoding.pickme.model.Companyskill;
 import shop.mtcoding.pickme.model.CompanyskillRepository;
