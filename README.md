@@ -11,13 +11,13 @@
 ## 모델링
 ### 1단계
 - User
-- company
+- Company
 ### 2단계
-- notice
-- apply
-- skill
+- Notice
+- Apply
+- Skill
 ### 3단계
-- companyinfo
+- Companyinfo
 
 ## 기능정리
 ### 1단계 ()

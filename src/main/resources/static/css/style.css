@@ -1,0 +1,1081 @@
+/**
+* Template Name: BizLand - v3.10.0
+* Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #106eea;
+  border-top-color: #e2eefd;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  background: rgb(255, 255, 255);
+  transition: all 0.5s;
+  z-index: 997;
+  height: 86px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header.fixed-top {
+  height: 70px;
+}
+
+#header .logo {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  font-family: "Poppins", sans-serif;
+}
+
+#header .logo a {
+  color: #5f0077;
+}
+
+#header .logo a span {
+  color: #106eea;
+}
+
+#header .logo img {
+  max-height: 40px;
+}
+
+.scrolled-offset {
+  margin-top: 70px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+
+/**
+* Desktop Navigation 
+*/
+.navbar {
+  padding: 0;
+}
+
+/* 정훈이가 추가 함*/
+
+
+.navbar #navbar-1>ul>li {
+  position: relative;
+  white-space: nowrap;
+  padding: 10px 0px 10px 25px;
+}
+
+.navbar #navbar-2>ul>li {
+  position: relative;
+  white-space: nowrap;
+  padding: 10px 10px 10px 0px;
+}
+
+
+/* 정훈이가 추가 함*/
+.navbar-login {
+  color: #000;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar>ul>li> {
+  white-space: nowrap;
+  padding: 10px 0 10px 28px;
+}
+
+
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3px;
+  font-size: 23px;
+  font-weight: 600;
+  color: #000;
+  white-space: nowrap;
+  transition: 0.3s;
+  position: relative;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar>ul>li>a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: orange;
+  visibility: hidden;
+  width: 0px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar a:hover:before,
+.navbar li:hover>a:before,
+.navbar .active:before {
+  visibility: visible;
+  width: 100%;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #7CC98A;
+}
+
+.my-header-name {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+
+/*--------------------------------------------------------------
+# main 공고 목록
+--------------------------------------------------------------*/
+
+.description {
+  color: #000000;
+
+}
+
+.featured-services {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.featured-services .card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.286);
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  z-index: 1;
+  height: 100%;
+
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 55%;
+  border-bottom: 1px solid#7CC98A;
+}
+
+.card {
+  height: 300px;
+  width: 280px;
+  border-top: 2px solid #7CC98A;
+  border-bottom: 1px solid #7CC98A;
+  border-left: 1px solid #7CC98A;
+  border-right: 1px solid #7CC98A;
+}
+
+
+.featured-services .card::before {
+  content: "";
+  position: absolute;
+  background: #7CC98A;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 100%;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.featured-services .card:hover::before {
+  background: #7CC98A;
+  top: 0;
+  border-radius: 0px;
+}
+
+.featured-services .card:hover .title a,
+.featured-services .card:hover .description {
+  color: #fff;
+}
+
+
+.featured-services .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.featured-services .title a {
+  color: #111;
+}
+
+.featured-services .description {
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.featured-services .icon-box:hover .title a,
+.featured-services .icon-box:hover .description {
+
+  color: #fff;
+}
+
+.featured-services .icon-box:hover .icon i {
+  color: #fff;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: rgb(255, 255, 255);
+  padding: 0 0 30px 0;
+  color: #000000;
+  font-size: 14px;
+  display: inline-flexbox;
+
+}
+
+.credits {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/*--------------------------------------------------------------
+# Footer 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# main 슬라이드 쇼
+--------------------------------------------------------------*/
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+
+@media (min-width: 40em) {
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*--------------------------------------------------------------
+# main 슬라이드 쇼 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 로그인 시작
+--------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login_Form {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: white;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+::selection {
+  background: #7CC98A;
+
+}
+
+
+.wrapper {
+  overflow: hidden;
+  max-width: 390px;
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #4BB58F;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title-text {
+  display: flex;
+  width: 200%;
+}
+
+.wrapper .title {
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .slide-controls {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+}
+
+.slide-controls .slide {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+
+.slide-controls label.signup {
+  color: #000;
+}
+
+.slide-controls .slider-tab {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 15px;
+  background: -webkit-linear-gradient(left, #7CC98A, #7CC98A);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.my-loginForm-radio input[type="radio"] {
+  display: none;
+}
+
+#signup:checked~.slider-tab {
+  left: 50%;
+}
+
+#signup:checked~label.signup {
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+
+#signup:checked~label.login {
+  color: #000;
+}
+
+#login:checked~label.signup {
+  color: #000;
+}
+
+#login:checked~label.login {
+  cursor: default;
+  user-select: none;
+}
+
+.wrapper .form-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-container .form-inner {
+  display: flex;
+  width: 200%;
+}
+
+.form-container .form-inner form {
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-inner form .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.form-inner form .field input:focus {
+  border-color: #7CC98A;
+  /* box-shadow: inset 0 0 3px #fb6aae; */
+}
+
+.form-inner form .field input::placeholder {
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+form .field input:focus::placeholder {
+  color: #7CC98A;
+}
+
+.form-inner form .pass-link {
+  margin-top: 5px;
+}
+
+.form-inner form .signup-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form-inner form .pass-link a,
+.form-inner form .signup-link a {
+  color: #7CC98A;
+  text-decoration: none;
+}
+
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+form .btn {
+  height: 50px;
+  width: 100%;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+form .btn .btn-layer {
+  height: 80%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #7CC98A, #4BB58F, #7CC98A, #4BB58F);
+  border-radius: 15px;
+  transition: all 0.4s ease;
+
+}
+
+.login-btn {
+  margin-top: 20px;
+  background-color: #7CC98A;
+  border-radius: 15px;
+}
+
+form .btn:hover .btn-layer {
+  left: 0;
+}
+
+form .btn input[type="submit"] {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+# 로그인 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 유저 회원가입 시작
+--------------------------------------------------------------*/
+.my-joinForm-id {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  color: #636e72;
+  font-size: 16px;
+  height: 25px;
+  background: none;
+  margin-top: 20px;
+}
+
+
+
+.my-joinForm-form {
+  display: inline-block;
+}
+
+.my-joinForm-h1 {
+  text-align: center;
+}
+
+.my-joinForm-btn {
+  margin-top: 40px;
+  background: #7CC98A;
+  width: 400px;
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 15px;
+}
+
+.my-joinForm-btn:hover {
+  background: #4BB58F;
+}
+
+
+.my-joinForm-body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+}
+
+/*--------------------------------------------------------------
+# 유저 회원가입 끝
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# 이력서 시작
+--------------------------------------------------------------*/
+
+.my-resumeForm-content-box-1 {
+  margin-left: 33%;
+}
+
+.my-resumeForm-submit-btn-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.my-resumeForm-useragenamebox-1 {
+  margin-bottom: 30px;
+}
+
+.my-resumeForm-sex-male-box-1 {
+  display: flex;
+  margin-right: 15px;
+}
+
+.my-resumeForm-sex-female-box-1 {
+  display: flex;
+  margin-right: 15px;
+}
+
+.my-resumeForm-summernote-save-btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 5px;
+}
+
+/*--------------------------------------------------------------
+# 이력서 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 공고 작성 시작
+--------------------------------------------------------------*/
+.my-notice-btnbox {
+  display: grid;
+  justify-content: end;
+}
+
+.my-saveNoticeForm-content-box-1 {
+  margin-left: 33%;
+}
+
+.my-saveNoticeForm-submit-btn-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.my-saveNoticeForm-summernote-save-btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 5px;
+}
+
+/*--------------------------------------------------------------
+# 공고 작성 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 회원가입 타입 시작
+--------------------------------------------------------------*/
+.my-joinType-body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.my-joinType-split {
+  position: relative;
+  height: 100vh;
+  display: flex;
+}
+
+.my-joinType-split .screen {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 1s;
+}
+
+.my-joinType-split .screen:hover {
+  flex-grow: 5;
+}
+
+.my-joinType-split .screen:nth-child(1) {
+  background: rgb(255, 220, 155, 0.1);
+}
+
+.my-joinType-split .screen:nth-child(2) {
+  background: rgb(255, 220, 155, 0.5);
+}
+
+.my-joinType-split .screen .card {
+  max-width: 300px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.my-joinType-split .screen .card .imgBx {
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.my-joinType-split .screen .card .imgBx img {
+  max-width: 100%;
+}
+
+.my-joinType-split .screen .card a {
+  padding: 10px 20px;
+  background: #333;
+  color: #eee;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: 0.7s;
+}
+
+/*--------------------------------------------------------------
+# 회원가입 타입 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# mypage / applyUserList 시작
+--------------------------------------------------------------*/
+
+.my-mypage-box {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.my-mypage-button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.my-mypage-button-group button {
+  margin-right: 10px;
+}
+
+.my-applyUserList-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 10%;
+  margin-bottom: 20px;
+}
+
+.my-applyUserList-table {
+  border: 1px solid #ccc;
+  margin-top: 50px;
+}
+
+.my-applyUserList-button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.my-applyUserList-button-group button {
+  margin-right: 10px;
+}
+
+
+
+/*--------------------------------------------------------------
+# mypage / applyUserList 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# companyMyPage / applyUserList 시작
+--------------------------------------------------------------*/
+
+.my-companyMyPage-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.my-companyMyPage-applyListBox-1 {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.my-companyMyPage-applyListBox-2 {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.my-companyMyPage-applyListBox-3 {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.my-companyMyPage-applyListBox-4 {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.my-companyMyPage-noticeListBox {
+  background-color: #eef9ef;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.my-companyMyPage-button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.my-companyMyPage-button-group button {
+  margin-right: 10px;
+}
+
+.my-companyMyPage-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.my-companyMyPage-button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.my-companyMyPage-button-group button {
+  margin-right: 10px;
+}
+
+
+/*--------------------------------------------------------------
+# mypage / applyUserList 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# profileform 시작
+--------------------------------------------------------------*/
+.my-profile-body {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.my-profile {
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+.my-profile h2 {
+  margin-top: 2rem;
+
+}
+
+.my-profile-form-group img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 1px solid gray;
+  object-fit: cover;
+  width: 100%;
+
+}
+
+.my-profile-form-group.btn {
+  margin-top: 1rem;
+}
+
+
+
+/*--------------------------------------------------------------
+# profileform 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 구글 폰트 적용 시작
+--------------------------------------------------------------*/
+* {
+  font-family: 'BMJUA';
+  font-weight: 100;
+}
+
+/*--------------------------------------------------------------
+# 구글 폰트 적용 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 이력서 상세 페이지 시작
+--------------------------------------------------------------*/
+.resume_item.represent {
+  padding: 40px;
+  border-top: none;
+  border-radius: 16px;
+  background-color: #eff5ff;
+}
+
+/*--------------------------------------------------------------
+# 이력서 상세 페이지 끝
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 마이 페이지 시작
+--------------------------------------------------------------*/
+.my-page-form-group {
+  margin-bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# 마이 페이지
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 지원자 목록 보기 페이지 시작
+--------------------------------------------------------------*/
+
+.my-applyUserList-btn:hover {
+  background-color: #4BB58F;
+  color: #fff;
+  font-weight: 200px;
+}
+
+.my-applyUserList-btn {
+  background-color: #7CC98A;
+  color: #fff;
+  font-weight: 200px;
+}
+
+
+
+/*--------------------------------------------------------------
+# 지원자 목록 보기 페이지 끝
+--------------------------------------------------------------*/
+
+
+a {
+  color: #000;
+  text-decoration: none;
+}
