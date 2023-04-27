@@ -1,9 +1,13 @@
+
+# Team 프로젝트 1
+
 # 시연영상
 
 https://youtu.be/OfuE4jgBogc
 
+# PPT
 
-# Team 프로젝트
+[4조_미니프로젝트1_PPT.pdf](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/files/11340898/4._.1_PPT.pdf)
 
 ## 기술스택
 - JDK 11
