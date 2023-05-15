@@ -3,7 +3,7 @@
 
 # 시연영상
 
-https://youtu.be/OfuE4jgBogc
+https://youtu.be/kESL_m-aYWo
 
 # PPT
 
