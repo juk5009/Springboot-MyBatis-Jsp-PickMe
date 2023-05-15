@@ -3,8 +3,7 @@
 
 # 시연영상
 
-https://youtu.be/OfuE4jgBogc
-
+https://youtu.be/kESL_m-aYWo
 # PPT
 
 [4조_미니프로젝트1_PPT.pdf](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/files/11340898/4._.1_PPT.pdf)
