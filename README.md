@@ -1,20 +1,36 @@
 
-# Team 프로젝트 1
+# Pick Me !! 프로젝트 (구인구직 사이트)
+
+![image](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/assets/122331826/7bc9de7e-c80b-471a-b90b-e8b65a434ca6)
+
 
 # 시연영상
 
 https://youtu.be/kESL_m-aYWo
+
 # PPT
 
 [4조_미니프로젝트1_PPT.pdf](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/files/11340898/4._.1_PPT.pdf)
+</br>
 
-## 기술스택
-- JDK 11
-- Springboot 2.7.9
-- MyBatis
-- 테스트 h2 디비
-- 프로덕션 MySQL 디비
-- JSP
+ ## 팀원 소개
+
+
+|                                                 김정욱(팀장)                                                  |                                                 안정훈                                                  |
+| :-----------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | 
+| <img src="https://avatars.githubusercontent.com/u/122331826?v=4" alt="profile" width="100" height="100"> | [<img src="https://avatars.githubusercontent.com/u/122362662?v=4" alt="profile" width="100" height="100">](https://avatars.githubusercontent.com/u/122331826?v=4) | 
+|                                   [@juk5009](https://github.com/juk5009)                                   |                                 [@aj124578](https://github.com/aj124578)                                 |
+
+<br>
+
+
+
+|                                                 임원빈                                                  |                                                 이현석                                                  |
+| :-----------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | 
+| <img src="https://avatars.githubusercontent.com/u/122371902?v=4" alt="profile" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/122357103?v=4" alt="profile" width="100" height="100"> | 
+|                                   [@wonbin3366](https://github.com/wonbin3366)                               |                                 [@hyunseok-s](https://github.com/hyunseok9037)                                 |
+
+<br>
 
 ## 모델링
 ### 1단계
@@ -23,9 +39,10 @@ https://youtu.be/kESL_m-aYWo
 ### 2단계
 - Notice
 - Apply
-- Skill
+
 ### 3단계
 - Companyinfo
+- Skill
 
 ## 기능정리
 ### 1단계 
@@ -39,10 +56,8 @@ https://youtu.be/kESL_m-aYWo
 
 ## 아키텍처
 
-![image](https://user-images.githubusercontent.com/122331826/232224926-c62dcf67-b7fa-4b44-aac7-68d7d574c06f.png)
+![image](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/assets/122331826/69036f18-0821-48ae-aaa8-93d76172387b)
 
-
-![image](https://user-images.githubusercontent.com/122331826/232224900-bdb89125-22cc-48c8-914d-b1e32d8c4841.png)
 
 
 ## 개인
@@ -83,5 +98,6 @@ https://youtu.be/kESL_m-aYWo
 
 
 ## Junit 통합 테스트
+![image](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/assets/122331826/f661d705-c1e6-4a45-b919-d6da378fcdcc)
+![image](https://github.com/juk5009/Springboot-MyBatis-Jsp-PickMe/assets/122331826/b4b28dcb-c4bc-462f-b991-030510daafed)
 
-![image](https://user-images.githubusercontent.com/122331826/232224851-3c89dd6e-3d7f-480e-9ef3-cd9c8e5e85a7.png)
